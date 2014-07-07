@@ -1,0 +1,80 @@
+http://viralpatel.net/blogs/java-xml-xpath-tutorial-parse-xml/
+Two ways of locating elements:
+1. XPath 
+2. CSS
+http://docs.oracle.com/javaee/1.4/tutorial/doc/JAXPXSLT3.html
+
+To locate elements we can use:
+1. Firebug in Firefox
+2. F12 key in Chrome and IE
+
+Testing XPath : $x
+Testing CSS: $$
+
+XPath:
+Used www.wikipedia.org as refrence
+1. $x("//input[@id='searchInput']")
+2. $x("//input[@id='searchInput'][@name='search']")
+3. $x("//input[starts-with(@id,'search')]")
+4. $x("//input[substring(@id,2)='earchInput')]")
+5. $x("//input[substring(@id,2,5)='earch')]")
+
+Used www.google.com with search text as "selenium" as refrence
+6. $x("//title[text()='selenium - Google Search']")
+
+Used www.google.com with search text as "   selenium   " as refrence
+7. $x("//title[normalize-space(text())='selenium - Google Search']")
+8. $x("//title[normalize-space(.)='selenium - Google Search']")
+
+Used www.wikipedia.org as refrence
+9. $x("//input[contains(@id,'hIn')]")
+10. $x("//input[contains(@id,'hIn')]/following-sibling::select")
+11. $x("//input[contains(@id,'hIn')]/following-sibling::input")
+12. $x("//input[contains(@id,'hIn')]/following-sibling::input[2]")
+13. $x("//input[contains(@id,'hIn')]/parent::fieldset")
+14. $x("//input[contains(@id,'hIn')]/..")
+15. $x("//input[contains(@id,'hIn')]/../..")
+16. $x("//input[contains(@id,'hIn')]/../../..")
+17. $x("//input[contains(@id,'hIn')]/../../../following-sibling::div")
+18. $x("//input[contains(@id,'hIn')]/../../../following-sibling::div[3]")
+19. $x("//input[contains(@id,'hIn')]/../../../following-sibling::div")
+20. $x("//select[@id='language')]/preceding-sibling::input")
+21. $x("//select[@id='language')]/preceding-sibling::*")
+
+CSS:
+1. $$("select[id='language']")
+2. $$("select[id='language'][name='language']")
+3. $$("select[id *='guag']")
+
+XPath - ends-with
+nested predicate XPath
+nth child in css locator
+
+XPath: ends-with
+Used www.wikipedia.org as refrence
+$x("//label[ends-with(@for,'Input")]")
+
+nth child in CSS locator
+Used www.wikipedia.org as refrence
+$x("//label(@for='searchInput')/span")
+$x("//label(@for='searchInput')/span[1]")
+$$("label[for='searchInput']>span")
+$$("label[for='searchInput']>span:nth-child(1)")
+$$("label[for='searchInput']>span:nth-of-type(1)")
+
+shortcut css selector
+Used www.wikipedia.org as refrence
+$$("input[id='searchInput']")
+$$("#searchInput")
+
+shortcut css selector
+Used www.wikipedia.org as refrence
+$$("input[class='searchBoutton']")
+$$(".searchBoutton")
+
+Create new java project
+create folder lib
+copy paste the standalone jar file
+right click on it and select add to build path
+create two package com and com.selenium
+create class WebDriverTest in com.selenium
