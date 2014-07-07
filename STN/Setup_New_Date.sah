@@ -1,0 +1,36 @@
+_dynamicInclude(_userDataDir() + "//Object_Repository.sah");
+_dynamicInclude(_userDataDir() + "//Function_Repository.sah");
+
+var $URL = "https:\/\/66.170.133.44\/STNManager\/Login.aspx";
+var $Username = "pzjain";
+var $Password = "Muskaan3$$";
+var $Admin = [["20140728B","July","2014","28","16:00"],
+              ["20140728D","July","2014","28","16:30"],
+              ["20140728F","July","2014","28","17:00"],
+              ["20140728T","July","2014","28","17:30"],
+              ["20140728V","July","2014","28","18:00"]];
+
+var $RGN = "NA";
+var $CntrID = ["STN15073A","STN15075A","STN15075B","STN15076A","STN15077A"];
+
+Login($URL,$Username,$Password);
+Select_PGM();
+
+for(var $i=0;$i<$Admin.length;$i++) {
+	var $AdmFlg = VerifyAdmin($Admin[$i]);
+	if($AdmFlg==1) {
+		for(var $j=0;$j<$CntrID.length;$j++) {
+			AddTestCenter($Admin[$i],$CntrID[$j]);
+		}
+	}
+	else {
+		AddAdmin($Admin[$i]);
+		AddRegion($Admin[$i],$RGN);
+		for(var $j=0;$j<$CntrID.length;$j++) {
+			AddTestCenter($Admin[$i],$CntrID[$j]);
+		}
+		
+	}
+}
+
+Logout();

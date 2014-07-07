@@ -1,0 +1,239 @@
+/* -- EREG WEB Login Page -- */
+var $OR_EREGWEBLgnPgHdr = _byXPath("//h1[normalize-space(text())='Sign In for Test Takers']");
+var $OR_EREGWEBLgnPgUsrnamTB = _byXPath("//input[@name='username'][@id='username']");
+var $OR_EREGWEBLgnPgPwdTB = _byXPath("//input[@name='password'][@id='password']");
+var $OR_EREGWEBLgnPgSignInBtn = _byXPath("//button[normalize-space(text())='Sign In']");
+var $OR_EREGWEBLgnPgFrgtUsrnamLnk = _byXPath("//a[normalize-space(text())='Forgot Username']");
+var $OR_EREGWEBLgnPgFrgtPwdLnk = _byXPath("//a[normalize-space(text())='Forgot Password']");
+var $OR_EREGWEBLgnPgCrtAcntBtn = _byXPath("//a[normalize-space(text())='Create an Account']");
+var $OR_EREGWEBLGNPgErrHdr = _byXPath("//div[@class='error-header']");
+/* -- EREG WEB Login Page -- */
+	
+/* -- EREG WEB Create Account - Header -- */
+var $OR_EREGWEBCALoginLnk = _byXPath("//a[normalize-space(text())='Login']");
+/* -- EREG WEB Create Account - Header -- */
+
+/* -- EREG WEB Create Account - Personal Info Page -- */
+var $OR_EREGWEBCAPerInfoPgHdr1 = _byXPath("//span[normalize-space(text())='Create Account']");
+var $OR_EREGWEBCAPerInfoPgHdr2 = _byXPath("//span[normalize-space(text())='Personal Information']");
+var $OR_EREGWEBCAPerInfoPgFstNamTB = _byXPath("//input[@id='fname']");
+var $OR_EREGWEBCAPerInfoPgMidIntTB = _byXPath("//input[@id='middleInitial']");
+var $OR_EREGWEBCAPerInfoPgLstNamTB = _byXPath("//input[@id='lname']");
+var $OR_EREGWEBCAPerInfoPgDOBMonthDD = _byXPath("//select[@name='birthMonth']");
+var $OR_EREGWEBCAPerInfoPgDOBDayDD = _byXPath("//select[@name='birthDay']");
+var $OR_EREGWEBCAPerInfoPgDOBYearTB = _byXPath("//select[@name='birthYear']");
+var $OR_EREGWEBCAPerInfoPgGndrMaleRB = _byXPath("//input[@id='genderM'][@value='M']");
+var $OR_EREGWEBCAPerInfoPgGndrFemaleRB = _byXPath("//input[@name='041'][@value='F']");
+var $OR_EREGWEBCAPerInfoPgSSNTB = _byXPath("//input[@id='socialSecurity']");
+var $OR_EREGWEBCAPerInfoPgEmailTB = _byXPath("//input[@id='uemail']");
+var $OR_EREGWEBCAPerInfoPgAdrLn1TB = _byXPath("//input[@id='addressLine1]");
+var $OR_EREGWEBCAPerInfoPgADrLn2TB = _byXPath("//input[@id='addressLine2']");
+var $OR_EREGWEBCAPerInfoPgCityTB = _byXPath("//input[@id='ucity']");
+var $OR_EREGWEBCAPerInfoPgStateDD = _byXPath("//select[@name='stateCode']");
+var $OR_EREGWEBCAPerInfoPgPstCdeTB = _byXPath("//input[@id='postalCode']");
+var $OR_EREGWEBCAPerInfoPgPriPhnNumTB = _byXPath("//input[@id='primaryPhoneNumber']");
+var $OR_EREGWEBCAPerInfoPgPriPhnExtTB = _byXPath("//input[@id='primaryPhoneExtension']");
+var $OR_EREGWEBCAPerInfoPgPriPhnTypLRB = _byXPath("//input[@name='primaryPhoneType'][@value='L']");
+var $OR_EREGWEBCAPerInfoPgPriPhnTypMRB = _byXPath("//input[@name='05G'][@value='M']");
+var $OR_EREGWEBCAPerInfoPgSecPhnNumTB = _byXPath("//input[@id='alternativePhoneNumber']");
+var $OR_EREGWEBCAPerInfoPgSecPhnExtTB = _byXPath("//input[@id='alternativePhoneExtension']");
+var $OR_EREGWEBCAPerInfoPgSecPhnTypLRB = _byXPath("//input[@name='05U'][@value='L']");
+var $OR_EREGWEBCAPerInfoPgSecPhnTypMRB = _byXPath("//input[@name='05X'][@value='M']");
+var $OR_EREGWEBCAPerInfoPgBackBtn = _byXPath("//span[normalize-space(text())='BACK']/parent::button");
+var $OR_EREGWEBCAPerInfoPgNextBtn = _byXPath("//span[normalize-space(text())='NEXT']/parent::button");
+/* -- EREG WEB Create Account - Personal Info Page -- */
+
+/* -- EREG WEB Create Account - Additional Info Page -- */
+var $OR_EREGWEBCAAddInfoPgHdr1 = _byXPath("//h1[normalize-space(text())='Create Account']");
+var $OR_EREGWEBCAAddInfoPgHdr2 = _byXPath("//span[normalize-space(text())='Additional Information']");
+var $OR_EREGWEBCAAddInfoPrefLangERB = _byXPath("//input[@id='EN'][@value='EN']");
+var $OR_EREGWEBCAAddInfoPrefLangSRB = _byXPath("//input[@id='ES'][@value='ES']");
+var $OR_EREGWEBCAAddInfoPriSpkLangDD = _byXPath("//select[@id='2']");
+var $OR_EREGWEBCAAddInfoPgBackBtn = _byXPath("//span[normalize-space(text())='BACK']/parent::button");
+var $OR_EREGWEBCAAddInfoPgNextBtn = _byXPath("//span[normalize-space(text())='NEXT']/parent::button");
+/* -- EREG WEB Create Account - Additional Info Page -- */
+
+/* -- EREG WEB Create Account - BIQ Page -- */
+var $OR_EREGWEBCABIQPgHdr1 = _byXPath("//h1[normalize-space(text())='Create Account']");
+var $OR_EREGWEBCABIQPgHdr1 = _byXPath("//h2[normalize-space(text())='Background Information']");
+
+var $OR_EREGWEBCABIQPgQ2RB1 = _byXPath("//input[@id='201']"); //Non-Hispanic
+var $OR_EREGWEBCABIQPgQ2RB2 = _byXPath("//input[@id='202']"); //Hispanic
+var $OR_EREGWEBCABIQPgQ2RB3 = _byXPath("//input[@id='203']"); //I prefer not to respond 
+
+var $OR_EREGWEBCABIQPgQ3RB1 = _byXPath("//input[@id='301']"); //Mexican, Mexican, or Chicano
+var $OR_EREGWEBCABIQPgQ3RB2 = _byXPath("//input[@id='302']"); //Puerto Rican or Puerto Rican American
+var $OR_EREGWEBCABIQPgQ3RB3 = _byXPath("//input[@id='303']"); //Cuban or Cuban American
+var $OR_EREGWEBCABIQPgQ3RB4 = _byXPath("//input[@id='304']"); //Other
+
+var $OR_EREGWEBCABIQPgQ4CB1 = _byXPath("//input[@id='401']"); //American Indian or Alaskan Native
+var $OR_EREGWEBCABIQPgQ4CB2 = _byXPath("//input[@id='402']"); //Asian
+var $OR_EREGWEBCABIQPgQ4CB3 = _byXPath("//input[@id='403']"); //Black or African American
+var $OR_EREGWEBCABIQPgQ4CB4 = _byXPath("//input[@id='404']"); //Native Hawaiian or Other Pacific Islander
+var $OR_EREGWEBCABIQPgQ4CB5 = _byXPath("//input[@id='405']"); //White
+var $OR_EREGWEBCABIQPgQ4CB6 = _byXPath("//input[@id='406']"); //Other
+var $OR_EREGWEBCABIQPgQ4CB7 = _byXPath("//input[@id='407']"); //I prefer not to respond
+
+var $OR_EREGWEBCABIQPgQ5RB1 = _byXPath("//input[@id='501']"); //Yes
+var $OR_EREGWEBCABIQPgQ5RB2 = _byXPath("//input[@id='502']"); //No
+
+var $OR_EREGWEBCABIQPgQ6RB1 = _byXPath("//input[@id='601']"); //Employed part-time (29 or fewer hours per week)
+var $OR_EREGWEBCABIQPgQ6RB2 = _byXPath("//input[@id='602']"); //Employed full-time
+var $OR_EREGWEBCABIQPgQ6RB3 = _byXPath("//input[@id='603']"); //Unemployed (seeking employment)
+var $OR_EREGWEBCABIQPgQ6RB4 = _byXPath("//input[@id='604']"); //Not in the labor force (homemaker, family caregiver, student, retired )
+
+var $OR_EREGWEBCABIQPgQ7DD = _byXPath("//select[@id='7']");
+
+var $OR_EREGWEBCABIQPgQ8TB = _byXPath("//input[@id='8']");
+
+var $OR_EREGWEBCABIQPgQ9TB = _byXPath("//input[@id='9']");
+
+var $OR_EREGWEBCABIQPgQ10DD = _byXPath("//select[@id='10']");
+
+var $OR_EREGWEBCABIQPgQ11RB1 = _byXPath("//input[@id='1101']"); //Yes
+var $OR_EREGWEBCABIQPgQ11RB2 = _byXPath("//input[@id='1102']"); //No
+
+var $OR_EREGWEBCABIQPgQ12RB1 = _byXPath("//input[@id='1201']"); //Certificate program
+var $OR_EREGWEBCABIQPgQ12RB2 = _byXPath("//input[@id='1202']"); //Technical or vocational school 
+var $OR_EREGWEBCABIQPgQ12RB3 = _byXPath("//input[@id='1203']"); //Community college
+var $OR_EREGWEBCABIQPgQ12RB4 = _byXPath("//input[@id='1204']"); //4 year College or University degree or higher
+
+var $OR_EREGWEBCABIQPgQ13RB1 = _byXPath("//input[@id='1301']"); //Grade school or less
+var $OR_EREGWEBCABIQPgQ13RB2 = _byXPath("//input[@id='1302']"); //Some high school
+var $OR_EREGWEBCABIQPgQ13RB3 = _byXPath("//input[@id='1303']"); //High school
+var $OR_EREGWEBCABIQPgQ13RB4 = _byXPath("//input[@id='1304']"); //Some college/university
+var $OR_EREGWEBCABIQPgQ13RB5 = _byXPath("//input[@id='1305']"); //Associate degree
+var $OR_EREGWEBCABIQPgQ13RB6 = _byXPath("//input[@id='1306']"); //Bachelor's degree
+var $OR_EREGWEBCABIQPgQ13RB7 = _byXPath("//input[@id='1307']"); //Some graduate or professional school or a graduate or professional degree
+var $OR_EREGWEBCABIQPgQ13RB8 = _byXPath("//input[@id='1308']"); //Don't Know
+
+var $OR_EREGWEBCABIQPgQ14RB1 = _byXPath("//input[@id='1401']"); //Grade school or less
+var $OR_EREGWEBCABIQPgQ14RB2 = _byXPath("//input[@id='1402']"); //Some high school
+var $OR_EREGWEBCABIQPgQ14RB3 = _byXPath("//input[@id='1403']"); //High school
+var $OR_EREGWEBCABIQPgQ14RB4 = _byXPath("//input[@id='1404']"); //Some college/university
+var $OR_EREGWEBCABIQPgQ14RB5 = _byXPath("//input[@id='1405']"); //Associate degree
+var $OR_EREGWEBCABIQPgQ14RB6 = _byXPath("//input[@id='1406']"); //Bachelor's degree
+var $OR_EREGWEBCABIQPgQ14RB7 = _byXPath("//input[@id='1407']"); //Some graduate or professional school or a graduate or professional degree
+var $OR_EREGWEBCABIQPgQ14RB8 = _byXPath("//input[@id='1408']"); //Don't Know
+
+var $OR_EREGWEBCABIQPgQ15RB1 = _byXPath("//input[@id='1501']"); //Enroll in technical or trade program
+var $OR_EREGWEBCABIQPgQ15RB2 = _byXPath("//input[@id='1502']"); //Enter a 2 year college
+var $OR_EREGWEBCABIQPgQ15RB3 = _byXPath("//input[@id='1503']"); //Enter a 4 year college/university
+var $OR_EREGWEBCABIQPgQ15RB4 = _byXPath("//input[@id='1504']"); //Get a job
+var $OR_EREGWEBCABIQPgQ15RB5 = _byXPath("//input[@id='1505']"); //Keep your current job
+var $OR_EREGWEBCABIQPgQ15RB6 = _byXPath("//input[@id='1506']"); //Role model for family
+var $OR_EREGWEBCABIQPgQ15RB7 = _byXPath("//input[@id='1507']"); //Personal Achievement/Satisfaction
+var $OR_EREGWEBCABIQPgQ15RB8 = _byXPath("//input[@id='1508']"); //Public Assistance Requirement
+var $OR_EREGWEBCABIQPgQ15RB9 = _byXPath("//input[@id='1509']"); //Military entrance
+var $OR_EREGWEBCABIQPgQ15RB10 = _byXPath("//input[@id='1510']"); //Early Release
+var $OR_EREGWEBCABIQPgQ15RB11 = _byXPath("//input[@id='1511']"); //Court Order
+var $OR_EREGWEBCABIQPgQ15RB12 = _byXPath("//input[@id='1512']"); //Other
+
+var $OR_EREGWEBCABIQPgQ16CB1 = _byXPath("//input[@id='1601']"); //Word of mouth (friend, neighbor, relative)
+var $OR_EREGWEBCABIQPgQ16CB2 = _byXPath("//input[@id='1602']"); //Media (TV, radio, print)
+var $OR_EREGWEBCABIQPgQ16CB3 = _byXPath("//input[@id='1603']"); //Internet
+var $OR_EREGWEBCABIQPgQ16CB4 = _byXPath("//input[@id='1604']"); //Printed materials (poster, flyer)
+var $OR_EREGWEBCABIQPgQ16CB5 = _byXPath("//input[@id='1605']"); //Guidance counselor or teacher
+var $OR_EREGWEBCABIQPgQ16CB6 = _byXPath("//input[@id='1606']"); //Adult Education center
+var $OR_EREGWEBCABIQPgQ16CB7 = _byXPath("//input[@id='1607']"); //Employment services
+var $OR_EREGWEBCABIQPgQ16CB8 = _byXPath("//input[@id='1608']"); //Military recruiting officer
+var $OR_EREGWEBCABIQPgQ16CB9 = _byXPath("//input[@id='1609']"); //Social Worker
+var $OR_EREGWEBCABIQPgQ16CB10 = _byXPath("//input[@id='1610']"); //Prison/probation officer
+var $OR_EREGWEBCABIQPgQ16CB11 = _byXPath("//input[@id='1611']"); //Other
+
+var $OR_EREGWEBCABIQPgQ17CB1 = _byXPath("//input[@id='1701']"); //Hard copy test preparation book
+var $OR_EREGWEBCABIQPgQ17CB2 = _byXPath("//input[@id='1702']"); //eBook
+var $OR_EREGWEBCABIQPgQ17CB3 = _byXPath("//input[@id='1703']"); //CD-ROM/Computer Software
+var $OR_EREGWEBCABIQPgQ17CB4 = _byXPath("//input[@id='1704']"); //Online or internet resource
+var $OR_EREGWEBCABIQPgQ17CB5 = _byXPath("//input[@id='1705']"); //Test preparation class/Tutor
+var $OR_EREGWEBCABIQPgQ17CB6 = _byXPath("//input[@id='1706']"); //Did not prepare for the HiSET
+
+var $OR_EREGWEBCABIQPgQ18DD = _byXPath("//input[@id='18']");
+
+var $OR_EREGWEBCABIQPgQ19RB1 = _byXPath("//input[@id='1901']"); //1 - No difference
+var $OR_EREGWEBCABIQPgQ19RB2 = _byXPath("//input[@id='1902']"); //2
+var $OR_EREGWEBCABIQPgQ19RB3 = _byXPath("//input[@id='1903']"); //3
+var $OR_EREGWEBCABIQPgQ19RB4 = _byXPath("//input[@id='1904']"); //4
+var $OR_EREGWEBCABIQPgQ19RB5 = _byXPath("//input[@id='1905']"); //5
+var $OR_EREGWEBCABIQPgQ19RB6 = _byXPath("//input[@id='1906']"); //6 - Significant difference
+
+var $OR_EREGWEBCABIQPgQ20RB1 = _byXPath("//input[@id='2001']"); //1 - No difference
+var $OR_EREGWEBCABIQPgQ20RB2 = _byXPath("//input[@id='2002']"); //2
+var $OR_EREGWEBCABIQPgQ20RB3 = _byXPath("//input[@id='2003']"); //3
+var $OR_EREGWEBCABIQPgQ20RB4 = _byXPath("//input[@id='2004']"); //4
+var $OR_EREGWEBCABIQPgQ20RB5 = _byXPath("//input[@id='2005']"); //5
+var $OR_EREGWEBCABIQPgQ20RB6 = _byXPath("//input[@id='2006']"); //6 - Significant difference
+
+var $OR_EREGWEBCABIQPgQ21RB1 = _byXPath("//input[@id='2101']"); //1 - No difference
+var $OR_EREGWEBCABIQPgQ21RB2 = _byXPath("//input[@id='2102']"); //2
+var $OR_EREGWEBCABIQPgQ21RB3 = _byXPath("//input[@id='2103']"); //3
+var $OR_EREGWEBCABIQPgQ21RB4 = _byXPath("//input[@id='2104']"); //4
+var $OR_EREGWEBCABIQPgQ21RB5 = _byXPath("//input[@id='2105']"); //5
+var $OR_EREGWEBCABIQPgQ21RB6 = _byXPath("//input[@id='2106']"); //6 - Significant difference
+
+var $OR_EREGWEBCABIQPgQ22RB1 = _byXPath("//input[@id='2201']"); //1 - No difference
+var $OR_EREGWEBCABIQPgQ22RB2 = _byXPath("//input[@id='2202']"); //2
+var $OR_EREGWEBCABIQPgQ22RB3 = _byXPath("//input[@id='2203']"); //3
+var $OR_EREGWEBCABIQPgQ22RB4 = _byXPath("//input[@id='2204']"); //4
+var $OR_EREGWEBCABIQPgQ22RB5 = _byXPath("//input[@id='2205']"); //5
+var $OR_EREGWEBCABIQPgQ22RB6 = _byXPath("//input[@id='2206']"); //6 - Significant difference
+
+var $OR_EREGWEBCABIQPgQ23RB1 = _byXPath("//input[@id='2301']"); //1 - No difference
+var $OR_EREGWEBCABIQPgQ23RB2 = _byXPath("//input[@id='2302']"); //2
+var $OR_EREGWEBCABIQPgQ23RB3 = _byXPath("//input[@id='2303']"); //3
+var $OR_EREGWEBCABIQPgQ23RB4 = _byXPath("//input[@id='2304']"); //4
+var $OR_EREGWEBCABIQPgQ23RB5 = _byXPath("//input[@id='2305']"); //5
+var $OR_EREGWEBCABIQPgQ23RB6 = _byXPath("//input[@id='2306']"); //6 - Significant difference
+
+var $OR_EREGWEBCABIQPgQ24DD = _byXPath("//input[@id='24']");
+
+var $OR_EREGWEBCABIQPgQ25DD = _byXPath("//input[@id='25']");
+
+var $OR_EREGWEBCABIQPgQ26DD = _byXPath("//input[@id='26']");
+
+var $OR_EREGWEBCABIQPgQ27DD = _byXPath("//input[@id='27']");
+
+var $OR_EREGWEBCABIQPgQ28DD = _byXPath("//input[@id='28']");
+
+var $OR_EREGWEBCABIQPgQ29DD = _byXPath("//input[@id='29']");
+
+var $OR_EREGWEBCABIQPgQ30DD = _byXPath("//input[@id='30']");
+
+var $OR_EREGWEBCABIQPgQ31DD = _byXPath("//input[@id='31']");
+
+var $OR_EREGWEBCABIQPgQ32DD = _byXPath("//input[@id='32']");
+
+var $OR_EREGWEBCABIQPgQ33DD = _byXPath("//input[@id='33']");
+
+var $OR_EREGWEBCABIQPgQ34TB = _byXPath("//input[@id='34']");
+
+var $OR_EREGWEBCABIQPgBackBtn = _byXPath("//span[normalize-space(text())='BACK']/parent::button");
+var $OR_EREGWEBCABIQPgNextBtn = _byXPath("//span[normalize-space(text())='NEXT']/parent::button");
+/* -- EREG WEB Create Account - BIQ Page -- */
+
+/* -- EREG WEB Create Account - Username and Password Page -- */
+var $OR_EREGWEBCAUsrnamPwdPgHdr1 = _byXPath("//h1[normalize-space(text())='Create Account']");
+var $OR_EREGWEBCAUsrnamPwdPgHdr1 = _byXPath("//h2[normalize-space(text())='Username and Password']");
+
+var $OR_EREGWEBCAUsrnamPwdPgUsrnamTB = _byXPath("//input[@id='username']");
+var $OR_EREGWEBCAUsrnamPwdPgPwdTB = _byXPath("//input[@id='password']");
+var $OR_EREGWEBCAUsrnamPwdPgRePwdTB = _byXPath("//input[@id='passwordConfirmation']");
+var $OR_EREGWEBCAUsrnamPwdPgSecQuesDD = _byXPath("//select[@id='helpQuestion']");
+var $OR_EREGWEBCAUsrnamPwdPgSecAnsTB = _byXPath("//input[@id='helpAnswer']");
+var $OR_EREGWEBCAUsrnamPwdPgTrmCndtnCB = _byXPath("//input[@id='termsConditions']");
+
+var $OR_EREGWEBCAUsrnamPwdPgBackBtn = _byXPath("//span[normalize-space(text())='BACK']/parent::button");
+var $OR_EREGWEBCAUsrnamPwdPgNextBtn = _byXPath("//span[normalize-space(text())='NEXT']/parent::button");
+/* -- EREG WEB Create Account - Username and Password Page -- */
+
+/* -- EREG WEB Create Account - Review and Submit Page -- */
+var $OR_EREGWEBCARevewSubPgHdr1 = _byXPath("//h1[normalize-space(text())='Create Account']");
+var $OR_EREGWEBCARevewSubPgHdr1 = _byXPath("//h2[normalize-space(text())='Review and Submit']");
+var $OR_EREGWEBCARevewSubPgBackBtn = _byXPath("//span[normalize-space(text())='BACK']/parent::button");
+var $OR_EREGWEBCARevewSubPgSubmitBtn = _byXPath("//span[normalize-space(text())='SUBMIT']/parent::button");
+/* -- EREG WEB Create Account - Review and Submit Page -- */
+
+/* -- EREG WEB Create Account - Confirmation Page -- */
+var $OR_EREGWEBCAConfPgHdr = _byXPath("//span[normalize-space(text())='Your Account Has Been Created!']");
+var $OR_EREGWEBCAConfPgCntnuBtn = _byXPath("//span[normalize-space(text())='Sign in to Continue']/parent::button");
+/* -- EREG WEB Create Account - Confirmation Page -- */

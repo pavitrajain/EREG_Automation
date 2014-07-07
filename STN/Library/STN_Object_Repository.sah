@@ -1,0 +1,49 @@
+/* -- Login Page -- */
+var $OR_LgnPgUsrNamFld = _textbox("txtUserName"); //_byXPath("//input[@id='txtUserName']"); 
+var $OR_LgnPgPwdFld = _password("txtPassword"); //_byXPath("//input[@id='txtPassword']");
+var $OR_LgnPgSubmitBtn = _submit("Submit"); //_byXPath("//input[@id='btnSubmit']");
+/* -- Login Page -- */
+
+/* -- Home Page -- */
+var $OR_HomePgHdr = _span("Welcome"); //_byXPath("//span[@id='MainContent_lblWelcome']");
+var $OR_HomePgSetupTab = _link("Setup"); //_byXPath("//a[normalize-space(text())='Setup']");
+var $OR_LogOut = _link("Logout"); //_byXPath("//a[normalize-space(text())='Logout']");
+/* -- Home Page -- */
+
+/* -- Setup Page -- */
+var $OR_SetupPgProgramLink = _span("Programs"); //_byXPath("//span[normalize-space(text())='Programs']");
+var $OR_SetupPgAdministrationLink = _span("Administration"); //_byXPath("//span[normalize-space(text())='Administration']");
+var $OR_SetupPgmSelectPgProgramNamFld = _textbox("_ctl0:MainContent:txtFlPgmName"); //_byXPath("//input[@id='MainContent_txtFlPgmName']");
+var $OR_SetupPgmSelectPgGoBtn = _submit("Go"); //_byXPath("//input[@id='MainContent_btnGo']");
+var $OR_SetupPgmSelectPgHiSETLink = _link("HiSET"); //_byXPath("//a[normalize-space(text())='HiSET']");
+var $OR_SetupPgmSelectPgHiSETName = _span("HST", _near(_span("HiSET"))); //_byXPath("//span[@id ='MainContent_btnSelect']");
+var $OR_SetupPgmSelectPgSelectBtn = _submit("Select"); //_byXPath("//input[normalize-space(text())='HiSET']");
+
+var $OR_SetupAdmPgDateFromCal = _imageSubmitButton("_ctl0:MainContent:ImgDateFrom"); //_byXPath("//input[@id='MainContent_ImgDateFrom']");
+var $OR_SetupAdmPgDateFrmFldMonDrpDwn = _select(0);
+var $OR_SetupAdmPgDateFrmFldYearDrpDwn = _select(1);
+var $OR_SetupAdmPgDateFrmFldDayFld = _click(18);
+var $OR_SetupAdmPgDateFrmFldSubmitBtn = _button("Submit"); //_byXPath("//input[@id='btnOK']");
+var $OR_SetupAdmPgDateToCal = _imageSubmitButton("_ctl0:MainContent:ImgDateTo"); //_byXPath("//input[@id='MainContent_ImgDateTo']");
+var $OR_SetupAdmPgDateFltrGoBtn = _submit("Go"); //_byXPath("//input[@id='MainContent_btnGo']");
+
+var $OR_SetupAdmPgNewGblAdmBtn = _submit("_NewGlobalAdmin_"); //_byXPath("//input[@id='MainContent_btnNew']");
+var $OR_SetupNewAdmPgIdFld = _textbox("_ctl0:MainContent:txtPgmAdmId"); //_byXPath("//input[@id='MainContent_txtPgmAdmId']");
+var $OR_SetupNewAdmPgDateCal = _imageSubmitButton("ImgDate"); //_byXPath("//input[@id='ImgDate']");
+var $OR_SetupNewAdmPgTimeDrpDwn = _select("_ctl0:MainContent:ddlHours"); //_byXPath("//select[@id='MainContent_ddlHours']");
+var $OR_SetupNewAdmPgSubmitBtn = _submit("Submit"); //_byXPath("//input[@id='MainContent_btnSubmit']");
+
+var $OR_SetupAdmPgAdmIdLink = _link("20140716U"); //_byXPath("//a[normalize-space(text())='20140716U']");
+var $OR_SetupAdmPgRegionBtn = _submit("Region"); //_byXPath("//input[@id='MainContent_btnPgmAdmRgn']");
+var $OR_SetupAdmPgCenterBtn = _submit("Centers"); //_byXPath("//input[@id='MainContent_btnPgmAdmCntr']");
+
+var $OR_SetupPgmAdmRgnPgNamFld = _span("NA"); //_byXPath("//span[normalize-space(text())='NA']");
+var $OR_SetupPgmAdmRgnPgNamChkBx = _checkbox("_ctl0:MainContent:dgPgmAdmTst:_ctl9:chkAssigned", _near(_span("NA"))); //_byXPath("//input[@type='checkbox']");
+var $OR_SetupPgmAdmRgnPgSubmitBtn = _submit("Submit"); //_byXPath("//input[@id='MainContent_btnSubmit']");
+
+var $OR_SetpupPgmAdmCntrPgNewBtn = _submit("New"); //_byXPath("//input[@id='MainContent_btnNew']");
+var $OR_SetpupPgmAdmNewCntrPgCntrIdFld = _textbox("_ctl0:MainContent:txtFlCntrId"); //_byXPath("//input[@id='MainContent_btnNew']");
+var $OR_SetpupPgmAdmNewCntrPgGoBtn = _submit("Go"); //_byXPath("//input[@id='MainContent_btnGo']");
+var $OR_SetpupPgmAdmNewCntrPgSubmitBtn = _submit("Submit"); //_byXPath("//input[@id='MainContent_btnSubmit']");
+var $OR_SetpupPgmAdmCntrPgCloseBtn = _submit("Close"); //_byXPath("//input[@id='MainContent_btnRedirectClose']");
+/* -- Setup Page -- */

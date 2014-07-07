@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="con" path="org.eclipse.wst.jsdt.launching.baseBrowserLibrary"/>
+	<classpathentry kind="src" path="EREG_WEB"/>
+	<classpathentry kind="src" path="CSR_WEB_Internal"/>
+	<classpathentry kind="src" path="Library"/>
+	<classpathentry kind="src" path="CSR_WEB_External"/>
+	<classpathentry kind="output" path=""/>
+</classpath>

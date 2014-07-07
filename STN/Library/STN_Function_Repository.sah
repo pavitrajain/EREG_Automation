@@ -1,0 +1,162 @@
+_dynamicInclude(_userDataDir() + "//Object_Repository.sah");
+
+function Login ($URL,$V_Usernam,$V_Password) {
+	
+	_navigateTo($URL);
+	_setValue($OR_LgnPgUsrNamFld,$V_Usernam);
+	_setValue($OR_LgnPgPwdFld,$V_Password);
+	_click($OR_LgnPgSubmitBtn);
+	
+}
+
+function Select_PGM () {
+	
+	if(_exists($OR_HomePgHdr)) {
+		_click($OR_HomePgSetupTab);
+	}
+	_click($OR_SetupPgAdministrationLink);
+	_setValue($OR_SetupPgmSelectPgProgramNamFld,"HiSET");
+	_click($OR_SetupPgmSelectPgGoBtn);
+	_wait(_exists($OR_SetupPgmSelectPgHiSETName),"200");
+	_click($OR_SetupPgmSelectPgHiSETName);
+	_click($OR_SetupPgmSelectPgSelectBtn);
+	
+}
+
+function VerifyAdmin ($V_ADM) {
+		
+	_click($OR_SetupAdmPgDateFromCal);
+	_setSelected($OR_SetupAdmPgDateFrmFldMonDrpDwn,$V_ADM[1]);
+	_setSelected($OR_SetupAdmPgDateFrmFldYearDrpDwn,$V_ADM[2]);
+	_click(_cell($V_ADM[3]));
+	_click($OR_SetupAdmPgDateFrmFldSubmitBtn);
+	_click($OR_SetupAdmPgDateToCal);
+	_setSelected($OR_SetupAdmPgDateFrmFldMonDrpDwn,$V_ADM[1]);
+	_setSelected($OR_SetupAdmPgDateFrmFldYearDrpDwn,$V_ADM[2]);
+	_click(_cell($V_ADM[3]));
+	_click($OR_SetupAdmPgDateFrmFldSubmitBtn);
+	_click($OR_SetupAdmPgDateFltrGoBtn);
+	if(_exists(_link($V_ADM[0]))) {
+		return (1);
+	}
+	else if(_exists(_link("2"))) {
+		_click(_link("2"));
+		if(_exists(_link($V_ADM[0]))) {
+			return (1);
+		}
+		else if(_exists(_link("3"))) {
+			_click(_link("3"));
+			if(_exists(_link($V_ADM[0]))) {
+				return (1);
+			}
+			else {
+				return (0);
+			}
+		}
+		else {
+			return (0);
+		}
+	}
+	else {
+		return (0);
+	}
+	
+}
+
+function AddAdmin ($V_ADM) {
+	
+	_click($OR_SetupPgAdministrationLink);
+	_click($OR_SetupAdmPgDateFromCal);
+	_setSelected($OR_SetupAdmPgDateFrmFldMonDrpDwn,$V_ADM[1]);
+	_setSelected($OR_SetupAdmPgDateFrmFldYearDrpDwn,$V_ADM[2]);
+	_click(_cell($V_ADM[3]));
+	_click($OR_SetupAdmPgDateFrmFldSubmitBtn);
+	_click($OR_SetupAdmPgDateToCal);
+	_setSelected($OR_SetupAdmPgDateFrmFldMonDrpDwn,$V_ADM[1]);
+	_setSelected($OR_SetupAdmPgDateFrmFldYearDrpDwn,$V_ADM[2]);
+	_click(_cell($V_ADM[3]));
+	_click($OR_SetupAdmPgDateFrmFldSubmitBtn);
+	_click($OR_SetupAdmPgDateFltrGoBtn);
+	_click($OR_SetupAdmPgNewGblAdmBtn);
+	_setValue($OR_SetupNewAdmPgIdFld,$V_ADM[0]);
+	_click($OR_SetupNewAdmPgDateCal);
+	_setSelected($OR_SetupAdmPgDateFrmFldMonDrpDwn,$V_ADM[1]);
+	_setSelected($OR_SetupAdmPgDateFrmFldYearDrpDwn,$V_ADM[2]);
+	_click(_cell($V_ADM[3]));
+	_click($OR_SetupAdmPgDateFrmFldSubmitBtn);
+	_setSelected($OR_SetupNewAdmPgTimeDrpDwn,$V_ADM[4]);
+	_click($OR_SetupNewAdmPgSubmitBtn);
+	if(_exists($OR_SetupAdmPgNewGblAdmBtn)) {
+		var $AdmFlg = VerifyAdmin($V_ADM);
+		if($AdmFlg) {
+			_log("Admin is created","sucess");
+		}
+		else {
+			_log("Admin is not created","error");
+		}	
+	}
+	else {
+		_log("Error Occured on New Admin Setup Page","error");
+	}
+	
+}
+
+function AddRegion ($V_ADM,$V_RGN) {
+	
+	_click(_span("HiSET",_near(_link($V_ADM[0]))));
+	_click($OR_SetupAdmPgRegionBtn);
+	if(_exists(_span("Please Select Program Administration"))) {
+		_click(_span("HiSET",_near(_link($V_ADM[0]))));
+		_click($OR_SetupAdmPgRegionBtn);
+	}
+	if($V_RGN == "NA") {
+		_click(_checkbox("_ctl0:MainContent:dgPgmAdmTst:_ctl9:chkAssigned",_near(_span("NA"))));
+		_click($OR_SetupPgmAdmRgnPgSubmitBtn);			
+	}
+	
+}
+
+function AddTestCenter ($V_ADM,$V_CntrId) {
+	
+	_click(_span("HiSET",_near(_link($V_ADM[0]))));
+	_click($OR_SetupAdmPgCenterBtn);
+	if(_exists(_span("Please Select Program Administration"))) {
+		_click(_span("HiSET",_near(_link($V_ADM[0]))));
+		_click($OR_SetupAdmPgCenterBtn);
+	}
+	_click($OR_SetpupPgmAdmCntrPgNewBtn);
+	_setValue($OR_SetpupPgmAdmNewCntrPgCntrIdFld,$V_CntrId);
+	_click($OR_SetpupPgmAdmNewCntrPgGoBtn);
+	
+	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl3:chkAssigned"));
+	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl3:chkRequired"));
+		
+//	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl4:chkAssigned"));
+//	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl4:chkRequired"));
+//	
+//	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl5:chkAssigned"));
+//	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl5:chkRequired"));
+//	
+//	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl6:chkAssigned"));
+//	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl6:chkRequired"));
+//	
+//	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl7:chkAssigned"));
+//	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl7:chkRequired"));
+//	
+//	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl8:chkAssigned"));
+//	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl8:chkRequired"));
+//	
+//	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl9:chkAssigned"));
+//	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl9:chkRequired"));
+	
+	_click($OR_SetpupPgmAdmNewCntrPgSubmitBtn);
+	
+	_click($OR_SetpupPgmAdmCntrPgCloseBtn);
+	
+}
+
+function Logout() {
+	
+	_click($OR_LogOut);
+	
+}
