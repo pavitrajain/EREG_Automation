@@ -41,6 +41,55 @@ var $OR_EREGWEBCAPerInfoPgSecPhnTypLRB = _byXPath("//input[@name='05U'][@value='
 var $OR_EREGWEBCAPerInfoPgSecPhnTypMRB = _byXPath("//input[@name='05X'][@value='M']");
 var $OR_EREGWEBCAPerInfoPgBackBtn = _byXPath("//span[normalize-space(text())='BACK']/parent::button");
 var $OR_EREGWEBCAPerInfoPgNextBtn = _byXPath("//span[normalize-space(text())='NEXT']/parent::button");
+
+var $OR_EREGWEBCAPerInfoPgErrHdr = _byXPath("//span[normalize-space(text())='Please check the errors in the form.']");
+var $OR_EREGWEBCAPerInfoPgFstNamReqErr = _byXPath("//div[normalize-space(text())='First/Given Name is required'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgFstNamInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@ng-show='form.firstName.$error.pattern'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgFstNamMaxLenErr = _byXPath("//div[normalize-space(text())='Your First/Given Name cannot be more than 25 characters'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgFstNamMinLenErr = _byXPath("//div[normalize-space(text())='Your First/Given Name cannot be less than 2 characters'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgMidIntInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@ng-show='form.mname.$error.pattern'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgMidIntMaxLenErr = _byXPath("//div[normalize-space(text())='Your Middle Initial cannot be more than 1 character'][@ng-show='form.mname.$error.maxlength'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgLstNamReqErr = _byXPath("//div[normalize-space(text())='Last/Family Name is required'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgLstNamInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@class='validationError'][@ng-show='form.lastName.$error.pattern']");
+var $OR_EREGWEBCAPerInfoPgLstNamMaxLenErr = _byXPath("//div[normalize-space(text())='Your Last/Family Name cannot be more than 25 characters'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgLstNamMinLenErr = _byXPath("//div[normalize-space(text())='Your Last/Family Name cannot be less than 2 characters'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgDOBMonthReqErr = _byXPath("//div[normalize-space(text())='Date of Birth Month is required'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgDOBDayReqErr = _byXPath("//div[normalize-space(text())='Date of Birth Day is required'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgDOBYearReqErr = _byXPath("//div[normalize-space(text())='Date of Birth Year is required'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgDOBYearInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@class='validationError'][@ng-show='form.birthYear.$error.pattern']");
+var $OR_EREGWEBCAPerInfoPgDOBYearMaxLenErr = _byXPath("//div[normalize-space(text())='Your Date of Birth Year cannot be more than 4 characters'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgDOBYearMinLenErr = _byXPath("//div[normalize-space(text())='Your Date of Birth Year cannot be less than 4 characters'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgGnderReqErr = _byXPath("//div[normalize-space(text())='Gender is required'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgSSNInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@class='validationError'][@ng-show='form.socialSecurityNumber.$error.pattern']");
+var $OR_EREGWEBCAPerInfoPgSSNMaxLenErr = _byXPath("//div[normalize-space(text())='Your Social Security Number cannot be more than 9 characters'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgSSNMinLenErr = _byXPath("//div[normalize-space(text())='Your Social Security Number cannot be less than 9 characters'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgEmailReqErr = _byXPath("//div[normalize-space(text())='Email Address is required'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgEmailInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@class='validationError'][@ng-show='form.emailAddress.$error.pattern']");
+var $OR_EREGWEBCAPerInfoPgEmailMaxLenErr = _byXPath("//div[normalize-space(text())='Your Email Address cannot be more than 100 characters'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgEmailMinLenErr = _byXPath("//div[normalize-space(text())='Your Email Address cannot be less than 10 characters'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgAdrLn1ReqErr = _byXPath("//div[normalize-space(text())='Address Line 1 is required'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgAdrLn1MaxLenErr = _byXPath("//div[normalize-space(text())='Your Address Line 1 cannot be more than 40 characters'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgAdrLn2MaxLenErr = _byXPath("//div[normalize-space(text())='Your Address Line 2 cannot be more than 40 characters'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgCityReqErr = _byXPath("//div[normalize-space(text())='City is required'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgCityInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@class='validationError'][@ng-show='form.city.$error.pattern']");
+var $OR_EREGWEBCAPerInfoPgCityMaxLenErr = _byXPath("//div[normalize-space(text())='Your City cannot be more than 25 characters'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgStateReqErr = _byXPath("//div[normalize-space(text())='State is required'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgPstlCdeReqErr = _byXPath("//div[normalize-space(text())='Postal Code is required'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgPstlCdeInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@class='validationError'][@ng-show='form.postalCode.$error.pattern']");
+var $OR_EREGWEBCAPerInfoPgPstlCdeMaxLenErr = _byXPath("//div[normalize-space(text())='Your Postal Code cannot be more than 5 characters'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgPstlCdeMinLenErr = _byXPath("//div[normalize-space(text())='Your Postal Code cannot be less than 5 characters'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgPriPhnNumReqErr = _byXPath("//div[normalize-space(text())='Phone is required'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgPriPhnNumInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@class='validationError'][@ng-show='form.primaryPhoneNumber.$error.pattern']");
+var $OR_EREGWEBCAPerInfoPgPriPhnNumMaxLenErr = _byXPath("//div[normalize-space(text())='Your Phone cannot be more than 10 characters'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgPriPhnNumMinLenErr = _byXPath("//div[normalize-space(text())='Your Phone cannot be less than 10 characters'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgPriPhnExtnInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@class='validationError'][@ng-show='form.primaryPhoneExtension.$error.pattern']");
+var $OR_EREGWEBCAPerInfoPgPriPhnExtnMaxLenErr = _byXPath("//div[normalize-space(text())='Your Phone cannot be more than 5 characters'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgPriPhnTypReqErr = _byXPath("//div[normalize-space(text())='Type is required'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgAltPhnNumInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@ng-show='form.alternativePhoneNumber.$error.pattern'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgAltPhnNumMaxLenErr = _byXPath("//div[normalize-space(text())='Your Phone cannot be more than 10 characters'][@ng-show='form.alternativePhoneExtension.$error.maxlength'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgAltPhnNumMinLenErr = _byXPath("//div[normalize-space(text())='Your Phone cannot be less than 10 characters'][@ng-show='(form.alternativePhoneNumber.$error.minlength)'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgAltPhnExtnInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@ng-show='form.alternativePhoneExtension.$error.pattern'][@class='validationError']");
+var $OR_EREGWEBCAPerInfoPgAltPhnExtnMaxLenErr = _byXPath("//div[normalize-space(text())='Your Phone cannot be more than 5 characters'][@ng-show='form.alternativePhoneExtension.$error.maxlength'][@class='validationError']");
 /* -- EREG WEB Create Account - Personal Info Page -- */
 
 /* -- EREG WEB Create Account - Additional Info Page -- */
@@ -51,6 +100,8 @@ var $OR_EREGWEBCAAddInfoPrefLangSRB = _byXPath("//input[@id='ES'][@value='ES']")
 var $OR_EREGWEBCAAddInfoPriSpkLangDD = _byXPath("//select[@id='2']");
 var $OR_EREGWEBCAAddInfoPgBackBtn = _byXPath("//span[normalize-space(text())='BACK']/parent::button");
 var $OR_EREGWEBCAAddInfoPgNextBtn = _byXPath("//span[normalize-space(text())='NEXT']/parent::button");
+var $OR_EREGWEBCAAddInfoPgErrHdr = _byXPath("//span[normalize-space(text())='Please check the errors in the form.']");
+var $OR_EREGWEBCAAddInfoPgPrefLangReqErr = _byXPath("//span[normalize-space(text())='Preferred Language For Test Taking']");
 /* -- EREG WEB Create Account - Additional Info Page -- */
 
 /* -- EREG WEB Create Account - BIQ Page -- */
@@ -209,6 +260,9 @@ var $OR_EREGWEBCABIQPgQ34TB = _byXPath("//input[@id='34']");
 
 var $OR_EREGWEBCABIQPgBackBtn = _byXPath("//span[normalize-space(text())='BACK']/parent::button");
 var $OR_EREGWEBCABIQPgNextBtn = _byXPath("//span[normalize-space(text())='NEXT']/parent::button");
+
+var $OR_EREGWEBCABIQPgErrHdr = _byXPath("//span[normalize-space(text())='Please answer all required questions that are marked with an asterisk.']");
+var $OR_EREGWEBCABIQPgReqErr = _byXPath("//span[normalize-space(text())='This question is required.']");
 /* -- EREG WEB Create Account - BIQ Page -- */
 
 /* -- EREG WEB Create Account - Username and Password Page -- */
@@ -224,6 +278,14 @@ var $OR_EREGWEBCAUsrnamPwdPgTrmCndtnCB = _byXPath("//input[@id='termsConditions'
 
 var $OR_EREGWEBCAUsrnamPwdPgBackBtn = _byXPath("//span[normalize-space(text())='BACK']/parent::button");
 var $OR_EREGWEBCAUsrnamPwdPgNextBtn = _byXPath("//span[normalize-space(text())='NEXT']/parent::button");
+
+var $OR_EREGWEBCAUsrnamPwdPgErrHdr = _byXPath("//span[normalize-space(text())='Please check the errors in the form.']");
+var $OR_EREGWEBCAUsrnamPwdPgUsrnamReqErr = _byXPath("//div[normalize-space(text())='Username is required'][@class='validationError']");
+var $OR_EREGWEBCAUsrnamPwdPgPwdReqErr = _byXPath("//div[normalize-space(text())='Password is required'][@class='validationError']");
+var $OR_EREGWEBCAUsrnamPwdPgRePwdReqErr = _byXPath("//div[normalize-space(text())='Retype Password is required'][@class='validationError']");
+var $OR_EREGWEBCAUsrnamPwdPgSecQuesReqErr = _byXPath("//div[normalize-space(text())='Security Question is required'][@class='validationError']");
+//var $OR_EREGWEBCAUsrnamPwdPgSecAnsReqErr = _byXPath("//div[normalize-space(text())='Security Question is required'][@class='validationError']");
+var $OR_EREGWEBCAUsrnamPwdPgTrmCndtnReqErr = _byXPath("//div[normalize-space(text())='Accept terms and conditions is required'][@class='validationError']");
 /* -- EREG WEB Create Account - Username and Password Page -- */
 
 /* -- EREG WEB Create Account - Review and Submit Page -- */

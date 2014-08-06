@@ -1,2 +1,513 @@
-var $Path = _userDataDir() + "\\scripts";
-_dynamicInclude($Path+"Object_Repository.sah");
+var $Path = _userDataDir() + "//scripts//EREG//Library//";
+_dynamicInclude($Path+"EREG_Library.sah");
+
+/**
+ * Function to verify the header of Create Profile - Personal Information Page
+ * @param $VPGM
+ * @returns {Number} - Returns 1 is Header is of Personal Info and returns 0 is not
+ */
+function Verify_Personal_Info_Header ($VPGM) {
+	if((toUpperCase($V_PGM)=='HISET' || toUpperCase($V_PGM)=='HSE') || (toUpperCase($V_PGM)=='MOPA' || toUpperCase($V_PGM)=='MIS') || (toUpperCase($V_PGM)=='PPAT' || toUpperCase($V_PGM)=='PRI') || (toUpperCase($V_PGM)=='GACE' || toUpperCase($V_PGM)=='GAT')) {
+		if(_exists($OR_EREGWEBCAPerInfoPgHdr1)  && _exists($OR_EREGWEBCAPerInfoPgHdr2)) {
+			return(1);
+		} else {
+			return(0);
+		}
+	}	
+}
+
+/**
+ * Function to verify the error of Create Profile - Personal Information Page
+ * @param $V_PGM
+ * @returns {Number} - Return 1 if error exist on the page
+ */
+function Verify_Personal_Info_Page_Error ($V_PGM) {
+	if((toUpperCase($V_PGM)=='HISET' || toUpperCase($V_PGM)=='HSE') || (toUpperCase($V_PGM)=='MOPA' || toUpperCase($V_PGM)=='MIS') || (toUpperCase($V_PGM)=='PPAT' || toUpperCase($V_PGM)=='PRI') || (toUpperCase($V_PGM)=='GACE' || toUpperCase($V_PGM)=='GAT')) {
+		if(_exists($OR_EREGWEBCAPerInfoPgErrHdr)) {
+			//####First Name####
+			if(_exists($OR_EREGWEBCAPerInfoPgFstNamReqErr)) {
+				_log("Required Field error displayed for First Name Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgFstNamInvalidErr)) {
+				_log("Invalid Value error displayed for First Name Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgFstNamMaxLenErr)) {
+				_log("Max Length error displayed for First Name Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgFstNamMinLenErr)) {
+				_log("Minimum Length error displayed for First Name Field","error");
+				return(1);
+			}
+			//####Middle Initial####
+			if(_exists($OR_EREGWEBCAPerInfoPgMidIntInvalidErr)) {
+				_log("Invalid Value error displayed for Middle Initial Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgMidIntMaxLenErr)) {
+				_log("Max Length error displayed for Middle Initial Field","error");
+				return(1);
+			}
+			//####Last Name####
+			if(_exists($OR_EREGWEBCAPerInfoPgLstNamReqErr)) {
+				_log("Required Field error displayed for Last Name Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgLstNamInvalidErr)) {
+				_log("Invalid Value error displayed for Last Name Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgLstNamMaxLenErr)) {
+				_log("Max Length error displayed for Last Name Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgLstNamMinLenErr)) {
+				_log("Min Length error displayed for Last Name Field","error");
+				return(1);
+			}
+			//####Date of Birth####
+			if(_exists($OR_EREGWEBCAPerInfoPgDOBMonthReqErr)) {
+				_log("Required Field error displayed for DOB-Month Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgDOBDayReqErr)) {
+				_log("Required Field error displayed for DOB-Day Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgDOBYearReqErr)) {
+				_log("Required Field error displayed for DOB-Year Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgDOBYearInvalidErr)) {
+				_log("Invalid Value error displayed for DOB-Year Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgDOBYearMaxLenErr)) {
+				_log("Max Length error displayed for DOB-Year Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgDOBYearMinLenErr)) {
+				_log("Min Length error displayed for DOB-Year Field","error");
+				return(1);
+			}
+			//####Gender####
+			if(_exists($OR_EREGWEBCAPerInfoPgDOBMonthReqErr)) {
+				_log("Required Field error displayed for Gender Field","error");
+				return(1);
+			}
+			//####SSN####
+			if(_exists($OR_EREGWEBCAPerInfoPgSSNInvalidErr)) {
+				_log("Invalid Value error displayed for SSN Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgSSNMaxLenErr)) {
+				_log("Max Length error displayed for SSN Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgSSNMinLenErr)) {
+				_log("Min Length error displayed for SSN Field","error");
+				return(1);
+			}
+			//####E-Mail####
+			if(_exists($OR_EREGWEBCAPerInfoPgEmailReqErr)) {
+				_log("Required Field error displayed for Email Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgEmailInvalidErr)) {
+				_log("Invalid Value error displayed for Email Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgEmailMaxLenErr)) {
+				_log("Max Length error displayed for Email Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgEmailMinLenErr)) {
+				_log("Minimum Length error displayed for Email Field","error");
+				return(1);
+			}
+			//####Address Line 1####
+			if(_exists($OR_EREGWEBCAPerInfoPgAdrLn1ReqErr)) {
+				_log("Required Field error displayed for Address Line 1 Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgAdrLn1MaxLenErr)) {
+				_log("Max Length error displayed for Address Line 1 Field","error");
+				return(1);
+			}
+			//####Address Line 2####
+			if(_exists($OR_EREGWEBCAPerInfoPgAdrLn2MaxLenErr)) {
+				_log("Max Length error displayed for Address Line 2 Field","error");
+				return(1);
+			}
+			//####City####
+			if(_exists($OR_EREGWEBCAPerInfoPgCityReqErr)) {
+				_log("Required Field error displayed for City Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgCityInvalidErr)) {
+				_log("Invalid Value error displayed for City Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgCityMaxLenErr)) {
+				_log("Max Length error displayed for City Field","error");
+				return(1);
+			}
+			//####State####
+			if(_exists($OR_EREGWEBCAPerInfoPgStateReqErr)) {
+				_log("Required Field error displayed for State Field","error");
+				return(1);
+			}
+			//####Postal Code####
+			if(_exists($OR_EREGWEBCAPerInfoPgPstlCdeReqErr)) {
+				_log("Required Field error displayed for Postal Code Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgPstlCdeInvalidErr)) {
+				_log("Invalid Value error displayed for Postal Code Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgPstlCdeMaxLenErr)) {
+				_log("Max Length error displayed for Postal Code Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgPstlCdeMinLenErr)) {
+				_log("Minimum Length error displayed for Postal Code Field","error");
+				return(1);
+			}
+			//####Primary Phone Number####
+			if(_exists($OR_EREGWEBCAPerInfoPgPriPhnNumReqErr)) {
+				_log("Required Field error displayed for Primary Phone Number Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgPriPhnNumInvalidErr)) {
+				_log("Invalid Value error displayed for Primary Phone Number Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgPriPhnNumMaxLenErr)) {
+				_log("Max Length error displayed for Primary Phone Number Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgPriPhnNumMinLenErr)) {
+				_log("Minimum Length error displayed for Primary Phone Number Field","error");
+				return(1);
+			}
+			//####Primary Phone Extension####
+			if(_exists($OR_EREGWEBCAPerInfoPgPriPhnExtnInvalidErr)) {
+				_log("Invalid Value error displayed for Primary Phone Extension Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgPriPhnExtnMaxLenErr)) {
+				_log("Max Length error displayed for Primary Phone Extension Field","error");
+				return(1);
+			}
+			//####Primary Phone Type####
+			if(_exists($OR_EREGWEBCAPerInfoPgPriPhnTypReqErr)) {
+				_log("Required Field error displayed for Primary Phone Type Field","error");
+				return(1);
+			}
+			//####Alternate Phone Number####
+			if(_exists($OR_EREGWEBCAPerInfoPgAltPhnNumInvalidErr)) {
+				_log("Invalid Value error displayed for Alternate Phone Number Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgAltPhnNumMaxLenErr)) {
+				_log("Max Length error displayed for Alternate Phone Number Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgAltPhnNumMinLenErr)) {
+				_log("Minimum Length error displayed for Alternate Phone Number Field","error");
+				return(1);
+			}
+			//####Alternate Phone Extension####
+			if(_exists($OR_EREGWEBCAPerInfoPgAltPhnExtnInvalidErr)) {
+				_log("Invalid Value error displayed for Alternate Phone Extension Field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAPerInfoPgAltPhnExtnMaxLenErr)) {
+				_log("Max Length error displayed for Alternate Phone Extension Field","error");
+				return(1);
+			}
+		}
+	}
+}
+
+/**
+ * Function to enter value on Create Profile-Personal Info Page
+ * @param $V_PGM
+ * @param $V_FstNam
+ * @param $V_MidIni
+ * @param $V_LstNam
+ * @param $V_DOBMon
+ * @param $V_DOBDay
+ * @param $V_DOBYear
+ * @param $V_Gen
+ * @param $V_SSN
+ * @param $V_EmailAdr
+ * @param $V_AdrLn1
+ * @param $V_AdrLn2
+ * @param $V_City
+ * @param $V_State
+ * @param $V_PstCde
+ * @param $V_PriPhn
+ * @param $V_PriExtn
+ * @param $V_PriLang
+ * @param $V_AltPhn
+ * @param $V_AltExtn
+ * @param $V_AltLang
+ */
+function Enter_Personal_Info($V_PGM,$V_FstNam,$V_MidIni,$V_LstNam,$V_DOBMon,$V_DOBDay,$V_DOBYear,
+		$V_Gen,$V_SSN,$V_EmailAdr,$V_AdrLn1,$V_AdrLn2,$V_City,$V_State,$V_PstCde,$V_PriPhn,
+		$V_PriExtn,$V_PriLang,$V_AltPhn,$V_AltExtn,$V_AltLang) {
+	if((toUpperCase($V_PGM)=='HISET' || toUpperCase($V_PGM)=='HSE') || (toUpperCase($V_PGM)=='MOPA' || toUpperCase($V_PGM)=='MIS') || (toUpperCase($V_PGM)=='PPAT' || toUpperCase($V_PGM)=='PRI') || (toUpperCase($V_PGM)=='GACE' || toUpperCase($V_PGM)=='GAT')) {
+		_setValue($OR_EREGWEBCAPerInfoPgFstNamTB,$V_FstNam);
+		_setValue($OR_EREGWEBCAPerInfoPgMidIntTB,$V_MidIni);
+		_setValue($OR_EREGWEBCAPerInfoPgLstNamTB,$V_LstNam);
+		_setSelected($OR_EREGWEBCAPerInfoPgDOBMonthDD,$V_DOBMon);
+		_setSelected($OR_EREGWEBCAPerInfoPgDOBDayDD,$V_DOBDay);
+		_setValue($OR_EREGWEBCAPerInfoPgDOBYearTB,$V_DOBYear);
+		if(toUpperCase($V_Gen)=='M' || toUpperCase($V_Gen)=='MALE') {
+			_click($OR_EREGWEBCAPerInfoPgGndrMaleRB);
+		} else if(toUpperCase($V_Gen)=='F' || toUpperCase($V_Gen)=='FEMALE') {
+			_click($OR_EREGWEBCAPerInfoPgGndrFemaleRB);
+		}
+		_setValue($OR_EREGWEBCAPerInfoPgSSNTB,$V_SSN);
+		_setValue($OR_EREGWEBCAPerInfoPgEmailTB,$V_EmailAdr);
+		_setValue($OR_EREGWEBCAPerInfoPgAdrLn1TB,$V_AdrLn1);
+		_setValue($OR_EREGWEBCAPerInfoPgADrLn2TB,$V_AdrLn2);
+		_setValue($OR_EREGWEBCAPerInfoPgCityTB,$V_City);
+		_setSelected($OR_EREGWEBCAPerInfoPgStateDD,$V_State);
+		_setValue($OR_EREGWEBCAPerInfoPgPstCdeTB,$V_PstCde);
+		_setValue($OR_EREGWEBCAPerInfoPgPriPhnNumTB,$V_PriPhn);
+		_setValue($OR_EREGWEBCAPerInfoPgPriPhnExtTB,$V_PriExtn);
+		if(toUpperCase($V_PriLang)=='L' || toUpperCase($V_PriLang)=='LANDLINE') {
+			_click($OR_EREGWEBCAPerInfoPgPriPhnTypLRB);	
+		} else if(toUpperCase($V_PriLang)=='M' || toUpperCase($V_PriLang)=='MOBILE') {
+			_click($OR_EREGWEBCAPerInfoPgPriPhnTypMRB);	
+		}
+		_setValue($OR_EREGWEBCAPerInfoPgSecPhnNumTB,$V_AltPhn);
+		_setValue($OR_EREGWEBCAPerInfoPgSecPhnExtTB,$V_AltExtn);
+		if(toUpperCase($V_AltLang)=='L' || toUpperCase($V_AltLang)=='LANDLINE') {
+			_click($OR_EREGWEBCAPerInfoPgSecPhnTypLRB);	
+		} else if(toUpperCase($V_AltLang)=='M' || toUpperCase($V_AltLang)=='MOBILE') {
+			_click($OR_EREGWEBCAPerInfoPgSecPhnTypMRB);	
+		}	
+	}
+}
+
+/**
+ * Function to verify the header of Create Profile - Additional Information Page
+ * @param $VPGM
+ * @returns {Number} - returns 1 if true and 0 if false
+ */
+function Verify_Additional_Info_Header ($VPGM) {
+	if((toUpperCase($V_PGM)=='HISET' || toUpperCase($V_PGM)=='HSE') || (toUpperCase($V_PGM)=='MOPA' || toUpperCase($V_PGM)=='MIS') || (toUpperCase($V_PGM)=='PPAT' || toUpperCase($V_PGM)=='PRI') || (toUpperCase($V_PGM)=='GACE' || toUpperCase($V_PGM)=='GAT')) {
+		if(_exists($OR_EREGWEBCAAddInfoPgHdr1)  && _exists($OR_EREGWEBCAAddInfoPgHdr2)) {
+			return(1);
+		} else {
+			return(0);
+		}
+	}	
+}
+
+/**
+ * Function to verify the error of Create Profile - Additional Information Page
+ * @param $V_PGM
+ * @returns {Number}- Returns 1 if error exists on page
+ */
+function Verify_Additional_Info_Page_Error ($V_PGM) {
+	if((toUpperCase($V_PGM)=='HISET' || toUpperCase($V_PGM)=='HSE') || (toUpperCase($V_PGM)=='MOPA' || toUpperCase($V_PGM)=='MIS') || (toUpperCase($V_PGM)=='PPAT' || toUpperCase($V_PGM)=='PRI') || (toUpperCase($V_PGM)=='GACE' || toUpperCase($V_PGM)=='GAT')) {
+		if(_exists($OR_EREGWEBCAAddInfoPgErrHdr)) {
+			if(_exists($OR_EREGWEBCAAddInfoPgPrefLangReqErr)) {
+				_log("Required Field error displayed for Primary Phone Type Field","error");
+				return(1);
+		}
+	}
+	}
+}
+
+/**
+ * Function to enter value on Create Profile-Additional Info Page
+ * @param $V_PGM
+ * @param $V_PrfLang
+ * @param $V_PriSpkLang
+ */
+function Enter_Additional_Info($V_PGM,$V_PrfLang,$V_PriSpkLang) {
+	if((toUpperCase($V_PGM)=='HISET' || toUpperCase($V_PGM)=='HSE')) {
+		if(toUpperCase($V_PrfLang)=='EN' || toUpperCase($V_PrfLang)=='ENGLISH') {
+			_click($OR_EREGWEBCAAddInfoPrefLangERB);
+		} else if(toUpperCase($V_PrfLang)=='ES' || toUpperCase($V_PrfLang)=='SPANISH') {
+			_click($OR_EREGWEBCAAddInfoPrefLangSRB);
+		}
+		_setSelected($OR_EREGWEBCAAddInfoPriSpkLangDD,$V_PriSpkLang);
+	} else if ((toUpperCase($V_PGM)=='MOPA' || toUpperCase($V_PGM)=='MIS') || (toUpperCase($V_PGM)=='PPAT' || toUpperCase($V_PGM)=='PRI') || (toUpperCase($V_PGM)=='GACE' || toUpperCase($V_PGM)=='GAT')) {
+		
+	}
+}
+
+/**
+ * Function to verify the header of Create Profile - BIQ Page
+ * @param $VPGM
+ * @returns {Number} - returns 1 if true and 0 if false
+ */
+function Verify_BIQ_Header ($VPGM) {
+	if((toUpperCase($V_PGM)=='HISET' || toUpperCase($V_PGM)=='HSE') || (toUpperCase($V_PGM)=='MOPA' || toUpperCase($V_PGM)=='MIS') || (toUpperCase($V_PGM)=='PPAT' || toUpperCase($V_PGM)=='PRI') || (toUpperCase($V_PGM)=='GACE' || toUpperCase($V_PGM)=='GAT')) {
+		if(_exists($OR_EREGWEBCABIQPgHdr1)  && _exists($OR_EREGWEBCABIQPgHdr1)) {
+			return(1);
+		} else {
+			return(0);
+		}
+	}	
+}
+
+/**
+ * Function to Verify error on BIQ Page
+ * @param $V_PGM
+ * @returns {Number} - Returns 1 if error exists on page
+ */
+function Verify_BIQ_Page_Error ($V_PGM) {
+	if((toUpperCase($V_PGM)=='HISET' || toUpperCase($V_PGM)=='HSE') || (toUpperCase($V_PGM)=='MOPA' || toUpperCase($V_PGM)=='MIS') || (toUpperCase($V_PGM)=='PPAT' || toUpperCase($V_PGM)=='PRI') || (toUpperCase($V_PGM)=='GACE' || toUpperCase($V_PGM)=='GAT')) {
+		if(_exists($OR_EREGWEBCABIQPgErrHdr)) {
+			if(_exists($OR_EREGWEBCABIQPgReqErr)) {
+				_log("Required Field error displayed on BIQ Page","error");
+				return(1);
+		}
+	}
+	}
+}
+
+/**
+ * Function to enter value on Create Profile-BIQ Page
+ * @param $V_PGM
+ */
+function Enter_All_BIQ_Info($V_PGM) {
+	if((toUpperCase($V_PGM)=='HISET' || toUpperCase($V_PGM)=='HSE')) {
+		_setValue($OR_EREGWEBCABIQPgQ34TB,"Test");
+		_click($OR_EREGWEBCABIQPgQ2RB2);
+		_click($OR_EREGWEBCABIQPgQ3RB1);
+		_click($OR_EREGWEBCABIQPgQ4CB1);
+		_click($OR_EREGWEBCABIQPgQ5RB1);
+		_click($OR_EREGWEBCABIQPgQ6RB1);
+		_setSelected($OR_EREGWEBCABIQPgQ7DD,"6th grade");
+		_setValue($OR_EREGWEBCABIQPgQ8TB,"Test");
+		_setValue($OR_EREGWEBCABIQPgQ9TB,"Test");
+		_setSelected($OR_EREGWEBCABIQPgQ10DD,"New Jersey");
+		_click($OR_EREGWEBCABIQPgQ11RB1);
+		_click($OR_EREGWEBCABIQPgQ12RB1);
+		_click($OR_EREGWEBCABIQPgQ13RB1);
+		_click($OR_EREGWEBCABIQPgQ14RB1);
+		_click($OR_EREGWEBCABIQPgQ15RB1);
+		_click($OR_EREGWEBCABIQPgQ16CB1);
+		_click($OR_EREGWEBCABIQPgQ17CB1);
+		_setSelected($OR_EREGWEBCABIQPgQ18DD,"5-9 hours");
+		_click($OR_EREGWEBCABIQPgQ19RB1);
+		_click($OR_EREGWEBCABIQPgQ20RB1);
+		_click($OR_EREGWEBCABIQPgQ21RB1);
+		_click($OR_EREGWEBCABIQPgQ22RB1);
+		_click($OR_EREGWEBCABIQPgQ23RB1);
+		_setSelected($OR_EREGWEBCABIQPgQ24DD,"Disagree");
+		_setSelected($OR_EREGWEBCABIQPgQ25DD,"Disagree");
+		_setSelected($OR_EREGWEBCABIQPgQ26DD,"Disagree");
+		_setSelected($OR_EREGWEBCABIQPgQ27DD,"Disagree");
+		_setSelected($OR_EREGWEBCABIQPgQ28DD,"Disagree");
+		_setSelected($OR_EREGWEBCABIQPgQ29DD,"Disagree");
+		_setSelected($OR_EREGWEBCABIQPgQ30DD,"Disagree");
+		_setSelected($OR_EREGWEBCABIQPgQ31DD,"Disagree");
+		_setSelected($OR_EREGWEBCABIQPgQ32DD,"Disagree");
+		_setSelected($OR_EREGWEBCABIQPgQ33DD,"Disagree");
+		_setSelected($OR_EREGWEBCABIQPgQ34TB,"Disagree");
+	} else if ((toUpperCase($V_PGM)=='MOPA' || toUpperCase($V_PGM)=='MIS') || (toUpperCase($V_PGM)=='PPAT' || toUpperCase($V_PGM)=='PRI') || (toUpperCase($V_PGM)=='GACE' || toUpperCase($V_PGM)=='GAT')) {
+		
+	}
+}
+
+/**
+ * Function to enter required field value on Create Profile-BIQ Page  
+ * @param $V_PGM
+ */
+function Enter_Required_BIQ_Info ($V_PGM) {
+	if((toUpperCase($V_PGM)=='HISET' || toUpperCase($V_PGM)=='HSE')) {
+		_click($OR_EREGWEBCABIQPgQ2RB2);
+		_click($OR_EREGWEBCABIQPgQ3RB1);
+		_click($OR_EREGWEBCABIQPgQ4CB1);
+		_click($OR_EREGWEBCABIQPgQ5RB1);
+	} else if((toUpperCase($V_PGM)=='MOPA' || toUpperCase($V_PGM)=='MIS') || (toUpperCase($V_PGM)=='PPAT' || toUpperCase($V_PGM)=='PRI') || (toUpperCase($V_PGM)=='GACE' || toUpperCase($V_PGM)=='GAT')) {
+		
+	}
+}
+
+/**
+ * Function to verify the header of Create Profile - Username and Password Page
+ * @param $VPGM
+ * @returns {Number} - returns 1 if true and 0 if false
+ */
+function Verify_Username_Password_Header ($VPGM) {
+	if((toUpperCase($V_PGM)=='HISET' || toUpperCase($V_PGM)=='HSE') || (toUpperCase($V_PGM)=='MOPA' || toUpperCase($V_PGM)=='MIS') || (toUpperCase($V_PGM)=='PPAT' || toUpperCase($V_PGM)=='PRI') || (toUpperCase($V_PGM)=='GACE' || toUpperCase($V_PGM)=='GAT')) {
+		if(_exists($OR_EREGWEBCAUsrnamPwdPgHdr1)  && _exists($OR_EREGWEBCAUsrnamPwdPgHdr1)) {
+			return(1);
+		} else {
+			return(0);
+		}
+	}	
+}
+
+/**
+ * Function to verify error on Username and Password Page
+ * @param $V_PGM
+ * @returns {Number} - Returns 1 if error exists on page
+ */
+function Verify_Username_Password_Page_Error ($V_PGM) {
+	if((toUpperCase($V_PGM)=='HISET' || toUpperCase($V_PGM)=='HSE') || (toUpperCase($V_PGM)=='MOPA' || toUpperCase($V_PGM)=='MIS') || (toUpperCase($V_PGM)=='PPAT' || toUpperCase($V_PGM)=='PRI') || (toUpperCase($V_PGM)=='GACE' || toUpperCase($V_PGM)=='GAT')) {
+		if(_exists($OR_EREGWEBCAUsrnamPwdPgErrHdr)) {
+			if(_exists($OR_EREGWEBCAUsrnamPwdPgUsrnamReqErr)) {
+				_log("Required Field error displayed for Username field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAUsrnamPwdPgPwdReqErr)) {
+				_log("Required Field error displayed for Password field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAUsrnamPwdPgRePwdReqErr)) {
+				_log("Required Field error displayed for Confirm Password field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAUsrnamPwdPgRePwdReqErr)) {
+				_log("Required Field error displayed for Confirm Password field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAUsrnamPwdPgSecQuesReqErr)) {
+				_log("Required Field error displayed for Security Question field","error");
+				return(1);
+			}
+			if(_exists($OR_EREGWEBCAUsrnamPwdPgTrmCndtnReqErr)) {
+				_log("Required Field error displayed for Terms and Condition field","error");
+				return(1);
+			}
+		}
+	}
+}
+
+/**
+ * Function to enter value on Create Profile-Username and Password Page 
+ * @param $V_PGM
+ * @param $V_UsrNam
+ * @param $V_Pwd
+ * @param $V_CnfrmPwd
+ * @param $V_SecQstn
+ * @param $V_SecAns
+ * @param $V_TrmsCndtn
+ */
+function Enter_Username_Password ($V_PGM,$V_UsrNam,$V_Pwd,$V_CnfrmPwd,$V_SecQstn,$V_SecAns,$V_TrmsCndtn) {
+	if((toUpperCase($V_PGM)=='HISET' || toUpperCase($V_PGM)=='HSE')) {
+		_setValue($OR_EREGWEBCAUsrnamPwdPgUsrnamTB,$V_UsrNam);
+		_setValue($OR_EREGWEBCAUsrnamPwdPgPwdTB,$V_Pwd);
+		_setValue($OR_EREGWEBCAUsrnamPwdPgRePwdTB,$V_CnfrmPwd);
+		_setSelected($OR_EREGWEBCAUsrnamPwdPgSecQuesDD,$V_SecQstn);
+		_setValue($OR_EREGWEBCAUsrnamPwdPgSecAnsTB,$V_SecAns);
+		_click($OR_EREGWEBCAUsrnamPwdPgTrmCndtnCB);
+	} else if((toUpperCase($V_PGM)=='MOPA' || toUpperCase($V_PGM)=='MIS') || (toUpperCase($V_PGM)=='PPAT' || toUpperCase($V_PGM)=='PRI') || (toUpperCase($V_PGM)=='GACE' || toUpperCase($V_PGM)=='GAT')) {
+		
+	}
+}
+

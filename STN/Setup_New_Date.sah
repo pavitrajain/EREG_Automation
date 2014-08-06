@@ -1,5 +1,5 @@
-_dynamicInclude(_userDataDir() + "//Object_Repository.sah");
-_dynamicInclude(_userDataDir() + "//Function_Repository.sah");
+_dynamicInclude(_userDataDir() + "\\scripts\\STN\\Library\\STN_Object_Repository.sah");
+_dynamicInclude(_userDataDir() + "\\scripts\\STN\\Library\\STN_Function_Repository.sah");
 
 var $URL = "https:\/\/66.170.133.44\/STNManager\/Login.aspx";
 var $Username = "pzjain";
