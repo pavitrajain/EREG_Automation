@@ -3,15 +3,33 @@ _dynamicInclude(_userDataDir() + "\\scripts\\STN\\Library\\STN_Function_Reposito
 
 var $URL = "https:\/\/66.170.133.44\/STNManager\/Login.aspx";
 var $Username = "pzjain";
-var $Password = "Muskaan3$$";
-var $Admin = [["20140728B","July","2014","28","16:00"],
-              ["20140728D","July","2014","28","16:30"],
-              ["20140728F","July","2014","28","17:00"],
-              ["20140728T","July","2014","28","17:30"],
-              ["20140728V","July","2014","28","18:00"]];
+var $Password = "Muskaan4$$";
+//var $Admin = [["20141117C","November","2014","17","16:15"],
+//			  ["20141117D","November","2014","17","16:30"],
+//			  ["20141117E","November","2014","17","16:45"],
+//			  ["20141117F","November","2014","17","17:00"],
+//			  ["20141124A","November","2014","24","15:45"],
+//			  ["20141124B","November","2014","24","16:00"],
+//			  ["20141124C","November","2014","24","16:15"],
+//			  ["20141124D","November","2014","24","16:30"],
+//			  ["20141124E","November","2014","24","16:45"],
+//			  ["20141124F","November","2014","24","17:00"]];
+
+var $Admin = [["20150105A","January","2015","5","15:45"],
+			  ["20150105B","January","2015","5","16:00"],
+			  ["20150105C","January","2015","5","16:15"],
+			  ["20150105D","January","2015","5","16:30"],
+			  ["20150105E","January","2015","5","16:45"],
+			  ["20150105F","January","2015","5","17:00"],
+			  ["20150112A","January","2015","12","15:45"],
+			  ["20150112B","January","2015","12","16:00"],
+			  ["20150112C","January","2015","12","16:15"],
+			  ["20150112D","January","2015","12","16:30"],
+			  ["20150112E","January","2015","12","16:45"],
+			  ["20150112F","January","2015","12","17:00"]];
 
 var $RGN = "NA";
-var $CntrID = ["STN15073A","STN15075A","STN15075B","STN15076A","STN15077A"];
+var $CntrID = ["STN15073A","STN15075A","STN15075B","STN15076A","STN15077A","HSTC10009A","HSTP10009A","HSTP10010A","HSTC10010A"];
 
 Login($URL,$Username,$Password);
 Select_PGM();
@@ -19,17 +37,12 @@ Select_PGM();
 for(var $i=0;$i<$Admin.length;$i++) {
 	var $AdmFlg = VerifyAdmin($Admin[$i]);
 	if($AdmFlg==1) {
-		for(var $j=0;$j<$CntrID.length;$j++) {
-			AddTestCenter($Admin[$i],$CntrID[$j]);
-		}
+		AddTestCenter($Admin[$i],$CntrID);
 	}
 	else {
 		AddAdmin($Admin[$i]);
 		AddRegion($Admin[$i],$RGN);
-		for(var $j=0;$j<$CntrID.length;$j++) {
-			AddTestCenter($Admin[$i],$CntrID[$j]);
-		}
-		
+		AddTestCenter($Admin[$i],$CntrID);
 	}
 }
 

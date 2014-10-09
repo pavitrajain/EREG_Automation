@@ -1,0 +1,13 @@
+_navigateTo("http://www.google.com");
+_click(_link("See Tests & Prices"));
+_click(_heading1("For the Best Testing Experience, Our Service Includes:"));
+_click(_div("peace_of_mind"));
+_rightClick(_div("peace_of_mind"));
+_click(_listItem("Secure and confidential STD testing services"));
+_click(_link("Reuse the test as a data-driven test with a Data Production Library that reads data from a Comma-Separated-Value (CSV) file"));
+_click(_image("Comma separate value (CSV) file"));
+_click(_image("Comma separate value (CSV) file"));
+_click(_image("Comma separate value (CSV) file"));
+_click(_listItem("Open the Sahi test script in the Designer. Click the Designer icon in the tool bar of the TestMaker Console window."));
+_click(_paragraph("New Delhi, India (DEL)"));
+_click(_paragraph("New York, US - All Airports (NYC)"));

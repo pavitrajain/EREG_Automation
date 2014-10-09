@@ -1,0 +1,66 @@
+
+
+	d1: {
+		var $V_Date = "Aug/22/2014";	
+	}
+
+
+var $Date = $V_Date.split("/");
+		var $Day = $Date[1];
+		var $Month = $Date[0];
+		var $Year = $Date[2];
+		
+		switch ($Month) {
+		case 'Jan':
+			$Month = 1;
+			break;
+		case 'Feb':
+			$Month = 2;
+			break;
+		case 'Mar':
+			$Month = 3;
+			break;
+		case 'Apr':
+			$Month = 4;
+			break;
+		case 'May':
+			$Month = 5;
+			break;
+		case 'Jun':
+			$Month = 6;
+			break;
+		case 'Jul':
+			$Month = 7;
+			break;
+		case 'Aug':
+			$Month = 8;
+			break;	
+		case 'Sep':
+			$Month = 9;
+			break;
+		case 'Oct':
+			$Month = 10;
+			break;
+		case 'Nov':
+			$Month = 11;
+			break;
+		case 'Dec':
+			$Month = 12;
+			break;		
+		}
+_log($V_Date,$Day,$Month,$Year);
+var $First_Month = _byXPath("//div[@class='ui-datepicker-group ui-datepicker-group-first']/descendant::span[@class='ui-datepicker-month']");
+var $test = _getText($First_Month);
+_log($First_Month,$test);
+if($test=='September') {
+	_log("Pass");
+} else {
+	_log("Fail");
+}
+var $Date_val = "//div[@class='ui-datepicker-group ui-datepicker-group-first']/descendant::a[normalize-space(text())='"+$Day+"']";
+_log($Date_val);
+var $Today = new Date();
+_log($Today);
+
+
+

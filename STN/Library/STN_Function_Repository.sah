@@ -26,13 +26,21 @@ function Select_PGM () {
 function VerifyAdmin ($V_ADM) {
 		
 	_click($OR_SetupAdmPgDateFromCal);
-	_setSelected($OR_SetupAdmPgDateFrmFldMonDrpDwn,$V_ADM[1]);
-	_setSelected($OR_SetupAdmPgDateFrmFldYearDrpDwn,$V_ADM[2]);
+	if(_getSelectedText($OR_SetupAdmPgDateFrmFldMonDrpDwn)!=$V_ADM[1]) {
+		_setSelected($OR_SetupAdmPgDateFrmFldMonDrpDwn,$V_ADM[1]);	
+	}
+	if(_getSelectedText($OR_SetupAdmPgDateFrmFldYearDrpDwn)!=$V_ADM[2]) {
+		_setSelected($OR_SetupAdmPgDateFrmFldYearDrpDwn,$V_ADM[2]);	
+	}
 	_click(_cell($V_ADM[3]));
 	_click($OR_SetupAdmPgDateFrmFldSubmitBtn);
 	_click($OR_SetupAdmPgDateToCal);
-	_setSelected($OR_SetupAdmPgDateFrmFldMonDrpDwn,$V_ADM[1]);
-	_setSelected($OR_SetupAdmPgDateFrmFldYearDrpDwn,$V_ADM[2]);
+	if(_getSelectedText($OR_SetupAdmPgDateFrmFldMonDrpDwn)!=$V_ADM[1]) {
+		_setSelected($OR_SetupAdmPgDateFrmFldMonDrpDwn,$V_ADM[1]);	
+	}
+	if(_getSelectedText($OR_SetupAdmPgDateFrmFldYearDrpDwn)!=$V_ADM[2]) {
+		_setSelected($OR_SetupAdmPgDateFrmFldYearDrpDwn,$V_ADM[2]);	
+	}
 	_click(_cell($V_ADM[3]));
 	_click($OR_SetupAdmPgDateFrmFldSubmitBtn);
 	_click($OR_SetupAdmPgDateFltrGoBtn);
@@ -116,7 +124,7 @@ function AddRegion ($V_ADM,$V_RGN) {
 	
 }
 
-function AddTestCenter ($V_ADM,$V_CntrId) {
+function AddTestCenter ($V_ADM,$CntrID) {
 	
 	_click(_span("HiSET",_near(_link($V_ADM[0]))));
 	_click($OR_SetupAdmPgCenterBtn);
@@ -124,33 +132,34 @@ function AddTestCenter ($V_ADM,$V_CntrId) {
 		_click(_span("HiSET",_near(_link($V_ADM[0]))));
 		_click($OR_SetupAdmPgCenterBtn);
 	}
-	_click($OR_SetpupPgmAdmCntrPgNewBtn);
-	_setValue($OR_SetpupPgmAdmNewCntrPgCntrIdFld,$V_CntrId);
-	_click($OR_SetpupPgmAdmNewCntrPgGoBtn);
-	
-	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl3:chkAssigned"));
-	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl3:chkRequired"));
+	for(var $j=0;$j<$CntrID.length;$j++) {
+		_click($OR_SetpupPgmAdmCntrPgNewBtn);
+		_setValue($OR_SetpupPgmAdmNewCntrPgCntrIdFld,$CntrID[$j]);
+		_click($OR_SetpupPgmAdmNewCntrPgGoBtn);
 		
-//	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl4:chkAssigned"));
-//	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl4:chkRequired"));
-//	
-//	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl5:chkAssigned"));
-//	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl5:chkRequired"));
-//	
-//	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl6:chkAssigned"));
-//	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl6:chkRequired"));
-//	
-//	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl7:chkAssigned"));
-//	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl7:chkRequired"));
-//	
-//	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl8:chkAssigned"));
-//	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl8:chkRequired"));
-//	
-//	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl9:chkAssigned"));
-//	_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl9:chkRequired"));
-	
-	_click($OR_SetpupPgmAdmNewCntrPgSubmitBtn);
-	
+		_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl3:chkAssigned"));
+		_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl3:chkRequired"));
+			
+//		_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl4:chkAssigned"));
+//		_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl4:chkRequired"));
+	//	
+//		_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl5:chkAssigned"));
+//		_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl5:chkRequired"));
+	//	
+//		_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl6:chkAssigned"));
+//		_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl6:chkRequired"));
+	//	
+//		_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl7:chkAssigned"));
+//		_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl7:chkRequired"));
+	//	
+//		_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl8:chkAssigned"));
+//		_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl8:chkRequired"));
+	//	
+//		_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl9:chkAssigned"));
+//		_click(_checkbox("_ctl0:MainContent:dgCenters:_ctl9:chkRequired"));
+		
+		_click($OR_SetpupPgmAdmNewCntrPgSubmitBtn);
+	}
 	_click($OR_SetpupPgmAdmCntrPgCloseBtn);
 	
 }

@@ -1,0 +1,15 @@
+var $connectionString="(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=HALN05-WEBDBS2.ets.org)(PORT=1529))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=OD70)))";
+
+
+var $username="ereg02DV_WEB";
+var $password="ereg02$dv";
+var $JDBCDriver="oracle.jdbc.driver.OracleDriver";
+var $JDBCurl="jdbc:oracle:thin:@"+$connectionString;
+
+$dbObject=_getDB($JDBCDriver,$JDBCurl,$username,$password);
+
+var $Query = "select * from BLC_CUSTOMER where customer_id = '1108'";
+
+var $result = $dbObject.select($Query);
+
+_log($result);

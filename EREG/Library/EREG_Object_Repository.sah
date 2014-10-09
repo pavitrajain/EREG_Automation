@@ -1,301 +1,448 @@
 /* -- EREG WEB Login Page -- */
-var $OR_EREGWEBLgnPgHdr = _byXPath("//h1[normalize-space(text())='Sign In for Test Takers']");
-var $OR_EREGWEBLgnPgUsrnamTB = _byXPath("//input[@name='username'][@id='username']");
-var $OR_EREGWEBLgnPgPwdTB = _byXPath("//input[@name='password'][@id='password']");
-var $OR_EREGWEBLgnPgSignInBtn = _byXPath("//button[normalize-space(text())='Sign In']");
-var $OR_EREGWEBLgnPgFrgtUsrnamLnk = _byXPath("//a[normalize-space(text())='Forgot Username']");
-var $OR_EREGWEBLgnPgFrgtPwdLnk = _byXPath("//a[normalize-space(text())='Forgot Password']");
-var $OR_EREGWEBLgnPgCrtAcntBtn = _byXPath("//a[normalize-space(text())='Create an Account']");
-var $OR_EREGWEBLGNPgErrHdr = _byXPath("//div[@class='error-header']");
+var $Obj_EREGWEBLgnPgHdr = _byXPath("//h1[normalize-space(text())='Sign In for Test Takers']");
+var $Obj_EREGWEBLgnPgUsrnamTB = _byXPath("//input[@name='username'][@id='username']");
+var $Obj_EREGWEBLgnPgPwdTB = _byXPath("//input[@name='password'][@id='password']");
+var $Obj_EREGWEBLgnPgSignInBtn = _byXPath("//button[normalize-space(text())='Sign In']");
+var $Obj_EREGWEBLgnPgFrgtUsrnamLnk = _byXPath("//a[normalize-space(text())='Forgot Username']");
+var $Obj_EREGWEBLgnPgFrgtPwdLnk = _byXPath("//a[normalize-space(text())='Forgot Password']");
+var $Obj_EREGWEBLgnPgCrtAcntBtn = _byXPath("//a[normalize-space(text())='Create an Account']");
+var $Obj_EREGWEBLGNPgErrHdr = _byXPath("//div[@class='error-header']");
 /* -- EREG WEB Login Page -- */
-	
+
 /* -- EREG WEB Create Account - Header -- */
-var $OR_EREGWEBCALoginLnk = _byXPath("//a[normalize-space(text())='Login']");
+var $Obj_EREGWEBCALoginLnk = _byXPath("//a[normalize-space(text())='Login']");
 /* -- EREG WEB Create Account - Header -- */
 
 /* -- EREG WEB Create Account - Personal Info Page -- */
-var $OR_EREGWEBCAPerInfoPgHdr1 = _byXPath("//span[normalize-space(text())='Create Account']");
-var $OR_EREGWEBCAPerInfoPgHdr2 = _byXPath("//span[normalize-space(text())='Personal Information']");
-var $OR_EREGWEBCAPerInfoPgFstNamTB = _byXPath("//input[@id='fname']");
-var $OR_EREGWEBCAPerInfoPgMidIntTB = _byXPath("//input[@id='middleInitial']");
-var $OR_EREGWEBCAPerInfoPgLstNamTB = _byXPath("//input[@id='lname']");
-var $OR_EREGWEBCAPerInfoPgDOBMonthDD = _byXPath("//select[@name='birthMonth']");
-var $OR_EREGWEBCAPerInfoPgDOBDayDD = _byXPath("//select[@name='birthDay']");
-var $OR_EREGWEBCAPerInfoPgDOBYearTB = _byXPath("//select[@name='birthYear']");
-var $OR_EREGWEBCAPerInfoPgGndrMaleRB = _byXPath("//input[@id='genderM'][@value='M']");
-var $OR_EREGWEBCAPerInfoPgGndrFemaleRB = _byXPath("//input[@name='041'][@value='F']");
-var $OR_EREGWEBCAPerInfoPgSSNTB = _byXPath("//input[@id='socialSecurity']");
-var $OR_EREGWEBCAPerInfoPgEmailTB = _byXPath("//input[@id='uemail']");
-var $OR_EREGWEBCAPerInfoPgAdrLn1TB = _byXPath("//input[@id='addressLine1]");
-var $OR_EREGWEBCAPerInfoPgADrLn2TB = _byXPath("//input[@id='addressLine2']");
-var $OR_EREGWEBCAPerInfoPgCityTB = _byXPath("//input[@id='ucity']");
-var $OR_EREGWEBCAPerInfoPgStateDD = _byXPath("//select[@name='stateCode']");
-var $OR_EREGWEBCAPerInfoPgPstCdeTB = _byXPath("//input[@id='postalCode']");
-var $OR_EREGWEBCAPerInfoPgPriPhnNumTB = _byXPath("//input[@id='primaryPhoneNumber']");
-var $OR_EREGWEBCAPerInfoPgPriPhnExtTB = _byXPath("//input[@id='primaryPhoneExtension']");
-var $OR_EREGWEBCAPerInfoPgPriPhnTypLRB = _byXPath("//input[@name='primaryPhoneType'][@value='L']");
-var $OR_EREGWEBCAPerInfoPgPriPhnTypMRB = _byXPath("//input[@name='05G'][@value='M']");
-var $OR_EREGWEBCAPerInfoPgSecPhnNumTB = _byXPath("//input[@id='alternativePhoneNumber']");
-var $OR_EREGWEBCAPerInfoPgSecPhnExtTB = _byXPath("//input[@id='alternativePhoneExtension']");
-var $OR_EREGWEBCAPerInfoPgSecPhnTypLRB = _byXPath("//input[@name='05U'][@value='L']");
-var $OR_EREGWEBCAPerInfoPgSecPhnTypMRB = _byXPath("//input[@name='05X'][@value='M']");
-var $OR_EREGWEBCAPerInfoPgBackBtn = _byXPath("//span[normalize-space(text())='BACK']/parent::button");
-var $OR_EREGWEBCAPerInfoPgNextBtn = _byXPath("//span[normalize-space(text())='NEXT']/parent::button");
-
-var $OR_EREGWEBCAPerInfoPgErrHdr = _byXPath("//span[normalize-space(text())='Please check the errors in the form.']");
-var $OR_EREGWEBCAPerInfoPgFstNamReqErr = _byXPath("//div[normalize-space(text())='First/Given Name is required'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgFstNamInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@ng-show='form.firstName.$error.pattern'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgFstNamMaxLenErr = _byXPath("//div[normalize-space(text())='Your First/Given Name cannot be more than 25 characters'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgFstNamMinLenErr = _byXPath("//div[normalize-space(text())='Your First/Given Name cannot be less than 2 characters'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgMidIntInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@ng-show='form.mname.$error.pattern'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgMidIntMaxLenErr = _byXPath("//div[normalize-space(text())='Your Middle Initial cannot be more than 1 character'][@ng-show='form.mname.$error.maxlength'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgLstNamReqErr = _byXPath("//div[normalize-space(text())='Last/Family Name is required'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgLstNamInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@class='validationError'][@ng-show='form.lastName.$error.pattern']");
-var $OR_EREGWEBCAPerInfoPgLstNamMaxLenErr = _byXPath("//div[normalize-space(text())='Your Last/Family Name cannot be more than 25 characters'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgLstNamMinLenErr = _byXPath("//div[normalize-space(text())='Your Last/Family Name cannot be less than 2 characters'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgDOBMonthReqErr = _byXPath("//div[normalize-space(text())='Date of Birth Month is required'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgDOBDayReqErr = _byXPath("//div[normalize-space(text())='Date of Birth Day is required'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgDOBYearReqErr = _byXPath("//div[normalize-space(text())='Date of Birth Year is required'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgDOBYearInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@class='validationError'][@ng-show='form.birthYear.$error.pattern']");
-var $OR_EREGWEBCAPerInfoPgDOBYearMaxLenErr = _byXPath("//div[normalize-space(text())='Your Date of Birth Year cannot be more than 4 characters'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgDOBYearMinLenErr = _byXPath("//div[normalize-space(text())='Your Date of Birth Year cannot be less than 4 characters'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgGnderReqErr = _byXPath("//div[normalize-space(text())='Gender is required'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgSSNInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@class='validationError'][@ng-show='form.socialSecurityNumber.$error.pattern']");
-var $OR_EREGWEBCAPerInfoPgSSNMaxLenErr = _byXPath("//div[normalize-space(text())='Your Social Security Number cannot be more than 9 characters'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgSSNMinLenErr = _byXPath("//div[normalize-space(text())='Your Social Security Number cannot be less than 9 characters'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgEmailReqErr = _byXPath("//div[normalize-space(text())='Email Address is required'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgEmailInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@class='validationError'][@ng-show='form.emailAddress.$error.pattern']");
-var $OR_EREGWEBCAPerInfoPgEmailMaxLenErr = _byXPath("//div[normalize-space(text())='Your Email Address cannot be more than 100 characters'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgEmailMinLenErr = _byXPath("//div[normalize-space(text())='Your Email Address cannot be less than 10 characters'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgAdrLn1ReqErr = _byXPath("//div[normalize-space(text())='Address Line 1 is required'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgAdrLn1MaxLenErr = _byXPath("//div[normalize-space(text())='Your Address Line 1 cannot be more than 40 characters'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgAdrLn2MaxLenErr = _byXPath("//div[normalize-space(text())='Your Address Line 2 cannot be more than 40 characters'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgCityReqErr = _byXPath("//div[normalize-space(text())='City is required'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgCityInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@class='validationError'][@ng-show='form.city.$error.pattern']");
-var $OR_EREGWEBCAPerInfoPgCityMaxLenErr = _byXPath("//div[normalize-space(text())='Your City cannot be more than 25 characters'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgStateReqErr = _byXPath("//div[normalize-space(text())='State is required'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgPstlCdeReqErr = _byXPath("//div[normalize-space(text())='Postal Code is required'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgPstlCdeInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@class='validationError'][@ng-show='form.postalCode.$error.pattern']");
-var $OR_EREGWEBCAPerInfoPgPstlCdeMaxLenErr = _byXPath("//div[normalize-space(text())='Your Postal Code cannot be more than 5 characters'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgPstlCdeMinLenErr = _byXPath("//div[normalize-space(text())='Your Postal Code cannot be less than 5 characters'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgPriPhnNumReqErr = _byXPath("//div[normalize-space(text())='Phone is required'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgPriPhnNumInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@class='validationError'][@ng-show='form.primaryPhoneNumber.$error.pattern']");
-var $OR_EREGWEBCAPerInfoPgPriPhnNumMaxLenErr = _byXPath("//div[normalize-space(text())='Your Phone cannot be more than 10 characters'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgPriPhnNumMinLenErr = _byXPath("//div[normalize-space(text())='Your Phone cannot be less than 10 characters'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgPriPhnExtnInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@class='validationError'][@ng-show='form.primaryPhoneExtension.$error.pattern']");
-var $OR_EREGWEBCAPerInfoPgPriPhnExtnMaxLenErr = _byXPath("//div[normalize-space(text())='Your Phone cannot be more than 5 characters'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgPriPhnTypReqErr = _byXPath("//div[normalize-space(text())='Type is required'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgAltPhnNumInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@ng-show='form.alternativePhoneNumber.$error.pattern'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgAltPhnNumMaxLenErr = _byXPath("//div[normalize-space(text())='Your Phone cannot be more than 10 characters'][@ng-show='form.alternativePhoneExtension.$error.maxlength'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgAltPhnNumMinLenErr = _byXPath("//div[normalize-space(text())='Your Phone cannot be less than 10 characters'][@ng-show='(form.alternativePhoneNumber.$error.minlength)'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgAltPhnExtnInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@ng-show='form.alternativePhoneExtension.$error.pattern'][@class='validationError']");
-var $OR_EREGWEBCAPerInfoPgAltPhnExtnMaxLenErr = _byXPath("//div[normalize-space(text())='Your Phone cannot be more than 5 characters'][@ng-show='form.alternativePhoneExtension.$error.maxlength'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgHdr1 = _byXPath("//span[normalize-space(text())='Create Account']");
+var $Obj_EREGWEBCAPerInfoPgHdr2 = _byXPath("//span[normalize-space(text())='Personal Information']");
+var $Obj_EREGWEBCAPerInfoPgFstNamTB = _byXPath("//input[@id='fname']");
+var $Obj_EREGWEBCAPerInfoPgMidIntTB = _byXPath("//input[@id='middleInitial']");
+var $Obj_EREGWEBCAPerInfoPgLstNamTB = _byXPath("//input[@id='lname']");
+var $Obj_EREGWEBCAPerInfoPgDOBMonthDD = _byXPath("//select[@name='birthMonth']");
+var $Obj_EREGWEBCAPerInfoPgDOBDayDD = _byXPath("//select[@name='birthDay']");
+var $Obj_EREGWEBCAPerInfoPgDOBYearTB = _byXPath("//select[@name='birthYear']");
+var $Obj_EREGWEBCAPerInfoPgGndrMaleRB = _byXPath("//input[@id='genderM'][@value='M']");
+var $Obj_EREGWEBCAPerInfoPgGndrFemaleRB = _byXPath("//input[@name='041'][@value='F']");
+var $Obj_EREGWEBCAPerInfoPgSSNTB = _byXPath("//input[@id='socialSecurity']");
+var $Obj_EREGWEBCAPerInfoPgEmailTB = _byXPath("//input[@id='uemail']");
+var $Obj_EREGWEBCAPerInfoPgAdrLn1TB = _byXPath("//input[@id='addressLine1]");
+var $Obj_EREGWEBCAPerInfoPgADrLn2TB = _byXPath("//input[@id='addressLine2']");
+var $Obj_EREGWEBCAPerInfoPgCityTB = _byXPath("//input[@id='ucity']");
+var $Obj_EREGWEBCAPerInfoPgStateDD = _byXPath("//select[@name='stateCode']");
+var $Obj_EREGWEBCAPerInfoPgPstCdeTB = _byXPath("//input[@id='postalCode']");
+var $Obj_EREGWEBCAPerInfoPgPriPhnNumTB = _byXPath("//input[@id='primaryPhoneNumber']");
+var $Obj_EREGWEBCAPerInfoPgPriPhnExtTB = _byXPath("//input[@id='primaryPhoneExtension']");
+var $Obj_EREGWEBCAPerInfoPgPriPhnTypLRB = _byXPath("//input[@name='primaryPhoneType'][@value='L']");
+var $Obj_EREGWEBCAPerInfoPgPriPhnTypMRB = _byXPath("//input[@name='05G'][@value='M']");
+var $Obj_EREGWEBCAPerInfoPgSecPhnNumTB = _byXPath("//input[@id='alternativePhoneNumber']");
+var $Obj_EREGWEBCAPerInfoPgSecPhnExtTB = _byXPath("//input[@id='alternativePhoneExtension']");
+var $Obj_EREGWEBCAPerInfoPgSecPhnTypLRB = _byXPath("//input[@name='05U'][@value='L']");
+var $Obj_EREGWEBCAPerInfoPgSecPhnTypMRB = _byXPath("//input[@name='05X'][@value='M']");
+var $Obj_EREGWEBCAPerInfoPgBackBtn = _byXPath("//span[normalize-space(text())='BACK']/parent::button");
+var $Obj_EREGWEBCAPerInfoPgNextBtn = _byXPath("//span[normalize-space(text())='NEXT']/parent::button");
+var $Obj_EREGWEBCAPerInfoPgErrHdr = _byXPath("//span[normalize-space(text())='Please check the errors in the form.']");
+var $Obj_EREGWEBCAPerInfoPgFstNamReqErr = _byXPath("//div[normalize-space(text())='First/Given Name is required'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgFstNamInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@ng-show='form.firstName.$error.pattern'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgFstNamMaxLenErr = _byXPath("//div[normalize-space(text())='Your First/Given Name cannot be more than 25 characters'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgFstNamMinLenErr = _byXPath("//div[normalize-space(text())='Your First/Given Name cannot be less than 2 characters'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgMidIntInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@ng-show='form.mname.$error.pattern'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgMidIntMaxLenErr = _byXPath("//div[normalize-space(text())='Your Middle Initial cannot be more than 1 character'][@ng-show='form.mname.$error.maxlength'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgLstNamReqErr = _byXPath("//div[normalize-space(text())='Last/Family Name is required'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgLstNamInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@class='validationError'][@ng-show='form.lastName.$error.pattern']");
+var $Obj_EREGWEBCAPerInfoPgLstNamMaxLenErr = _byXPath("//div[normalize-space(text())='Your Last/Family Name cannot be more than 25 characters'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgLstNamMinLenErr = _byXPath("//div[normalize-space(text())='Your Last/Family Name cannot be less than 2 characters'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgDOBMonthReqErr = _byXPath("//div[normalize-space(text())='Date of Birth Month is required'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgDOBDayReqErr = _byXPath("//div[normalize-space(text())='Date of Birth Day is required'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgDOBYearReqErr = _byXPath("//div[normalize-space(text())='Date of Birth Year is required'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgDOBYearInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@class='validationError'][@ng-show='form.birthYear.$error.pattern']");
+var $Obj_EREGWEBCAPerInfoPgDOBYearMaxLenErr = _byXPath("//div[normalize-space(text())='Your Date of Birth Year cannot be more than 4 characters'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgDOBYearMinLenErr = _byXPath("//div[normalize-space(text())='Your Date of Birth Year cannot be less than 4 characters'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgGnderReqErr = _byXPath("//div[normalize-space(text())='Gender is required'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgSSNInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@class='validationError'][@ng-show='form.socialSecurityNumber.$error.pattern']");
+var $Obj_EREGWEBCAPerInfoPgSSNMaxLenErr = _byXPath("//div[normalize-space(text())='Your Social Security Number cannot be more than 9 characters'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgSSNMinLenErr = _byXPath("//div[normalize-space(text())='Your Social Security Number cannot be less than 9 characters'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgEmailReqErr = _byXPath("//div[normalize-space(text())='Email Address is required'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgEmailInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@class='validationError'][@ng-show='form.emailAddress.$error.pattern']");
+var $Obj_EREGWEBCAPerInfoPgEmailMaxLenErr = _byXPath("//div[normalize-space(text())='Your Email Address cannot be more than 100 characters'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgEmailMinLenErr = _byXPath("//div[normalize-space(text())='Your Email Address cannot be less than 10 characters'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgAdrLn1ReqErr = _byXPath("//div[normalize-space(text())='Address Line 1 is required'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgAdrLn1MaxLenErr = _byXPath("//div[normalize-space(text())='Your Address Line 1 cannot be more than 40 characters'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgAdrLn2MaxLenErr = _byXPath("//div[normalize-space(text())='Your Address Line 2 cannot be more than 40 characters'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgCityReqErr = _byXPath("//div[normalize-space(text())='City is required'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgCityInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@class='validationError'][@ng-show='form.city.$error.pattern']");
+var $Obj_EREGWEBCAPerInfoPgCityMaxLenErr = _byXPath("//div[normalize-space(text())='Your City cannot be more than 25 characters'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgStateReqErr = _byXPath("//div[normalize-space(text())='State is required'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgPstlCdeReqErr = _byXPath("//div[normalize-space(text())='Postal Code is required'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgPstlCdeInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@class='validationError'][@ng-show='form.postalCode.$error.pattern']");
+var $Obj_EREGWEBCAPerInfoPgPstlCdeMaxLenErr = _byXPath("//div[normalize-space(text())='Your Postal Code cannot be more than 5 characters'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgPstlCdeMinLenErr = _byXPath("//div[normalize-space(text())='Your Postal Code cannot be less than 5 characters'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgPriPhnNumReqErr = _byXPath("//div[normalize-space(text())='Phone is required'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgPriPhnNumInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@class='validationError'][@ng-show='form.primaryPhoneNumber.$error.pattern']");
+var $Obj_EREGWEBCAPerInfoPgPriPhnNumMaxLenErr = _byXPath("//div[normalize-space(text())='Your Phone cannot be more than 10 characters'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgPriPhnNumMinLenErr = _byXPath("//div[normalize-space(text())='Your Phone cannot be less than 10 characters'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgPriPhnExtnInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@class='validationError'][@ng-show='form.primaryPhoneExtension.$error.pattern']");
+var $Obj_EREGWEBCAPerInfoPgPriPhnExtnMaxLenErr = _byXPath("//div[normalize-space(text())='Your Phone cannot be more than 5 characters'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgPriPhnTypReqErr = _byXPath("//div[normalize-space(text())='Type is required'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgAltPhnNumInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@ng-show='form.alternativePhoneNumber.$error.pattern'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgAltPhnNumMaxLenErr = _byXPath("//div[normalize-space(text())='Your Phone cannot be more than 10 characters'][@ng-show='form.alternativePhoneExtension.$error.maxlength'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgAltPhnNumMinLenErr = _byXPath("//div[normalize-space(text())='Your Phone cannot be less than 10 characters'][@ng-show='(form.alternativePhoneNumber.$error.minlength)'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgAltPhnExtnInvalidErr = _byXPath("//div[normalize-space(text())='You entered an invalid character'][@ng-show='form.alternativePhoneExtension.$error.pattern'][@class='validationError']");
+var $Obj_EREGWEBCAPerInfoPgAltPhnExtnMaxLenErr = _byXPath("//div[normalize-space(text())='Your Phone cannot be more than 5 characters'][@ng-show='form.alternativePhoneExtension.$error.maxlength'][@class='validationError']");
 /* -- EREG WEB Create Account - Personal Info Page -- */
 
 /* -- EREG WEB Create Account - Additional Info Page -- */
-var $OR_EREGWEBCAAddInfoPgHdr1 = _byXPath("//h1[normalize-space(text())='Create Account']");
-var $OR_EREGWEBCAAddInfoPgHdr2 = _byXPath("//span[normalize-space(text())='Additional Information']");
-var $OR_EREGWEBCAAddInfoPrefLangERB = _byXPath("//input[@id='EN'][@value='EN']");
-var $OR_EREGWEBCAAddInfoPrefLangSRB = _byXPath("//input[@id='ES'][@value='ES']");
-var $OR_EREGWEBCAAddInfoPriSpkLangDD = _byXPath("//select[@id='2']");
-var $OR_EREGWEBCAAddInfoPgBackBtn = _byXPath("//span[normalize-space(text())='BACK']/parent::button");
-var $OR_EREGWEBCAAddInfoPgNextBtn = _byXPath("//span[normalize-space(text())='NEXT']/parent::button");
-var $OR_EREGWEBCAAddInfoPgErrHdr = _byXPath("//span[normalize-space(text())='Please check the errors in the form.']");
-var $OR_EREGWEBCAAddInfoPgPrefLangReqErr = _byXPath("//span[normalize-space(text())='Preferred Language For Test Taking']");
+var $Obj_EREGWEBCAAddInfoPgHdr1 = _byXPath("//h1[normalize-space(text())='Create Account']");
+var $Obj_EREGWEBCAAddInfoPgHdr2 = _byXPath("//span[normalize-space(text())='Additional Information']");
+var $Obj_EREGWEBCAAddInfoPrefLangERB = _byXPath("//input[@id='EN'][@value='EN']");
+var $Obj_EREGWEBCAAddInfoPrefLangSRB = _byXPath("//input[@id='ES'][@value='ES']");
+var $Obj_EREGWEBCAAddInfoPriSpkLangDD = _byXPath("//select[@id='2']");
+var $Obj_EREGWEBCAAddInfoPgBackBtn = _byXPath("//span[normalize-space(text())='BACK']/parent::button");
+var $Obj_EREGWEBCAAddInfoPgNextBtn = _byXPath("//span[normalize-space(text())='NEXT']/parent::button");
+var $Obj_EREGWEBCAAddInfoPgErrHdr = _byXPath("//span[normalize-space(text())='Please check the errors in the form.']");
+var $Obj_EREGWEBCAAddInfoPgPrefLangReqErr = _byXPath("//span[normalize-space(text())='Preferred Language For Test Taking']");
 /* -- EREG WEB Create Account - Additional Info Page -- */
 
 /* -- EREG WEB Create Account - BIQ Page -- */
-var $OR_EREGWEBCABIQPgHdr1 = _byXPath("//h1[normalize-space(text())='Create Account']");
-var $OR_EREGWEBCABIQPgHdr1 = _byXPath("//h2[normalize-space(text())='Background Information']");
+var $Obj_EREGWEBCABIQPgHdr1 = _byXPath("//h1[normalize-space(text())='Create Account']");
+var $Obj_EREGWEBCABIQPgHdr1 = _byXPath("//h2[normalize-space(text())='Background Information']");
 
-var $OR_EREGWEBCABIQPgQ2RB1 = _byXPath("//input[@id='201']"); //Non-Hispanic
-var $OR_EREGWEBCABIQPgQ2RB2 = _byXPath("//input[@id='202']"); //Hispanic
-var $OR_EREGWEBCABIQPgQ2RB3 = _byXPath("//input[@id='203']"); //I prefer not to respond 
+var $Obj_EREGWEBCABIQPgQ2RB1 = _byXPath("//input[@id='201']"); //Non-Hispanic
+var $Obj_EREGWEBCABIQPgQ2RB2 = _byXPath("//input[@id='202']"); //Hispanic
+var $Obj_EREGWEBCABIQPgQ2RB3 = _byXPath("//input[@id='203']"); //I prefer not to respond 
 
-var $OR_EREGWEBCABIQPgQ3RB1 = _byXPath("//input[@id='301']"); //Mexican, Mexican, or Chicano
-var $OR_EREGWEBCABIQPgQ3RB2 = _byXPath("//input[@id='302']"); //Puerto Rican or Puerto Rican American
-var $OR_EREGWEBCABIQPgQ3RB3 = _byXPath("//input[@id='303']"); //Cuban or Cuban American
-var $OR_EREGWEBCABIQPgQ3RB4 = _byXPath("//input[@id='304']"); //Other
+var $Obj_EREGWEBCABIQPgQ3RB1 = _byXPath("//input[@id='301']"); //Mexican, Mexican, or Chicano
+var $Obj_EREGWEBCABIQPgQ3RB2 = _byXPath("//input[@id='302']"); //Puerto Rican or Puerto Rican American
+var $Obj_EREGWEBCABIQPgQ3RB3 = _byXPath("//input[@id='303']"); //Cuban or Cuban American
+var $Obj_EREGWEBCABIQPgQ3RB4 = _byXPath("//input[@id='304']"); //Other
 
-var $OR_EREGWEBCABIQPgQ4CB1 = _byXPath("//input[@id='401']"); //American Indian or Alaskan Native
-var $OR_EREGWEBCABIQPgQ4CB2 = _byXPath("//input[@id='402']"); //Asian
-var $OR_EREGWEBCABIQPgQ4CB3 = _byXPath("//input[@id='403']"); //Black or African American
-var $OR_EREGWEBCABIQPgQ4CB4 = _byXPath("//input[@id='404']"); //Native Hawaiian or Other Pacific Islander
-var $OR_EREGWEBCABIQPgQ4CB5 = _byXPath("//input[@id='405']"); //White
-var $OR_EREGWEBCABIQPgQ4CB6 = _byXPath("//input[@id='406']"); //Other
-var $OR_EREGWEBCABIQPgQ4CB7 = _byXPath("//input[@id='407']"); //I prefer not to respond
+var $Obj_EREGWEBCABIQPgQ4CB1 = _byXPath("//input[@id='401']"); //American Indian or Alaskan Native
+var $Obj_EREGWEBCABIQPgQ4CB2 = _byXPath("//input[@id='402']"); //Asian
+var $Obj_EREGWEBCABIQPgQ4CB3 = _byXPath("//input[@id='403']"); //Black or African American
+var $Obj_EREGWEBCABIQPgQ4CB4 = _byXPath("//input[@id='404']"); //Native Hawaiian or Other Pacific Islander
+var $Obj_EREGWEBCABIQPgQ4CB5 = _byXPath("//input[@id='405']"); //White
+var $Obj_EREGWEBCABIQPgQ4CB6 = _byXPath("//input[@id='406']"); //Other
+var $Obj_EREGWEBCABIQPgQ4CB7 = _byXPath("//input[@id='407']"); //I prefer not to respond
 
-var $OR_EREGWEBCABIQPgQ5RB1 = _byXPath("//input[@id='501']"); //Yes
-var $OR_EREGWEBCABIQPgQ5RB2 = _byXPath("//input[@id='502']"); //No
+var $Obj_EREGWEBCABIQPgQ5RB1 = _byXPath("//input[@id='501']"); //Yes
+var $Obj_EREGWEBCABIQPgQ5RB2 = _byXPath("//input[@id='502']"); //No
 
-var $OR_EREGWEBCABIQPgQ6RB1 = _byXPath("//input[@id='601']"); //Employed part-time (29 or fewer hours per week)
-var $OR_EREGWEBCABIQPgQ6RB2 = _byXPath("//input[@id='602']"); //Employed full-time
-var $OR_EREGWEBCABIQPgQ6RB3 = _byXPath("//input[@id='603']"); //Unemployed (seeking employment)
-var $OR_EREGWEBCABIQPgQ6RB4 = _byXPath("//input[@id='604']"); //Not in the labor force (homemaker, family caregiver, student, retired )
+var $Obj_EREGWEBCABIQPgQ6RB1 = _byXPath("//input[@id='601']"); //Employed part-time (29 or fewer hours per week)
+var $Obj_EREGWEBCABIQPgQ6RB2 = _byXPath("//input[@id='602']"); //Employed full-time
+var $Obj_EREGWEBCABIQPgQ6RB3 = _byXPath("//input[@id='603']"); //Unemployed (seeking employment)
+var $Obj_EREGWEBCABIQPgQ6RB4 = _byXPath("//input[@id='604']"); //Not in the labor force (homemaker, family caregiver, student, retired )
 
-var $OR_EREGWEBCABIQPgQ7DD = _byXPath("//select[@id='7']");
+var $Obj_EREGWEBCABIQPgQ7DD = _byXPath("//select[@id='7']");
 
-var $OR_EREGWEBCABIQPgQ8TB = _byXPath("//input[@id='8']");
+var $Obj_EREGWEBCABIQPgQ8TB = _byXPath("//input[@id='8']");
 
-var $OR_EREGWEBCABIQPgQ9TB = _byXPath("//input[@id='9']");
+var $Obj_EREGWEBCABIQPgQ9TB = _byXPath("//input[@id='9']");
 
-var $OR_EREGWEBCABIQPgQ10DD = _byXPath("//select[@id='10']");
+var $Obj_EREGWEBCABIQPgQ10DD = _byXPath("//select[@id='10']");
 
-var $OR_EREGWEBCABIQPgQ11RB1 = _byXPath("//input[@id='1101']"); //Yes
-var $OR_EREGWEBCABIQPgQ11RB2 = _byXPath("//input[@id='1102']"); //No
+var $Obj_EREGWEBCABIQPgQ11RB1 = _byXPath("//input[@id='1101']"); //Yes
+var $Obj_EREGWEBCABIQPgQ11RB2 = _byXPath("//input[@id='1102']"); //No
 
-var $OR_EREGWEBCABIQPgQ12RB1 = _byXPath("//input[@id='1201']"); //Certificate program
-var $OR_EREGWEBCABIQPgQ12RB2 = _byXPath("//input[@id='1202']"); //Technical or vocational school 
-var $OR_EREGWEBCABIQPgQ12RB3 = _byXPath("//input[@id='1203']"); //Community college
-var $OR_EREGWEBCABIQPgQ12RB4 = _byXPath("//input[@id='1204']"); //4 year College or University degree or higher
+var $Obj_EREGWEBCABIQPgQ12RB1 = _byXPath("//input[@id='1201']"); //Certificate program
+var $Obj_EREGWEBCABIQPgQ12RB2 = _byXPath("//input[@id='1202']"); //Technical or vocational school 
+var $Obj_EREGWEBCABIQPgQ12RB3 = _byXPath("//input[@id='1203']"); //Community college
+var $Obj_EREGWEBCABIQPgQ12RB4 = _byXPath("//input[@id='1204']"); //4 year College or University degree or higher
 
-var $OR_EREGWEBCABIQPgQ13RB1 = _byXPath("//input[@id='1301']"); //Grade school or less
-var $OR_EREGWEBCABIQPgQ13RB2 = _byXPath("//input[@id='1302']"); //Some high school
-var $OR_EREGWEBCABIQPgQ13RB3 = _byXPath("//input[@id='1303']"); //High school
-var $OR_EREGWEBCABIQPgQ13RB4 = _byXPath("//input[@id='1304']"); //Some college/university
-var $OR_EREGWEBCABIQPgQ13RB5 = _byXPath("//input[@id='1305']"); //Associate degree
-var $OR_EREGWEBCABIQPgQ13RB6 = _byXPath("//input[@id='1306']"); //Bachelor's degree
-var $OR_EREGWEBCABIQPgQ13RB7 = _byXPath("//input[@id='1307']"); //Some graduate or professional school or a graduate or professional degree
-var $OR_EREGWEBCABIQPgQ13RB8 = _byXPath("//input[@id='1308']"); //Don't Know
+var $Obj_EREGWEBCABIQPgQ13RB1 = _byXPath("//input[@id='1301']"); //Grade school or less
+var $Obj_EREGWEBCABIQPgQ13RB2 = _byXPath("//input[@id='1302']"); //Some high school
+var $Obj_EREGWEBCABIQPgQ13RB3 = _byXPath("//input[@id='1303']"); //High school
+var $Obj_EREGWEBCABIQPgQ13RB4 = _byXPath("//input[@id='1304']"); //Some college/university
+var $Obj_EREGWEBCABIQPgQ13RB5 = _byXPath("//input[@id='1305']"); //Associate degree
+var $Obj_EREGWEBCABIQPgQ13RB6 = _byXPath("//input[@id='1306']"); //Bachelor's degree
+var $Obj_EREGWEBCABIQPgQ13RB7 = _byXPath("//input[@id='1307']"); //Some graduate or professional school or a graduate or professional degree
+var $Obj_EREGWEBCABIQPgQ13RB8 = _byXPath("//input[@id='1308']"); //Don't Know
 
-var $OR_EREGWEBCABIQPgQ14RB1 = _byXPath("//input[@id='1401']"); //Grade school or less
-var $OR_EREGWEBCABIQPgQ14RB2 = _byXPath("//input[@id='1402']"); //Some high school
-var $OR_EREGWEBCABIQPgQ14RB3 = _byXPath("//input[@id='1403']"); //High school
-var $OR_EREGWEBCABIQPgQ14RB4 = _byXPath("//input[@id='1404']"); //Some college/university
-var $OR_EREGWEBCABIQPgQ14RB5 = _byXPath("//input[@id='1405']"); //Associate degree
-var $OR_EREGWEBCABIQPgQ14RB6 = _byXPath("//input[@id='1406']"); //Bachelor's degree
-var $OR_EREGWEBCABIQPgQ14RB7 = _byXPath("//input[@id='1407']"); //Some graduate or professional school or a graduate or professional degree
-var $OR_EREGWEBCABIQPgQ14RB8 = _byXPath("//input[@id='1408']"); //Don't Know
+var $Obj_EREGWEBCABIQPgQ14RB1 = _byXPath("//input[@id='1401']"); //Grade school or less
+var $Obj_EREGWEBCABIQPgQ14RB2 = _byXPath("//input[@id='1402']"); //Some high school
+var $Obj_EREGWEBCABIQPgQ14RB3 = _byXPath("//input[@id='1403']"); //High school
+var $Obj_EREGWEBCABIQPgQ14RB4 = _byXPath("//input[@id='1404']"); //Some college/university
+var $Obj_EREGWEBCABIQPgQ14RB5 = _byXPath("//input[@id='1405']"); //Associate degree
+var $Obj_EREGWEBCABIQPgQ14RB6 = _byXPath("//input[@id='1406']"); //Bachelor's degree
+var $Obj_EREGWEBCABIQPgQ14RB7 = _byXPath("//input[@id='1407']"); //Some graduate or professional school or a graduate or professional degree
+var $Obj_EREGWEBCABIQPgQ14RB8 = _byXPath("//input[@id='1408']"); //Don't Know
 
-var $OR_EREGWEBCABIQPgQ15RB1 = _byXPath("//input[@id='1501']"); //Enroll in technical or trade program
-var $OR_EREGWEBCABIQPgQ15RB2 = _byXPath("//input[@id='1502']"); //Enter a 2 year college
-var $OR_EREGWEBCABIQPgQ15RB3 = _byXPath("//input[@id='1503']"); //Enter a 4 year college/university
-var $OR_EREGWEBCABIQPgQ15RB4 = _byXPath("//input[@id='1504']"); //Get a job
-var $OR_EREGWEBCABIQPgQ15RB5 = _byXPath("//input[@id='1505']"); //Keep your current job
-var $OR_EREGWEBCABIQPgQ15RB6 = _byXPath("//input[@id='1506']"); //Role model for family
-var $OR_EREGWEBCABIQPgQ15RB7 = _byXPath("//input[@id='1507']"); //Personal Achievement/Satisfaction
-var $OR_EREGWEBCABIQPgQ15RB8 = _byXPath("//input[@id='1508']"); //Public Assistance Requirement
-var $OR_EREGWEBCABIQPgQ15RB9 = _byXPath("//input[@id='1509']"); //Military entrance
-var $OR_EREGWEBCABIQPgQ15RB10 = _byXPath("//input[@id='1510']"); //Early Release
-var $OR_EREGWEBCABIQPgQ15RB11 = _byXPath("//input[@id='1511']"); //Court Order
-var $OR_EREGWEBCABIQPgQ15RB12 = _byXPath("//input[@id='1512']"); //Other
+var $Obj_EREGWEBCABIQPgQ15RB1 = _byXPath("//input[@id='1501']"); //Enroll in technical or trade program
+var $Obj_EREGWEBCABIQPgQ15RB2 = _byXPath("//input[@id='1502']"); //Enter a 2 year college
+var $Obj_EREGWEBCABIQPgQ15RB3 = _byXPath("//input[@id='1503']"); //Enter a 4 year college/university
+var $Obj_EREGWEBCABIQPgQ15RB4 = _byXPath("//input[@id='1504']"); //Get a job
+var $Obj_EREGWEBCABIQPgQ15RB5 = _byXPath("//input[@id='1505']"); //Keep your current job
+var $Obj_EREGWEBCABIQPgQ15RB6 = _byXPath("//input[@id='1506']"); //Role model for family
+var $Obj_EREGWEBCABIQPgQ15RB7 = _byXPath("//input[@id='1507']"); //Personal Achievement/Satisfaction
+var $Obj_EREGWEBCABIQPgQ15RB8 = _byXPath("//input[@id='1508']"); //Public Assistance Requirement
+var $Obj_EREGWEBCABIQPgQ15RB9 = _byXPath("//input[@id='1509']"); //Military entrance
+var $Obj_EREGWEBCABIQPgQ15RB10 = _byXPath("//input[@id='1510']"); //Early Release
+var $Obj_EREGWEBCABIQPgQ15RB11 = _byXPath("//input[@id='1511']"); //Court Order
+var $Obj_EREGWEBCABIQPgQ15RB12 = _byXPath("//input[@id='1512']"); //Other
 
-var $OR_EREGWEBCABIQPgQ16CB1 = _byXPath("//input[@id='1601']"); //Word of mouth (friend, neighbor, relative)
-var $OR_EREGWEBCABIQPgQ16CB2 = _byXPath("//input[@id='1602']"); //Media (TV, radio, print)
-var $OR_EREGWEBCABIQPgQ16CB3 = _byXPath("//input[@id='1603']"); //Internet
-var $OR_EREGWEBCABIQPgQ16CB4 = _byXPath("//input[@id='1604']"); //Printed materials (poster, flyer)
-var $OR_EREGWEBCABIQPgQ16CB5 = _byXPath("//input[@id='1605']"); //Guidance counselor or teacher
-var $OR_EREGWEBCABIQPgQ16CB6 = _byXPath("//input[@id='1606']"); //Adult Education center
-var $OR_EREGWEBCABIQPgQ16CB7 = _byXPath("//input[@id='1607']"); //Employment services
-var $OR_EREGWEBCABIQPgQ16CB8 = _byXPath("//input[@id='1608']"); //Military recruiting officer
-var $OR_EREGWEBCABIQPgQ16CB9 = _byXPath("//input[@id='1609']"); //Social Worker
-var $OR_EREGWEBCABIQPgQ16CB10 = _byXPath("//input[@id='1610']"); //Prison/probation officer
-var $OR_EREGWEBCABIQPgQ16CB11 = _byXPath("//input[@id='1611']"); //Other
+var $Obj_EREGWEBCABIQPgQ16CB1 = _byXPath("//input[@id='1601']"); //Word of mouth (friend, neighbor, relative)
+var $Obj_EREGWEBCABIQPgQ16CB2 = _byXPath("//input[@id='1602']"); //Media (TV, radio, print)
+var $Obj_EREGWEBCABIQPgQ16CB3 = _byXPath("//input[@id='1603']"); //Internet
+var $Obj_EREGWEBCABIQPgQ16CB4 = _byXPath("//input[@id='1604']"); //Printed materials (poster, flyer)
+var $Obj_EREGWEBCABIQPgQ16CB5 = _byXPath("//input[@id='1605']"); //Guidance counselor or teacher
+var $Obj_EREGWEBCABIQPgQ16CB6 = _byXPath("//input[@id='1606']"); //Adult Education center
+var $Obj_EREGWEBCABIQPgQ16CB7 = _byXPath("//input[@id='1607']"); //Employment services
+var $Obj_EREGWEBCABIQPgQ16CB8 = _byXPath("//input[@id='1608']"); //Military recruiting officer
+var $Obj_EREGWEBCABIQPgQ16CB9 = _byXPath("//input[@id='1609']"); //Social Worker
+var $Obj_EREGWEBCABIQPgQ16CB10 = _byXPath("//input[@id='1610']"); //Prison/probation officer
+var $Obj_EREGWEBCABIQPgQ16CB11 = _byXPath("//input[@id='1611']"); //Other
 
-var $OR_EREGWEBCABIQPgQ17CB1 = _byXPath("//input[@id='1701']"); //Hard copy test preparation book
-var $OR_EREGWEBCABIQPgQ17CB2 = _byXPath("//input[@id='1702']"); //eBook
-var $OR_EREGWEBCABIQPgQ17CB3 = _byXPath("//input[@id='1703']"); //CD-ROM/Computer Software
-var $OR_EREGWEBCABIQPgQ17CB4 = _byXPath("//input[@id='1704']"); //Online or internet resource
-var $OR_EREGWEBCABIQPgQ17CB5 = _byXPath("//input[@id='1705']"); //Test preparation class/Tutor
-var $OR_EREGWEBCABIQPgQ17CB6 = _byXPath("//input[@id='1706']"); //Did not prepare for the HiSET
+var $Obj_EREGWEBCABIQPgQ17CB1 = _byXPath("//input[@id='1701']"); //Hard copy test preparation book
+var $Obj_EREGWEBCABIQPgQ17CB2 = _byXPath("//input[@id='1702']"); //eBook
+var $Obj_EREGWEBCABIQPgQ17CB3 = _byXPath("//input[@id='1703']"); //CD-ROM/Computer Software
+var $Obj_EREGWEBCABIQPgQ17CB4 = _byXPath("//input[@id='1704']"); //Online or internet resource
+var $Obj_EREGWEBCABIQPgQ17CB5 = _byXPath("//input[@id='1705']"); //Test preparation class/Tutor
+var $Obj_EREGWEBCABIQPgQ17CB6 = _byXPath("//input[@id='1706']"); //Did not prepare for the HiSET
 
-var $OR_EREGWEBCABIQPgQ18DD = _byXPath("//input[@id='18']");
+var $Obj_EREGWEBCABIQPgQ18DD = _byXPath("//input[@id='18']");
 
-var $OR_EREGWEBCABIQPgQ19RB1 = _byXPath("//input[@id='1901']"); //1 - No difference
-var $OR_EREGWEBCABIQPgQ19RB2 = _byXPath("//input[@id='1902']"); //2
-var $OR_EREGWEBCABIQPgQ19RB3 = _byXPath("//input[@id='1903']"); //3
-var $OR_EREGWEBCABIQPgQ19RB4 = _byXPath("//input[@id='1904']"); //4
-var $OR_EREGWEBCABIQPgQ19RB5 = _byXPath("//input[@id='1905']"); //5
-var $OR_EREGWEBCABIQPgQ19RB6 = _byXPath("//input[@id='1906']"); //6 - Significant difference
+var $Obj_EREGWEBCABIQPgQ19RB1 = _byXPath("//input[@id='1901']"); //1 - No difference
+var $Obj_EREGWEBCABIQPgQ19RB2 = _byXPath("//input[@id='1902']"); //2
+var $Obj_EREGWEBCABIQPgQ19RB3 = _byXPath("//input[@id='1903']"); //3
+var $Obj_EREGWEBCABIQPgQ19RB4 = _byXPath("//input[@id='1904']"); //4
+var $Obj_EREGWEBCABIQPgQ19RB5 = _byXPath("//input[@id='1905']"); //5
+var $Obj_EREGWEBCABIQPgQ19RB6 = _byXPath("//input[@id='1906']"); //6 - Significant difference
 
-var $OR_EREGWEBCABIQPgQ20RB1 = _byXPath("//input[@id='2001']"); //1 - No difference
-var $OR_EREGWEBCABIQPgQ20RB2 = _byXPath("//input[@id='2002']"); //2
-var $OR_EREGWEBCABIQPgQ20RB3 = _byXPath("//input[@id='2003']"); //3
-var $OR_EREGWEBCABIQPgQ20RB4 = _byXPath("//input[@id='2004']"); //4
-var $OR_EREGWEBCABIQPgQ20RB5 = _byXPath("//input[@id='2005']"); //5
-var $OR_EREGWEBCABIQPgQ20RB6 = _byXPath("//input[@id='2006']"); //6 - Significant difference
+var $Obj_EREGWEBCABIQPgQ20RB1 = _byXPath("//input[@id='2001']"); //1 - No difference
+var $Obj_EREGWEBCABIQPgQ20RB2 = _byXPath("//input[@id='2002']"); //2
+var $Obj_EREGWEBCABIQPgQ20RB3 = _byXPath("//input[@id='2003']"); //3
+var $Obj_EREGWEBCABIQPgQ20RB4 = _byXPath("//input[@id='2004']"); //4
+var $Obj_EREGWEBCABIQPgQ20RB5 = _byXPath("//input[@id='2005']"); //5
+var $Obj_EREGWEBCABIQPgQ20RB6 = _byXPath("//input[@id='2006']"); //6 - Significant difference
 
-var $OR_EREGWEBCABIQPgQ21RB1 = _byXPath("//input[@id='2101']"); //1 - No difference
-var $OR_EREGWEBCABIQPgQ21RB2 = _byXPath("//input[@id='2102']"); //2
-var $OR_EREGWEBCABIQPgQ21RB3 = _byXPath("//input[@id='2103']"); //3
-var $OR_EREGWEBCABIQPgQ21RB4 = _byXPath("//input[@id='2104']"); //4
-var $OR_EREGWEBCABIQPgQ21RB5 = _byXPath("//input[@id='2105']"); //5
-var $OR_EREGWEBCABIQPgQ21RB6 = _byXPath("//input[@id='2106']"); //6 - Significant difference
+var $Obj_EREGWEBCABIQPgQ21RB1 = _byXPath("//input[@id='2101']"); //1 - No difference
+var $Obj_EREGWEBCABIQPgQ21RB2 = _byXPath("//input[@id='2102']"); //2
+var $Obj_EREGWEBCABIQPgQ21RB3 = _byXPath("//input[@id='2103']"); //3
+var $Obj_EREGWEBCABIQPgQ21RB4 = _byXPath("//input[@id='2104']"); //4
+var $Obj_EREGWEBCABIQPgQ21RB5 = _byXPath("//input[@id='2105']"); //5
+var $Obj_EREGWEBCABIQPgQ21RB6 = _byXPath("//input[@id='2106']"); //6 - Significant difference
 
-var $OR_EREGWEBCABIQPgQ22RB1 = _byXPath("//input[@id='2201']"); //1 - No difference
-var $OR_EREGWEBCABIQPgQ22RB2 = _byXPath("//input[@id='2202']"); //2
-var $OR_EREGWEBCABIQPgQ22RB3 = _byXPath("//input[@id='2203']"); //3
-var $OR_EREGWEBCABIQPgQ22RB4 = _byXPath("//input[@id='2204']"); //4
-var $OR_EREGWEBCABIQPgQ22RB5 = _byXPath("//input[@id='2205']"); //5
-var $OR_EREGWEBCABIQPgQ22RB6 = _byXPath("//input[@id='2206']"); //6 - Significant difference
+var $Obj_EREGWEBCABIQPgQ22RB1 = _byXPath("//input[@id='2201']"); //1 - No difference
+var $Obj_EREGWEBCABIQPgQ22RB2 = _byXPath("//input[@id='2202']"); //2
+var $Obj_EREGWEBCABIQPgQ22RB3 = _byXPath("//input[@id='2203']"); //3
+var $Obj_EREGWEBCABIQPgQ22RB4 = _byXPath("//input[@id='2204']"); //4
+var $Obj_EREGWEBCABIQPgQ22RB5 = _byXPath("//input[@id='2205']"); //5
+var $Obj_EREGWEBCABIQPgQ22RB6 = _byXPath("//input[@id='2206']"); //6 - Significant difference
 
-var $OR_EREGWEBCABIQPgQ23RB1 = _byXPath("//input[@id='2301']"); //1 - No difference
-var $OR_EREGWEBCABIQPgQ23RB2 = _byXPath("//input[@id='2302']"); //2
-var $OR_EREGWEBCABIQPgQ23RB3 = _byXPath("//input[@id='2303']"); //3
-var $OR_EREGWEBCABIQPgQ23RB4 = _byXPath("//input[@id='2304']"); //4
-var $OR_EREGWEBCABIQPgQ23RB5 = _byXPath("//input[@id='2305']"); //5
-var $OR_EREGWEBCABIQPgQ23RB6 = _byXPath("//input[@id='2306']"); //6 - Significant difference
+var $Obj_EREGWEBCABIQPgQ23RB1 = _byXPath("//input[@id='2301']"); //1 - No difference
+var $Obj_EREGWEBCABIQPgQ23RB2 = _byXPath("//input[@id='2302']"); //2
+var $Obj_EREGWEBCABIQPgQ23RB3 = _byXPath("//input[@id='2303']"); //3
+var $Obj_EREGWEBCABIQPgQ23RB4 = _byXPath("//input[@id='2304']"); //4
+var $Obj_EREGWEBCABIQPgQ23RB5 = _byXPath("//input[@id='2305']"); //5
+var $Obj_EREGWEBCABIQPgQ23RB6 = _byXPath("//input[@id='2306']"); //6 - Significant difference
 
-var $OR_EREGWEBCABIQPgQ24DD = _byXPath("//input[@id='24']");
+var $Obj_EREGWEBCABIQPgQ24DD = _byXPath("//input[@id='24']");
 
-var $OR_EREGWEBCABIQPgQ25DD = _byXPath("//input[@id='25']");
+var $Obj_EREGWEBCABIQPgQ25DD = _byXPath("//input[@id='25']");
 
-var $OR_EREGWEBCABIQPgQ26DD = _byXPath("//input[@id='26']");
+var $Obj_EREGWEBCABIQPgQ26DD = _byXPath("//input[@id='26']");
 
-var $OR_EREGWEBCABIQPgQ27DD = _byXPath("//input[@id='27']");
+var $Obj_EREGWEBCABIQPgQ27DD = _byXPath("//input[@id='27']");
 
-var $OR_EREGWEBCABIQPgQ28DD = _byXPath("//input[@id='28']");
+var $Obj_EREGWEBCABIQPgQ28DD = _byXPath("//input[@id='28']");
 
-var $OR_EREGWEBCABIQPgQ29DD = _byXPath("//input[@id='29']");
+var $Obj_EREGWEBCABIQPgQ29DD = _byXPath("//input[@id='29']");
 
-var $OR_EREGWEBCABIQPgQ30DD = _byXPath("//input[@id='30']");
+var $Obj_EREGWEBCABIQPgQ30DD = _byXPath("//input[@id='30']");
 
-var $OR_EREGWEBCABIQPgQ31DD = _byXPath("//input[@id='31']");
+var $Obj_EREGWEBCABIQPgQ31DD = _byXPath("//input[@id='31']");
 
-var $OR_EREGWEBCABIQPgQ32DD = _byXPath("//input[@id='32']");
+var $Obj_EREGWEBCABIQPgQ32DD = _byXPath("//input[@id='32']");
 
-var $OR_EREGWEBCABIQPgQ33DD = _byXPath("//input[@id='33']");
+var $Obj_EREGWEBCABIQPgQ33DD = _byXPath("//input[@id='33']");
 
-var $OR_EREGWEBCABIQPgQ34TB = _byXPath("//input[@id='34']");
+var $Obj_EREGWEBCABIQPgQ34TB = _byXPath("//input[@id='34']");
 
-var $OR_EREGWEBCABIQPgBackBtn = _byXPath("//span[normalize-space(text())='BACK']/parent::button");
-var $OR_EREGWEBCABIQPgNextBtn = _byXPath("//span[normalize-space(text())='NEXT']/parent::button");
+var $Obj_EREGWEBCABIQPgBackBtn = _byXPath("//span[normalize-space(text())='BACK']/parent::button");
+var $Obj_EREGWEBCABIQPgNextBtn = _byXPath("//span[normalize-space(text())='NEXT']/parent::button");
 
-var $OR_EREGWEBCABIQPgErrHdr = _byXPath("//span[normalize-space(text())='Please answer all required questions that are marked with an asterisk.']");
-var $OR_EREGWEBCABIQPgReqErr = _byXPath("//span[normalize-space(text())='This question is required.']");
+var $Obj_EREGWEBCABIQPgErrHdr = _byXPath("//span[normalize-space(text())='Please answer all required questions that are marked with an asterisk.']");
+var $Obj_EREGWEBCABIQPgReqErr = _byXPath("//span[normalize-space(text())='This question is required.']");
 /* -- EREG WEB Create Account - BIQ Page -- */
 
 /* -- EREG WEB Create Account - Username and Password Page -- */
-var $OR_EREGWEBCAUsrnamPwdPgHdr1 = _byXPath("//h1[normalize-space(text())='Create Account']");
-var $OR_EREGWEBCAUsrnamPwdPgHdr1 = _byXPath("//h2[normalize-space(text())='Username and Password']");
+var $Obj_EREGWEBCAUsrnamPwdPgHdr1 = _byXPath("//h1[normalize-space(text())='Create Account']");
+var $Obj_EREGWEBCAUsrnamPwdPgHdr1 = _byXPath("//h2[normalize-space(text())='Username and Password']");
 
-var $OR_EREGWEBCAUsrnamPwdPgUsrnamTB = _byXPath("//input[@id='username']");
-var $OR_EREGWEBCAUsrnamPwdPgPwdTB = _byXPath("//input[@id='password']");
-var $OR_EREGWEBCAUsrnamPwdPgRePwdTB = _byXPath("//input[@id='passwordConfirmation']");
-var $OR_EREGWEBCAUsrnamPwdPgSecQuesDD = _byXPath("//select[@id='helpQuestion']");
-var $OR_EREGWEBCAUsrnamPwdPgSecAnsTB = _byXPath("//input[@id='helpAnswer']");
-var $OR_EREGWEBCAUsrnamPwdPgTrmCndtnCB = _byXPath("//input[@id='termsConditions']");
+var $Obj_EREGWEBCAUsrnamPwdPgUsrnamTB = _byXPath("//input[@id='username']");
+var $Obj_EREGWEBCAUsrnamPwdPgPwdTB = _byXPath("//input[@id='password']");
+var $Obj_EREGWEBCAUsrnamPwdPgRePwdTB = _byXPath("//input[@id='passwordConfirmation']");
+var $Obj_EREGWEBCAUsrnamPwdPgSecQuesDD = _byXPath("//select[@id='helpQuestion']");
+var $Obj_EREGWEBCAUsrnamPwdPgSecAnsTB = _byXPath("//input[@id='helpAnswer']");
+var $Obj_EREGWEBCAUsrnamPwdPgTrmCndtnCB = _byXPath("//input[@id='termsConditions']");
 
-var $OR_EREGWEBCAUsrnamPwdPgBackBtn = _byXPath("//span[normalize-space(text())='BACK']/parent::button");
-var $OR_EREGWEBCAUsrnamPwdPgNextBtn = _byXPath("//span[normalize-space(text())='NEXT']/parent::button");
+var $Obj_EREGWEBCAUsrnamPwdPgBackBtn = _byXPath("//span[normalize-space(text())='BACK']/parent::button");
+var $Obj_EREGWEBCAUsrnamPwdPgNextBtn = _byXPath("//span[normalize-space(text())='NEXT']/parent::button");
 
-var $OR_EREGWEBCAUsrnamPwdPgErrHdr = _byXPath("//span[normalize-space(text())='Please check the errors in the form.']");
-var $OR_EREGWEBCAUsrnamPwdPgUsrnamReqErr = _byXPath("//div[normalize-space(text())='Username is required'][@class='validationError']");
-var $OR_EREGWEBCAUsrnamPwdPgPwdReqErr = _byXPath("//div[normalize-space(text())='Password is required'][@class='validationError']");
-var $OR_EREGWEBCAUsrnamPwdPgRePwdReqErr = _byXPath("//div[normalize-space(text())='Retype Password is required'][@class='validationError']");
-var $OR_EREGWEBCAUsrnamPwdPgSecQuesReqErr = _byXPath("//div[normalize-space(text())='Security Question is required'][@class='validationError']");
-//var $OR_EREGWEBCAUsrnamPwdPgSecAnsReqErr = _byXPath("//div[normalize-space(text())='Security Question is required'][@class='validationError']");
-var $OR_EREGWEBCAUsrnamPwdPgTrmCndtnReqErr = _byXPath("//div[normalize-space(text())='Accept terms and conditions is required'][@class='validationError']");
+var $Obj_EREGWEBCAUsrnamPwdPgErrHdr = _byXPath("//span[normalize-space(text())='Please check the errors in the form.']");
+var $Obj_EREGWEBCAUsrnamPwdPgUsrnamReqErr = _byXPath("//div[normalize-space(text())='Username is required'][@class='validationError']");
+var $Obj_EREGWEBCAUsrnamPwdPgPwdReqErr = _byXPath("//div[normalize-space(text())='Password is required'][@class='validationError']");
+var $Obj_EREGWEBCAUsrnamPwdPgRePwdReqErr = _byXPath("//div[normalize-space(text())='Retype Password is required'][@class='validationError']");
+var $Obj_EREGWEBCAUsrnamPwdPgSecQuesReqErr = _byXPath("//div[normalize-space(text())='Security Question is required'][@class='validationError']");
+//var $Obj_EREGWEBCAUsrnamPwdPgSecAnsReqErr = _byXPath("//div[normalize-space(text())='Security Question is required'][@class='validationError']");
+var $Obj_EREGWEBCAUsrnamPwdPgTrmCndtnReqErr = _byXPath("//div[normalize-space(text())='Accept terms and conditions is required'][@class='validationError']");
 /* -- EREG WEB Create Account - Username and Password Page -- */
 
 /* -- EREG WEB Create Account - Review and Submit Page -- */
-var $OR_EREGWEBCARevewSubPgHdr1 = _byXPath("//h1[normalize-space(text())='Create Account']");
-var $OR_EREGWEBCARevewSubPgHdr1 = _byXPath("//h2[normalize-space(text())='Review and Submit']");
-var $OR_EREGWEBCARevewSubPgBackBtn = _byXPath("//span[normalize-space(text())='BACK']/parent::button");
-var $OR_EREGWEBCARevewSubPgSubmitBtn = _byXPath("//span[normalize-space(text())='SUBMIT']/parent::button");
+var $Obj_EREGWEBCARevewSubPgHdr1 = _byXPath("//h1[normalize-space(text())='Create Account']");
+var $Obj_EREGWEBCARevewSubPgHdr1 = _byXPath("//h2[normalize-space(text())='Review and Submit']");
+var $Obj_EREGWEBCARevewSubPgBackBtn = _byXPath("//span[normalize-space(text())='BACK']/parent::button");
+var $Obj_EREGWEBCARevewSubPgSubmitBtn = _byXPath("//span[normalize-space(text())='SUBMIT']/parent::button");
 /* -- EREG WEB Create Account - Review and Submit Page -- */
 
 /* -- EREG WEB Create Account - Confirmation Page -- */
-var $OR_EREGWEBCAConfPgHdr = _byXPath("//span[normalize-space(text())='Your Account Has Been Created!']");
-var $OR_EREGWEBCAConfPgCntnuBtn = _byXPath("//span[normalize-space(text())='Sign in to Continue']/parent::button");
+var $Obj_EREGWEBCAConfPgHdr = _byXPath("//span[normalize-space(text())='Your Account Has Been Created!']");
+var $Obj_EREGWEBCAConfPgCntnuBtn = _byXPath("//span[normalize-space(text())='Sign in to Continue']/parent::button");
 /* -- EREG WEB Create Account - Confirmation Page -- */
+
+/* -- EREG WEB Header -- */
+var $Obj_EREGWEBHdrHomeLnk = _byXPath("//a[normlaizr-space(text())='My Home']");
+var $Obj_EREGWEBHdrCartLnk = _byXPath("//a[@class='cart']");
+var $Obj_EREGWEBHdrSignOutLnk = _byXPath("//a[normlaizr-space(text())='Sign Out']");
+/* -- EREG WEB Header -- */
+
+/* -- EREG WEB Home Page -- */
+var $Obj_EREGWEBHomePgHdr = _byXPath("//h1[normalize-space(text())='My Home']");
+var $Obj_EREGWEBHomePgPersnalInfoLnk = _byXPath("//a[normalize-space(text())='Personal Information']");
+var $Obj_EREGWEBHomePgChngPwdLnk = _byXPath("//a[normalize-space(text())='Change Password']");
+var $Obj_EREGWEBHomePgSecQstnLnk = _byXPath("//a[normalize-space(text())='Security Question']");
+var $Obj_EREGWEBHomePgBackgrndInfoLnk = _byXPath("//a[normalize-space(text())='Background Information']");
+var $Obj_EREGWEBHomePgAccomLnk = _byXPath("//a[normalize-space(text())='Accommodations']");
+var $Obj_EREGWEBHomePgViewAllMyTestLnk = _byXPath("//a[normalize-space(text())='View All My Tests']");
+var $Obj_EREGWEBHomePgQuickTstCntrSearchTB = _byXPath("//input[@name='cityStateOrZipCode']");
+var $Obj_EREGWEBHomePgQuickTstCntrSearchBtn = _byXPath("//button[@id='searchButtonHome']");
+var $Obj_EREGWEBHomePgAdvncTstCntrSearchLnk = _byXPath("//a[normalize-space(text())='Advanced Search']");
+var $Obj_EREGWEBHomePgViewScrLnk = _byXPath("//a[normalize-space(text())='View Scores']");
+var $Obj_EREGWEBHomePgViewOdrLnk = _byXPath("//a[normalize-space(text())='View Orders']");
+/* -- EREG WEB Home Page -- */
+
+/* -- EREG WEB Search Test Center Page -- */
+var $Obj_EREGWEBSearchTstCntrPgHdr = _byXPath("//h1[normalize-space(text())='Find Test Centers']");
+var $Obj_EREGWEBSearchTstCntrPgCntryLocDD = _byXPath("//select[@id='country']");
+var $Obj_EREGWEBSearchTstCntrPgCityStateZipCdeTB = _byXPath("//input[@id='cityOrZipCode']");
+var $Obj_EREGWEBSearchTstCntrPgTstCntrNamTB = _byXPath("//input[@id='testCenterName']");
+var $Obj_EREGWEBSearchTstCntrPgDistanceDD = _byXPath("//select[@id='distance']");
+var $Obj_EREGWEBSearchTstCntrPgTstDlvryMthdPaperRB = _byXPath("//input[@id='testTypes1'][@value='PBT']");
+var $Obj_EREGWEBSearchTstCntrPgTstDlvryMthdComputerRB = _byXPath("//input[@id='testTypes2'][@value='CBT']");
+var $Obj_EREGWEBSearchTstCntrPgSearchBtn = _byXPath("//a[normalize-space(text())='Search']");
+var $Obj_EREGWEBSearchTstCntrPgReqFldErr = _byXPath("//span[normalize-space(text())='Required fields are mandatory.']");
+var $Obj_EREGWEBSearchTstCntrPgNoTstCntrErr = _byXPath("//span[normalize-space(text())='No test centers were found near the location you entered. Try changing your search criteria or increasing your distance, and search again.']");
+/* -- EREG WEB Search Test Center Page -- */
+
+/* -- EREG WEB Before You Schedule Appointment Page -- */
+var $Obj_EREGWEBBfrYouSchdlApptPgHdr = _byXPath("//h1[normalize-space(text())='Before You Schedule HiSET Appointments']");
+var $Obj_EREGWEBBfrYouSchdlApptPgEligbltyReqCB = _byXPath("//input[@id='eligilibityRequirements']");
+var $Obj_EREGWEBBfrYouSchdlApptPgTestingPoliciesCB = _byXPath("//input[@id='testingPolicies']");
+var $Obj_EREGWEBBfrYouSchdlApptPgNextBtn = _byXPath("//a[normalize-space(text())='Next']");
+var $Obj_EREGWEBBfrYouSchdlApptPgBackBtn = _byXPath("//a[normalize-space(text())='Back']");
+var $Obj_EREGWEBBfrYouSchdlApptPgCancelBtn = _byXPath("//a[normalize-space(text())='Cancel']");
+var $Obj_EREGWEBBfrYouSchdlApptPgReqFldErr = _byXPath("//div[normalize-space(text())='Please agree to the Eligibility Requirements and Testing Policies.']");
+/* -- EREG WEB Before You Schedule Appointment Page -- */
+
+/* -- EREG WEB Schedule New Appointment - Personal Information Page -- */
+var $Obj_EREGWEBSchdlNewApptPIPgHdr = _byXPath("//h2[normalize-space(text())='Confirm Your Personal Information']");
+var $Obj_EREGWEBSchdlNewApptPIPgEditBtn = _byXPath("//a[normalize-space(text())='Edit']");
+var $Obj_EREGWEBSchdlNewApptPIPgCancelBtn = _byXPath("//a[normalize-space(text())='Cancel']");
+var $Obj_EREGWEBSchdlNewApptPIPgNextBtn = _byXPath("//button[normalize-space(text())='Next']");
+/* -- EREG WEB Schedule New Appointment - Personal Information Page -- */
+
+/* -- EREG WEB Schedule New Appointment - Appointment Information Page -- */
+var $Obj_EREGWEBSchdlNewApptAIPgHdr1 = _byXPath("//h1[normalize-space(text())='Schedule New Appointment']");
+var $Obj_EREGWEBSchdlNewApptAIPgHdr2 = _byXPath("//h2[normalize-space(text())='Appointment Information']");
+var $Obj_EREGWEBSchdlNewApptAIPgChngTstCntrLnk = _byXPath("//a[normalize-space(text())='Change Test Center']");
+var $Obj_EREGWEBSchdlNewApptAIPgTstLangEnRB = _byXPath("//input[@id='stdLangType1'][@value='EN']");
+var $Obj_EREGWEBSchdlNewApptAIPgTstLangEsRB = _byXPath("//input[@id='stdLangType2'][@value='ES']");
+var $Obj_EREGWEBSchdlNewApptAIPgSpclAdmCdeTB = _byXPath("//input[@id='specialAdminCode']");
+var $Obj_EREGWEBSchdlNewApptAIPgSpclAdmCdeBtn = _byXPath("//button[@id='specialAdminCodeBtn']");
+var $Obj_EREGWEBSchdlNewApptAIPgCancelBtn = _byXPath("//a[normalize-space(text())='Cancel']");
+var $Obj_EREGWEBSchdlNewApptAIPgAddToCartBtn = _byXPath("//button[@id='addToCart']");
+/* -- EREG WEB Schedule New Appointment - Appointment Information Page -- */
+
+/* -- EREG WEB Cart Page -- */
+var $Obj_EREGWEBCartPgHdr = _byXPath("//h1[normalize-space(text())='Review Your Cart']");
+var $Obj_EREGWEBCartPgSchdlMoreApptBtn = _byXPath("//a[normalize-space(text())='Schedule More Appointments']");
+var $Obj_EREGWEBCartPgBattryYesRB = _byXPath("//input[@id='addBatteryRadio0'][@value='yes']");
+var $Obj_EREGWEBCartPgBattryNoRB = _byXPath("//input[@id='removeBatteryRadio0'][@value='no']");
+var $Obj_EREGWEBCartPgCheckoutBtn = _byXPath("//button[normalize-space(text())='Check Out']");
+/* -- EREG WEB Cart Page -- */
+
+/* -- EREG WEB Cybersource - Payment Method Page -- */
+var $Obj_EREGWEBCybrSrcPayMthdPgHdr1 = _byXPath("//td[normalize-space(text())='Payment Details']");
+var $Obj_EREGWEBCybrSrcPayMthdPgHdr2 = _byXPath("//td[normalize-space(text())='Payment Method']");
+var $Obj_EREGWEBCybrSrcPayMthdPgReturnToHomePgLnk = _byXPath("//a[normalize-space(text())='Return to Home page.']");
+var $Obj_EREGWEBCybrSrcPayMthdPgCreditCardRB = _byXPath("//input[@value='CC']");
+var $Obj_EREGWEBCybrSrcPayMthdPgECheckRB = _byXPath("//input[@value='EC']");
+var $Obj_EREGWEBCybrSrcPayMthdPgPaypalRB = _byXPath("//input[@value='PP']");
+var $Obj_EREGWEBCybrSrcPayMthdPgPaypalRB = _byXPath("//input[@value='PP']");
+var $Obj_EREGWEBCybrSrcPayMthdPgContinueBtn = _byXPath("//input[@value='Continue']");
+/* -- EREG WEB Cybersource - Payment Method Page -- */
+
+/* -- EREG WEB Cybersource - Credit Card Payment Page -- */
+var $Obj_EREGWEBCybrSrcCCPayPgHdr1 = _byXPath("//td[normalize-space(text())='Payment Details']");
+var $Obj_EREGWEBCybrSrcCCPayPgHdr2 = _byXPath("//td[normalize-space(text())='Credit Card']");
+var $Obj_EREGWEBCybrSrcCCPayPgReturnToHomePgLnk = _byXPath("//a[normalize-space(text())='Return to Home page.']");
+var $Obj_EREGWEBCybrSrcCCPayPgSelectDiffPayMthdLnk = _byXPath("//a[normalize-space(text())='Select a Different Method of Payment']");
+var $Obj_EREGWEBCybrSrcCCPayPgCCTypDD = _byXPath("//select[@id='card_cardType']");
+var $Obj_EREGWEBCybrSrcCCPayPgCCNumberTB = _byXPath("//input[@name='card_accountNumber']");
+var $Obj_EREGWEBCybrSrcCCPayPgCardExprtnMnthDD = _byXPath("//select[@name='card_expirationMonth']");
+var $Obj_EREGWEBCybrSrcCCPayPgCardExprtnYearDD = _byXPath("//select[@name='card_expirationYear']");
+var $Obj_EREGWEBCybrSrcCCPayPgCardVefNumberTB = _byXPath("//input[@name='card_cvNumber']");
+var $Obj_EREGWEBCybrSrcCCPayPgBillingInfoCB = _byXPath("//input[@name='useShipNameForBillName']");
+var $Obj_EREGWEBCybrSrcCCPayPgBillingInfoFstNamTB = _byXPath("//input[@id='billTo_firstName']");
+var $Obj_EREGWEBCybrSrcCCPayPgBillingInfoLstNamTB = _byXPath("//input[@id='billTo_lastName']");
+var $Obj_EREGWEBCybrSrcCCPayPgBillingInfoCB = _byXPath("//input[@name='useShipAddrForBillAddr']");
+var $Obj_EREGWEBCybrSrcCCPayPgBillingInfoCompnyTB = _byXPath("//input[@id='billTo_company']");
+var $Obj_EREGWEBCybrSrcCCPayPgBillingInfoStrtAdr1TB = _byXPath("//input[@id='billTo_street1']");
+var $Obj_EREGWEBCybrSrcCCPayPgBillingInfoStrtAdr2TB = _byXPath("//input[@id='billTo_street2']");
+var $Obj_EREGWEBCybrSrcCCPayPgBillingInfoCntryDD = _byXPath("//select[@id='billTo_country']");
+var $Obj_EREGWEBCybrSrcCCPayPgBillingInfoCityTB = _byXPath("//input[@id='billTo_city']");
+var $Obj_EREGWEBCybrSrcCCPayPgBillingInfoStateDD = _byXPath("//select[@id='billTo_us_state']");
+var $Obj_EREGWEBCybrSrcCCPayPgBillingInfoPstlCdeTB = _byXPath("//input[@id='billTo_us_postalCode']");
+var $Obj_EREGWEBCybrSrcCCPayPgBillingInfoPhnNumTB = _byXPath("//input[@id='billTo_phoneNumber']");
+var $Obj_EREGWEBCybrSrcCCPayPgBillingInfoEmailTB = _byXPath("//input[@id='billTo_email']");
+var $Obj_EREGWEBCybrSrcCCPayPgBuyBtn = _byXPath("//input[@id='submit2'][@value='Buy']");
+var $Obj_EREGWEBCybrSrcCCPayPgErr = _byXPath("//td[@class='msghead'][normalize-space(text())='Errors']");
+/* -- EREG WEB Cybersource - Credit Card Payment Page -- */
+
+/* -- EREG WEB Cybersource - ECheck Payment Page -- */
+var $Obj_EREGWEBCybrSrcECheckPayPgHdr1 = _byXPath("//td[normalize-space(text())='Payment Details']");
+var $Obj_EREGWEBCybrSrcECheckPayPgHdr2 = _byXPath("//td[normalize-space(text())='Bank Account']");
+var $Obj_EREGWEBCybrSrcECheckPayPgReturnToHomePgLnk = _byXPath("//a[normalize-space(text())='Return to Home page.']");
+var $Obj_EREGWEBCybrSrcECheckPayPgSelectDiffPayMthdLnk = _byXPath("//a[normalize-space(text())='Select a Different Method of Payment']");
+var $Obj_EREGWEBCybrSrcECheckPayPgAcntTypDD = _byXPath("//select[@name='check_accountType']");
+var $Obj_EREGWEBCybrSrcECheckPayPgBankNameTB = _byXPath("//input[@name='check_bankName']");
+var $Obj_EREGWEBCybrSrcECheckPayPgRoutingNumTB = _byXPath("//input[@name='check_bankTransitNumber']");
+var $Obj_EREGWEBCybrSrcECheckPayPgAcntNumbTB = _byXPath("//input[@name='check_accountNumber']");
+var $Obj_EREGWEBCybrSrcECheckPayPgChecknumbTB = _byXPath("//input[@name='check_checkNumber']");
+var $Obj_EREGWEBCybrSrcECheckPayPgBillingInfoCB = _byXPath("//input[@name='useShipNameForBillName']");
+var $Obj_EREGWEBCybrSrcECheckPayPgBillingInfoFstNamTB = _byXPath("//input[@id='billTo_firstName']");
+var $Obj_EREGWEBCybrSrcECheckPayPgBillingInfoLstNamTB = _byXPath("//input[@id='billTo_lastName']");
+var $Obj_EREGWEBCybrSrcECheckPayPgBillingInfoCB = _byXPath("//input[@name='useShipAddrForBillAddr']");
+var $Obj_EREGWEBCybrSrcECheckPayPgBillingInfoCompnyTB = _byXPath("//input[@id='billTo_company']");
+var $Obj_EREGWEBCybrSrcECheckPayPgBillingInfoStrtAdr1TB = _byXPath("//input[@id='billTo_street1']");
+var $Obj_EREGWEBCybrSrcECheckPayPgBillingInfoStrtAdr2TB = _byXPath("//input[@id='billTo_street2']");
+var $Obj_EREGWEBCybrSrcECheckPayPgBillingInfoCntryDD = _byXPath("//select[@id='billTo_country']");
+var $Obj_EREGWEBCybrSrcECheckPayPgBillingInfoCityTB = _byXPath("//input[@id='billTo_city']");
+var $Obj_EREGWEBCybrSrcECheckPayPgBillingInfoStateDD = _byXPath("//select[@id='billTo_us_state']");
+var $Obj_EREGWEBCybrSrcECheckPayPgBillingInfoPstlCdeTB = _byXPath("//input[@id='billTo_us_postalCode']");
+var $Obj_EREGWEBCybrSrcECheckPayPgBillingInfoPhnNumTB = _byXPath("//input[@id='billTo_phoneNumber']");
+var $Obj_EREGWEBCybrSrcECheckPayPgBillingInfoEmailTB = _byXPath("//input[@id='billTo_email']");
+var $Obj_EREGWEBCybrSrcECheckPayPgBuyBtn = _byXPath("//input[@id='submit2'][@value='Buy']");
+var $Obj_EREGWEBCybrSrcECheckPayPgErr = _byXPath("//td[@class='msghead'][normalize-space(text())='Errors']");
+/* -- EREG WEB Cybersource - ECheck Payment Page -- */
+
+/* -- EREG WEB Cybersource - Paypal Payment Page -- */
+var $Obj_EREGWEBCybrSrcPaypalPayPgEmailTB = _byXPath("//input[@id='login_email']");
+var $Obj_EREGWEBCybrSrcPaypalPayPgPaypalPwdTB = _byXPath("//input[@id='login_password']");
+var $Obj_EREGWEBCybrSrcPaypalPayPgLoginBtn = _byXPath("//input[@id='submitLogin'][@value='Log In']");
+var $Obj_EREGWEBCybrSrcPaypalPayPgCancelAndReturnToETSLnk = _byXPath("//input[@name='cancel_return']");
+/* -- EREG WEB Cybersource - Paypal Payment Page -- */
+
+/* -- EREG WEB Cybersource - Paypal Payment Cancel Page -- */
+var $Obj_EREGWEBCybrSrcPaypalCancelPayPgReturnToHomePgLnk = _byXPath("//a[normalize-space(text())='Return to Home page.']");
+var $Obj_EREGWEBCybrSrcPaypalCancelPayPgSelectDiffPayMthdLnk = _byXPath("//a[normalize-space(text())='Enter a different card or payment type.']");
+/* -- EREG WEB Cybersource - Paypal Payment Cancel Page -- */

@@ -1,0 +1,11 @@
+_set(_textbox("from_typeahead1"),"Newark, US (EWR)");
+_set(_textbox("to_typeahead1"),"New Delhi, India (DEL)");
+_click(_span("glyphicon glyphicon-calendar[1]"));
+_click(_link("25"));
+_click(_span("glyphicon glyphicon-calendar[2]"));
+_click(_link("9"));
+_click(_link("+[4]"));
+_click(_link("Search Flights"));
+_click(_span("Newark"));
+_rightClick(_span("Newark"));
+_assertExists(_link("Book Now"));
