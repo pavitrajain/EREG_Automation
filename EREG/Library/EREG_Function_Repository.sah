@@ -2,18 +2,34 @@ var $Path = _userDataDir() + "//scripts//EREG//Library//";
 _dynamicInclude($Path + "EREG_Library.sah");
 
 /**
+ * Function to return random string
+ * @param $V_Len - Length of the string
+ * @returns {String} - Random string generated
+ */
+function Random_String($V_Len)
+{
+    var $text = "";
+    var $possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+    for( var $i=0; $i < $V_Len; $i++ )
+        $text += $possible.charAt(Math.floor(Math.random() * $possible.length));
+
+    return $text;
+}
+
+/**
  * Function to verify the header of Create Profile - Personal Information Page
  * 
- * @param $VPGM -
+ * @param $Var_PGM -
  *            Program for which profile is created (Required)
  * @returns {Number} - Returns 1 is Header is of Personal Info and returns 0 is
  *          not
  */
-function Verify_Personal_Info_Header($VPGM) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')
-			|| (toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+function Verify_Personal_Info_Header($Var_PGM) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')
+			|| ($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 		if (_exists($Obj_EREGWEBCAPerInfoPgHdr1)
 				&& _exists($Obj_EREGWEBCAPerInfoPgHdr2)) {
 			return (1);
@@ -31,10 +47,10 @@ function Verify_Personal_Info_Header($VPGM) {
  * @returns {Number} - Return 1 if error exist on the page
  */
 function Verify_Personal_Info_Page_Error($Var_PGM) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')
-			|| (toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')
+			|| ($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 		if (_exists($Obj_EREGWEBCAPerInfoPgErrHdr)) {
 			// ####First Name####
 			if (_exists($Obj_EREGWEBCAPerInfoPgFstNamReqErr)) {
@@ -338,20 +354,20 @@ function Enter_Personal_Info($Var_PGM, $Var_FstNam, $Var_MidIni, $Var_LstNam,
 		$Var_EmailAdr, $Var_AdrLn1, $Var_AdrLn2, $Var_City, $Var_State,
 		$Var_PstCde, $Var_PriPhn, $Var_PriExtn, $Var_PriPhnTyp, $Var_AltPhn,
 		$Var_AltExtn, $Var_AltLang) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')
-			|| (toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')
+			|| ($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 		_setValue($Obj_EREGWEBCAPerInfoPgFstNamTB, $Var_FstNam);
 		_setValue($Obj_EREGWEBCAPerInfoPgMidIntTB, $Var_MidIni);
 		_setValue($Obj_EREGWEBCAPerInfoPgLstNamTB, $Var_LstNam);
 		_setSelected($Obj_EREGWEBCAPerInfoPgDOBMonthDD, $Var_DOBMon);
 		_setSelected($Obj_EREGWEBCAPerInfoPgDOBDayDD, $Var_DOBDay);
 		_setValue($Obj_EREGWEBCAPerInfoPgDOBYearTB, $Var_DOBYear);
-		if (toUpperCase($Var_Gen) == 'M' || toUpperCase($Var_Gen) == 'MALE') {
+		if ($Var_Gen.toUpperCase() == 'M' || $Var_Gen.toUpperCase() == 'MALE') {
 			_click($Obj_EREGWEBCAPerInfoPgGndrMaleRB);
-		} else if (toUpperCase($Var_Gen) == 'F'
-				|| toUpperCase($Var_Gen) == 'FEMALE') {
+		} else if ($Var_Gen.toUpperCase() == 'F'
+				|| $Var_Gen.toUpperCase() == 'FEMALE') {
 			_click($Obj_EREGWEBCAPerInfoPgGndrFemaleRB);
 		}
 		_setValue($Obj_EREGWEBCAPerInfoPgSSNTB, $Var_SSN);
@@ -363,20 +379,20 @@ function Enter_Personal_Info($Var_PGM, $Var_FstNam, $Var_MidIni, $Var_LstNam,
 		_setValue($Obj_EREGWEBCAPerInfoPgPstCdeTB, $Var_PstCde);
 		_setValue($Obj_EREGWEBCAPerInfoPgPriPhnNumTB, $Var_PriPhn);
 		_setValue($Obj_EREGWEBCAPerInfoPgPriPhnExtTB, $Var_PriExtn);
-		if (toUpperCase($Var_PriPhnTyp) == 'L'
-				|| toUpperCase($Var_PriPhnTyp) == 'LANDLINE') {
+		if ($Var_PriPhnTyp.toUpperCase() == 'L'
+				|| $Var_PriPhnTyp.toUpperCase() == 'LANDLINE') {
 			_click($Obj_EREGWEBCAPerInfoPgPriPhnTypLRB);
-		} else if (toUpperCase($Var_PriPhnTyp) == 'M'
-				|| toUpperCase($Var_PriPhnTyp) == 'MOBILE') {
+		} else if ($Var_PriPhnTyp.toUpperCase() == 'M'
+				|| $Var_PriPhnTyp.toUpperCase() == 'MOBILE') {
 			_click($Obj_EREGWEBCAPerInfoPgPriPhnTypMRB);
 		}
 		_setValue($Obj_EREGWEBCAPerInfoPgSecPhnNumTB, $Var_AltPhn);
 		_setValue($Obj_EREGWEBCAPerInfoPgSecPhnExtTB, $Var_AltExtn);
-		if (toUpperCase($Var_AltLang) == 'L'
-				|| toUpperCase($Var_AltLang) == 'LANDLINE') {
+		if ($Var_AltLang.toUpperCase() == 'L'
+				|| $Var_AltLang.toUpperCase() == 'LANDLINE') {
 			_click($Obj_EREGWEBCAPerInfoPgSecPhnTypLRB);
-		} else if (toUpperCase($Var_AltLang) == 'M'
-				|| toUpperCase($Var_AltLang) == 'MOBILE') {
+		} else if ($Var_AltLang.toUpperCase() == 'M'
+				|| $Var_AltLang.toUpperCase() == 'MOBILE') {
 			_click($Obj_EREGWEBCAPerInfoPgSecPhnTypMRB);
 		}
 	}
@@ -385,15 +401,15 @@ function Enter_Personal_Info($Var_PGM, $Var_FstNam, $Var_MidIni, $Var_LstNam,
 /**
  * Function to verify the header of Create Profile - Additional Information Page
  * 
- * @param $VPGM -
+ * @param $Var_PGM -
  *            Program for which profile is created (Required)
  * @returns {Number} - returns 1 if true and 0 if false
  */
-function Verify_Additional_Info_Header($VPGM) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')
-			|| (toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+function Verify_Additional_Info_Header($Var_PGM) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')
+			|| ($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 		if (_exists($Obj_EREGWEBCAAddInfoPgHdr1)
 				&& _exists($Obj_EREGWEBCAAddInfoPgHdr2)) {
 			return (1);
@@ -411,10 +427,10 @@ function Verify_Additional_Info_Header($VPGM) {
  * @returns {Number}- Returns 1 if error exists on page
  */
 function Verify_Additional_Info_Page_Error($Var_PGM) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')
-			|| (toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')
+			|| ($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 		if (_exists($Obj_EREGWEBCAAddInfoPgErrHdr)) {
 			if (_exists($Obj_EREGWEBCAAddInfoPgPrefLangReqErr)) {
 				_log(
@@ -437,18 +453,18 @@ function Verify_Additional_Info_Page_Error($Var_PGM) {
  *            Primary Speaking Language (Optional)
  */
 function Enter_Additional_Info($Var_PGM, $Var_PrfLang, $Var_PriSpkLang) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')) {
-		if (toUpperCase($Var_PrfLang) == 'EN'
-				|| toUpperCase($Var_PrfLang) == 'ENGLISH') {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')) {
+		if ($Var_PrfLang.toUpperCase() == 'EN'
+				|| $Var_PrfLang.toUpperCase() == 'ENGLISH') {
 			_click($Obj_EREGWEBCAAddInfoPrefLangERB);
-		} else if (toUpperCase($Var_PrfLang) == 'ES'
-				|| toUpperCase($Var_PrfLang) == 'SPANISH') {
+		} else if ($Var_PrfLang.toUpperCase() == 'ES'
+				|| $Var_PrfLang.toUpperCase() == 'SPANISH') {
 			_click($Obj_EREGWEBCAAddInfoPrefLangSRB);
 		}
 		_setSelected($Obj_EREGWEBCAAddInfoPriSpkLangDD, $Var_PriSpkLang);
-	} else if ((toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	} else if (($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 
 	}
 }
@@ -456,17 +472,17 @@ function Enter_Additional_Info($Var_PGM, $Var_PrfLang, $Var_PriSpkLang) {
 /**
  * Function to verify the header of Create Profile - BIQ Page
  * 
- * @param $VPGM -
+ * @param $Var_PGM -
  *            Program for which profile is created (Required)
  * @returns {Number} - returns 1 if true and 0 if false
  */
-function Verify_BIQ_Header($VPGM) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')
-			|| (toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+function Verify_BIQ_Header($Var_PGM) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')
+			|| ($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 		if (_exists($Obj_EREGWEBCABIQPgHdr1)
-				&& _exists($Obj_EREGWEBCABIQPgHdr1)) {
+				&& _exists($Obj_EREGWEBCABIQPgHdr2)) {
 			return (1);
 		} else {
 			return (0);
@@ -482,10 +498,10 @@ function Verify_BIQ_Header($VPGM) {
  * @returns {Number} - Returns 1 if error exists on page
  */
 function Verify_BIQ_Page_Error($Var_PGM) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')
-			|| (toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')
+			|| ($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 		if (_exists($Obj_EREGWEBCABIQPgErrHdr)) {
 			if (_exists($Obj_EREGWEBCABIQPgReqErr)) {
 				_log("Required Field error displayed on BIQ Page", "error");
@@ -502,7 +518,7 @@ function Verify_BIQ_Page_Error($Var_PGM) {
  *            Program for which profile is created (Required)
  */
 function Enter_All_BIQ_Info($Var_PGM) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')) {
 		_setValue($Obj_EREGWEBCABIQPgQ34TB, "Test");
 		_click($Obj_EREGWEBCABIQPgQ2RB2);
 		_click($Obj_EREGWEBCABIQPgQ3RB1);
@@ -537,9 +553,9 @@ function Enter_All_BIQ_Info($Var_PGM) {
 		_setSelected($Obj_EREGWEBCABIQPgQ32DD, "Disagree");
 		_setSelected($Obj_EREGWEBCABIQPgQ33DD, "Disagree");
 		_setSelected($Obj_EREGWEBCABIQPgQ34TB, "Disagree");
-	} else if ((toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	} else if (($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 
 	}
 }
@@ -551,14 +567,14 @@ function Enter_All_BIQ_Info($Var_PGM) {
  *            Program for which profile is created. (Required)
  */
 function Enter_Required_BIQ_Info($Var_PGM) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')) {
 		_click($Obj_EREGWEBCABIQPgQ2RB2);
 		_click($Obj_EREGWEBCABIQPgQ3RB1);
 		_click($Obj_EREGWEBCABIQPgQ4CB1);
 		_click($Obj_EREGWEBCABIQPgQ5RB1);
-	} else if ((toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	} else if (($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 
 	}
 }
@@ -566,15 +582,15 @@ function Enter_Required_BIQ_Info($Var_PGM) {
 /**
  * Function to verify the header of Create Profile - Username and Password Page
  * 
- * @param $VPGM -
+ * @param $Var_PGM -
  *            Program for which profile is created (Required)
  * @returns {Number} - returns 1 if true and 0 if false
  */
 function Verify_Username_Password_Header($Var_PGM) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')
-			|| (toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')
+			|| ($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 		if (_exists($Obj_EREGWEBCAUsrnamPwdPgHdr1)
 				&& _exists($Obj_EREGWEBCAUsrnamPwdPgHdr1)) {
 			return (1);
@@ -592,10 +608,10 @@ function Verify_Username_Password_Header($Var_PGM) {
  * @returns {Number} - Returns 1 if error exists on page
  */
 function Verify_Username_Password_Page_Error($Var_PGM) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')
-			|| (toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')
+			|| ($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 		if (_exists($Obj_EREGWEBCAUsrnamPwdPgErrHdr)) {
 			if (_exists($Obj_EREGWEBCAUsrnamPwdPgUsrnamReqErr)) {
 				_log("Required Field error displayed for Username field",
@@ -653,16 +669,16 @@ function Verify_Username_Password_Page_Error($Var_PGM) {
  */
 function Enter_Username_Password($Var_PGM, $Var_UsrNam, $Var_Pwd,
 		$Var_CnfrmPwd, $Var_SecQstn, $Var_SecAns) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')) {
 		_setValue($Obj_EREGWEBCAUsrnamPwdPgUsrnamTB, $Var_UsrNam);
 		_setValue($Obj_EREGWEBCAUsrnamPwdPgPwdTB, $Var_Pwd);
 		_setValue($Obj_EREGWEBCAUsrnamPwdPgRePwdTB, $Var_CnfrmPwd);
 		_setSelected($Obj_EREGWEBCAUsrnamPwdPgSecQuesDD, $Var_SecQstn);
 		_setValue($Obj_EREGWEBCAUsrnamPwdPgSecAnsTB, $Var_SecAns);
 		_click($Obj_EREGWEBCAUsrnamPwdPgTrmCndtnCB);
-	} else if ((toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	} else if (($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 
 	}
 }
@@ -675,10 +691,10 @@ function Enter_Username_Password($Var_PGM, $Var_UsrNam, $Var_Pwd,
  * @returns {Number} - Returns 1 if true else 0
  */
 function Verify_Review_Submit_Page_Header($Var_PGM) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')
-			|| (toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')
+			|| ($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 		if (_exists($Obj_EREGWEBCARevewSubPgHdr1)
 				&& _exists($Obj_EREGWEBCARevewSubPgHdr1)) {
 			return (1);
@@ -695,11 +711,11 @@ function Verify_Review_Submit_Page_Header($Var_PGM) {
  *            Program for which profile is created (Required)
  */
 function Submit_TestTaker_Profile($Var_PGM) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')) {
 		_click($Obj_EREGWEBCARevewSubPgSubmitBtn);
-	} else if ((toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	} else if (($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 
 	}
 }
@@ -711,11 +727,11 @@ function Submit_TestTaker_Profile($Var_PGM) {
  *            Program for which profile is created (Required)
  */
 function Cancel_On_Review_Submit($Var_PGM) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')) {
 		_click($Obj_EREGWEBCARevewSubPgBackBtn);
-	} else if ((toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	} else if (($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 
 	}
 }
@@ -783,18 +799,18 @@ function Advance_Search_Test_Center($Var_CntryLoc, $Var_CityStateZipCode,
 		$Var_TstCntrNam, $Var_Distance, $Var_DlvryMthd) {
 	_click($Obj_EREGWEBHomePgAdvncTstCntrSearchLnk);
 	if (!(Verify_Search_Test_Center_Page_Header())) {
-		if (toUpperCase($Var_CntryLoc) != 'UNITED STATES') {
+		if ($Var_CntryLoc.toUpperCase() != 'UNITED STATES') {
 			_setSelected($Obj_EREGWEBSearchTstCntrPgCntryLocDD, $Var_CntryLoc);
 		}
 		_setValue($Obj_EREGWEBSearchTstCntrPgCityStateZipCdeTB,
 				$Var_CityStateZipCode);
 		_setValue($Obj_EREGWEBSearchTstCntrPgTstCntrNamTB, $Var_TstCntrNam);
 		_setSelected($Obj_EREGWEBSearchTstCntrPgDistanceDD, $Var_Distance);
-		if (toUpperCase($Var_DlvryMthd) == 'PAPER'
-				|| toUpperCase($Var_DlvryMthd) == 'PBT') {
+		if ($Var_DlvryMthd.toUpperCase() == 'PAPER'
+				|| $Var_DlvryMthd.toUpperCase() == 'PBT') {
 			_click($Obj_EREGWEBSearchTstCntrPgTstDlvryMthdComputerRB);
-		} else if (toUpperCase($Var_DlvryMthd) == 'COMPUTER'
-				|| toUpperCase($Var_DlvryMthd) == 'CBT') {
+		} else if ($Var_DlvryMthd.toUpperCase() == 'COMPUTER'
+				|| $Var_DlvryMthd.toUpperCase() == 'CBT') {
 			_click($Obj_EREGWEBSearchTstCntrPgTstDlvryMthdPaperRB);
 		}
 		_click($Obj_EREGWEBSearchTstCntrPgSearchBtn);
@@ -809,15 +825,15 @@ function Advance_Search_Test_Center($Var_CntryLoc, $Var_CityStateZipCode,
  * @returns {Number} - Returns 1 if yes else 0
  */
 function Verify_Before_You_Schedule_Appt_Page_Header($Var_PGM) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')) {
 		if (_exists($Obj_EREGWEBBfrYouSchdlApptPgHdr)) {
 			return (1);
 		} else {
 			return (0);
 		}
-	} else if ((toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	} else if (($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 
 	}
 }
@@ -830,7 +846,7 @@ function Verify_Before_You_Schedule_Appt_Page_Header($Var_PGM) {
  * @returns {Number} - Returns 1 if yes else 0
  */
 function Verify_Before_You_Schedule_Appt_Page_Error($Var_PGM) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')) {
 		if (_exists($Obj_EREGWEBBfrYouSchdlApptPgReqFldErr)) {
 			_log("Error displayed on Before You Schedule Appointment Page",
 					"error");
@@ -838,9 +854,9 @@ function Verify_Before_You_Schedule_Appt_Page_Error($Var_PGM) {
 		} else {
 			return (0);
 		}
-	} else if ((toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	} else if (($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 
 	}
 }
@@ -852,13 +868,13 @@ function Verify_Before_You_Schedule_Appt_Page_Error($Var_PGM) {
  *            Program for which appointment is created (Required)
  */
 function Accept_Test_Policies($Var_PGM) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')) {
 		_click($Obj_EREGWEBBfrYouSchdlApptPgEligbltyReqCB);
 		_click($Obj_EREGWEBBfrYouSchdlApptPgTestingPoliciesCB);
 		_click($Obj_EREGWEBBfrYouSchdlApptPgNextBtn);
-	} else if ((toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	} else if (($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 
 	}
 }
@@ -871,15 +887,15 @@ function Accept_Test_Policies($Var_PGM) {
  * @returns {Number} - Returns 1 if yes else 0
  */
 function Verify_Schedule_Appt_Personal_Info_Page_Header($Var_PGM) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')) {
 		if (_exists($Obj_EREGWEBSchdlNewApptPIPgHdr)) {
 			return (1);
 		} else {
 			return (0);
 		}
-	} else if ((toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	} else if (($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 
 	}
 }
@@ -891,11 +907,11 @@ function Verify_Schedule_Appt_Personal_Info_Page_Header($Var_PGM) {
  *            Program for which appointment is created (Required)
  */
 function Click_Next_on_Schedule_Appt_Personal_Info($Var_PGM) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')) {
 		_click($Obj_EREGWEBSchdlNewApptPIPgNextBtn);
-	} else if ((toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	} else if (($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 
 	}
 
@@ -908,11 +924,11 @@ function Click_Next_on_Schedule_Appt_Personal_Info($Var_PGM) {
  *            Program for which appointment is created (Required)
  */
 function Click_Cancel_On_Schedule_Appt_Personal_Info($Var_PGM) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')) {
 		_click($Obj_EREGWEBSchdlNewApptPIPgCancelBtn);
-	} else if ((toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	} else if (($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 
 	}
 }
@@ -926,16 +942,16 @@ function Click_Cancel_On_Schedule_Appt_Personal_Info($Var_PGM) {
  * @returns {Number} - Returns 1 if yes else 0
  */
 function Verify_Schedule_Appt_Info_Page_Header($Var_PGM) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')) {
 		if (_exists($Obj_EREGWEBSchdlNewApptAIPgHdr1)
 				&& _exists($Obj_EREGWEBSchdlNewApptAIPgHdr2)) {
 			return (1);
 		} else {
 			return (0);
 		}
-	} else if ((toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	} else if (($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 
 	}
 
@@ -951,7 +967,7 @@ function Verify_Schedule_Appt_Info_Page_Header($Var_PGM) {
  *            Date that needs to be selected (ex. Aug/25/2014) (Required)
  */
 function Select_Date($Var_PGM, $Var_Date) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')) {
 
 		/** ** ** Extracting Day, Month, Year from Date entered ** ** * */
 		Extracting_Day_Month_Year_from_Date_entered: {
@@ -1113,9 +1129,9 @@ function Select_Date($Var_PGM, $Var_Date) {
 				}
 			}
 		}
-	} else if ((toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	} else if (($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 
 	}
 }
@@ -1145,11 +1161,11 @@ function Enter_HiSET_Appt_Info($Var_TstLang, $Var_SpclAdmCde, $Var_Date,
 	/** ** ** Selecting Test Language ** ** * */
 	Selecting_test_language: {
 		if (typeof $Var_TstLang != 'undefined' || typeof $Var_TstLang != null) {
-			if ((toUpperCase($Var_TstLang) == 'EN')
-					|| (toUpperCase($Var_TstLang) == 'ENGLISH')) {
+			if (($Var_TstLang.toUpperCase() == 'EN')
+					|| ($Var_TstLang.toUpperCase() == 'ENGLISH')) {
 				_check($Obj_EREGWEBSchdlNewApptAIPgTstLangEnRB);
-			} else if ((toUpperCase($Var_TstLang) == 'ES')
-					|| (toUpperCase($Var_TstLang) == 'SPANISH')) {
+			} else if (($Var_TstLang.toUpperCase() == 'ES')
+					|| ($Var_TstLang.toUpperCase() == 'SPANISH')) {
 				_check($Obj_EREGWEBSchdlNewApptAIPgTstLangEsRB);
 			} else {
 				_log("Invalid Test Language: " + $Var_TstLang);
@@ -1216,11 +1232,11 @@ function Enter_HiSET_Appt_Info($Var_TstLang, $Var_SpclAdmCde, $Var_Date,
  *            -Program for which appointment is created (Required)
  */
 function Cancel_on_Schedule_Appt_Page($Var_PGM) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')) {
 		_click($Obj_EREGWEBSchdlNewApptAIPgCancelBtn);
-	} else if ((toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	} else if (($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 
 	}
 }
@@ -1233,15 +1249,15 @@ function Cancel_on_Schedule_Appt_Page($Var_PGM) {
  * @returns {Number} - Returns 1 if yes else 0
  */
 function Verify_Cart_Page_Header($Var_PGM) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')) {
 		if (_exists($Obj_EREGWEBCartPgHdr)) {
 			return (1);
 		} else {
 			return (0);
 		}
-	} else if ((toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	} else if (($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 
 	}
 }
@@ -1253,11 +1269,11 @@ function Verify_Cart_Page_Header($Var_PGM) {
  *            Program for which appointment is created (Required)
  */
 function Click_Checkout_on_Cart($Var_PGM) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')) {
 		_click($Obj_EREGWEBCartPgCheckoutBtn);
-	} else if ((toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	} else if (($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 
 	}
 }
@@ -1323,7 +1339,7 @@ function Verify_Cybersource_ECheck_Pay_Page_Header() {
  */
 function Pay_by_CC($Var_PGM, $Var_CCType, $Var_CCNumber, $Var_ExpMnth,
 		$Var_ExpYear, $Var_CCVNumber) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')) {
 		var $CBPM = Verify_Cybercource_Pay_Mthd_Page_Header();
 		if ($CBPM) {
 			_click($Obj_EREGWEBCybrSrcPayMthdPgCreditCardRB);
@@ -1353,9 +1369,9 @@ function Pay_by_CC($Var_PGM, $Var_CCType, $Var_CCNumber, $Var_ExpMnth,
 					"User is not present on the Cybersource - Payment Method Selection Page",
 					"error");
 		}
-	} else if ((toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	} else if (($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 
 	}
 }
@@ -1379,7 +1395,7 @@ function Pay_by_CC($Var_PGM, $Var_CCType, $Var_CCNumber, $Var_ExpMnth,
  */
 function Pay_by_ECheck($Var_PGM, $Var_AcnType, $Var_BankNam, $Var_RoutingNum,
 		$Var_AcnNum, $Var_CheckNum) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')) {
 		var $CBPM = Verify_Cybercource_Pay_Mthd_Page_Header();
 		if ($CBPM) {
 			_click($Obj_EREGWEBCybrSrcPayMthdPgECheckRB);
@@ -1408,9 +1424,9 @@ function Pay_by_ECheck($Var_PGM, $Var_AcnType, $Var_BankNam, $Var_RoutingNum,
 					"User is not present on the Cybersource - Payment Method Selection Page",
 					"error");
 		}
-	} else if ((toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	} else if (($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 
 	}
 }
@@ -1425,14 +1441,14 @@ function Pay_by_ECheck($Var_PGM, $Var_AcnType, $Var_BankNam, $Var_RoutingNum,
  *            Learning Center - Paper) (Required)
  */
 function Click_Schedule_Appt($V_PGM, $V_TstCntrNam) {
-	if ((toUpperCase($Var_PGM) == 'HISET' || toUpperCase($Var_PGM) == 'HSE')) {
+	if (($Var_PGM.toUpperCase() == 'HISET' || $Var_PGM.toUpperCase() == 'HSE')) {
 		var $Obj_SchdlAppt = "//a[normalize-space(text())='"
 				+ $V_TstCntrNam
 				+ "']/ancestor:: div[@class='searchResultContainer visible']//a[normalize-space(text())='Schedule Appointment']";
 		_click(_byXPath($Obj_SchdlAppt));
-	} else if ((toUpperCase($Var_PGM) == 'MOPA' || toUpperCase($Var_PGM) == 'MIS')
-			|| (toUpperCase($Var_PGM) == 'PPAT' || toUpperCase($Var_PGM) == 'PRI')
-			|| (toUpperCase($Var_PGM) == 'GACE' || toUpperCase($Var_PGM) == 'GAT')) {
+	} else if (($Var_PGM.toUpperCase() == 'MOPA' || $Var_PGM.toUpperCase() == 'MIS')
+			|| ($Var_PGM.toUpperCase() == 'PPAT' || $Var_PGM.toUpperCase() == 'PRI')
+			|| ($Var_PGM.toUpperCase() == 'GACE' || $Var_PGM.toUpperCase() == 'GAT')) {
 
 	}
 }

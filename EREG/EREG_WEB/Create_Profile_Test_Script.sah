@@ -1,0 +1,88 @@
+var $Path = _userDataDir() + "//scripts//EREG//Library//";
+_dynamicInclude($Path + "EREG_Library.sah");
+
+/******* Variable Declaration *******/
+var $URL = "https://ereg-dev.ets.org/ereg-web/public/signin/HSE";
+var $Program = "HSE";
+var $First_Name = "Sahi" + $Program + " " + Random_String(5);
+var $Last_Name = "Sahi" + $Program + " " + Random_String(5);
+var $Mid_Ini = "";
+var $Var_DOBMon = "January";
+var $Var_DOBDay = "1";
+var $Var_DOBYear = "1980";
+var $Var_Gen = "Male";
+var $Var_SSN = "";
+var $Var_EmailAdr = "pzjain@ets.org";
+var $Var_AdrLn1 = "660 rosedale road";
+var $Var_AdrLn2 = "wood hall";
+var $Var_City = "Princeton";
+var $Var_State = "New Jersey";
+var $Var_PstCde = "08540";
+var $Var_PriPhn = "6094065972";
+var $Var_PriExtn = "5792";
+var $Var_PriPhnTyp = "L";
+var $Var_AltPhn = "";
+var $Var_AltExtn = "";
+var $Var_AltLang = "";
+var $Var_PrfLang = "English";
+var $Var_PriSpkLang = "English";
+var $Var_UsrNam = "Sahi" + $First_Name.replace(/\s+/g, '');
+var $Var_Pwd = "1qaz@WSX";
+var $Var_CnfrmPwd = "1qaz@WSX";
+var $Var_SecQstn = "What is the name of the street where you grew up?";
+var $Var_SecAns = "test";
+
+/******* Main Script *******/
+try {
+	_navigateTo($URL);
+	_click($Obj_EREGWEBLgnPgCrtAcntBtn);
+
+	if (Verify_Personal_Info_Header($Program)) {
+		_log("First Name: "+$First_Name);
+		_log("Last Name: "+$Last_Name);
+		Enter_Personal_Info($Program, $First_Name, $Mid_Ini, $Last_Name, $Var_DOBMon, $Var_DOBDay, $Var_DOBYear, $Var_Gen, $Var_SSN, $Var_EmailAdr, $Var_AdrLn1, $Var_AdrLn2, $Var_City, $Var_State, $Var_PstCde, $Var_PriPhn, $Var_PriExtn, $Var_PriPhnTyp, $Var_AltPhn, $Var_AltExtn, $Var_AltLang);
+		_click($Obj_EREGWEBCAPerInfoPgNextBtn);
+		if (!(Verify_Personal_Info_Page_Error($Program))) {
+			if(Verify_Additional_Info_Header($Program)){
+				Enter_Additional_Info($Program, $Var_PrfLang, $Var_PriSpkLang);
+				_click($Obj_EREGWEBCAAddInfoPgNextBtn);
+				if(!(Verify_Additional_Info_Page_Error($Program))) {
+					if(Verify_BIQ_Header($Program)) {
+						Enter_Required_BIQ_Info($Program);
+						_click($Obj_EREGWEBCABIQPgNextBtn);
+						if(!(Verify_BIQ_Page_Error($Program))) {
+							if(Verify_Username_Password_Header($Program)) {
+								_log("Username: "+$Var_UsrNam);
+								Enter_Username_Password($Program, $Var_UsrNam, $Var_Pwd, $Var_CnfrmPwd, $Var_SecQstn, $Var_SecAns);
+								_click($Obj_EREGWEBCAUsrnamPwdPgNextBtn);
+								if(!(Verify_Username_Password_Page_Error($Program))) {
+									if(Verify_Review_Submit_Page_Header($Program)) {
+										_click($Obj_EREGWEBCARevewSubPgSubmitBtn);
+										if(_exists($Obj_EREGWEBCAConfPgHdr)) {
+											_log("Profile Create Sucessfully!!!","success");
+											_click($Obj_EREGWEBCAConfPgCntnuBtn);
+										} else {
+											_log("User is not navigated to Create Profile - Confirmation Page","error");
+										}
+									} else {
+										_log("User is not navigated to Create Profile - Review and Submit Page","error");
+									}
+								}
+							} else {
+								_log("User is not navigated to Create Profile - Username and Password Page","error");
+							}
+						}
+					} else {
+						_log("User is not navigated to Create Profile - BIQ Page","error");
+					}
+				}
+			} else {
+				_log("User is not navigated to Create Profile - Additional Information Page","error");
+			}
+		}
+	} else {
+		_log("User is not navigated to Create Profile - Personal Information Page", "error");
+	}
+} catch (e){
+	_logException(e);
+}

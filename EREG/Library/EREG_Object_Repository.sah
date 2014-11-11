@@ -14,19 +14,19 @@ var $Obj_EREGWEBCALoginLnk = _byXPath("//a[normalize-space(text())='Login']");
 /* -- EREG WEB Create Account - Header -- */
 
 /* -- EREG WEB Create Account - Personal Info Page -- */
-var $Obj_EREGWEBCAPerInfoPgHdr1 = _byXPath("//span[normalize-space(text())='Create Account']");
+var $Obj_EREGWEBCAPerInfoPgHdr1 = _byXPath("//h1[normalize-space(text())='Create a Test Taker Account']");
 var $Obj_EREGWEBCAPerInfoPgHdr2 = _byXPath("//span[normalize-space(text())='Personal Information']");
 var $Obj_EREGWEBCAPerInfoPgFstNamTB = _byXPath("//input[@id='fname']");
 var $Obj_EREGWEBCAPerInfoPgMidIntTB = _byXPath("//input[@id='middleInitial']");
 var $Obj_EREGWEBCAPerInfoPgLstNamTB = _byXPath("//input[@id='lname']");
 var $Obj_EREGWEBCAPerInfoPgDOBMonthDD = _byXPath("//select[@name='birthMonth']");
 var $Obj_EREGWEBCAPerInfoPgDOBDayDD = _byXPath("//select[@name='birthDay']");
-var $Obj_EREGWEBCAPerInfoPgDOBYearTB = _byXPath("//select[@name='birthYear']");
+var $Obj_EREGWEBCAPerInfoPgDOBYearTB = _byXPath("//input[@name='birthYear']");
 var $Obj_EREGWEBCAPerInfoPgGndrMaleRB = _byXPath("//input[@id='genderM'][@value='M']");
 var $Obj_EREGWEBCAPerInfoPgGndrFemaleRB = _byXPath("//input[@name='041'][@value='F']");
 var $Obj_EREGWEBCAPerInfoPgSSNTB = _byXPath("//input[@id='socialSecurity']");
 var $Obj_EREGWEBCAPerInfoPgEmailTB = _byXPath("//input[@id='uemail']");
-var $Obj_EREGWEBCAPerInfoPgAdrLn1TB = _byXPath("//input[@id='addressLine1]");
+var $Obj_EREGWEBCAPerInfoPgAdrLn1TB = _byXPath("//input[@id='addressLine1']");
 var $Obj_EREGWEBCAPerInfoPgADrLn2TB = _byXPath("//input[@id='addressLine2']");
 var $Obj_EREGWEBCAPerInfoPgCityTB = _byXPath("//input[@id='ucity']");
 var $Obj_EREGWEBCAPerInfoPgStateDD = _byXPath("//select[@name='stateCode']");
@@ -92,7 +92,7 @@ var $Obj_EREGWEBCAPerInfoPgAltPhnExtnMaxLenErr = _byXPath("//div[normalize-space
 /* -- EREG WEB Create Account - Personal Info Page -- */
 
 /* -- EREG WEB Create Account - Additional Info Page -- */
-var $Obj_EREGWEBCAAddInfoPgHdr1 = _byXPath("//h1[normalize-space(text())='Create Account']");
+var $Obj_EREGWEBCAAddInfoPgHdr1 = _byXPath("//h1[normalize-space(text())='Create a Test Taker Account']");
 var $Obj_EREGWEBCAAddInfoPgHdr2 = _byXPath("//span[normalize-space(text())='Additional Information']");
 var $Obj_EREGWEBCAAddInfoPrefLangERB = _byXPath("//input[@id='EN'][@value='EN']");
 var $Obj_EREGWEBCAAddInfoPrefLangSRB = _byXPath("//input[@id='ES'][@value='ES']");
@@ -104,8 +104,8 @@ var $Obj_EREGWEBCAAddInfoPgPrefLangReqErr = _byXPath("//span[normalize-space(tex
 /* -- EREG WEB Create Account - Additional Info Page -- */
 
 /* -- EREG WEB Create Account - BIQ Page -- */
-var $Obj_EREGWEBCABIQPgHdr1 = _byXPath("//h1[normalize-space(text())='Create Account']");
-var $Obj_EREGWEBCABIQPgHdr1 = _byXPath("//h2[normalize-space(text())='Background Information']");
+var $Obj_EREGWEBCABIQPgHdr1 = _byXPath("//h1[normalize-space(text())='Create a Test Taker Account']");
+var $Obj_EREGWEBCABIQPgHdr2 = _byXPath("//h2[normalize-space(text())='Background Information']");
 
 var $Obj_EREGWEBCABIQPgQ2RB1 = _byXPath("//input[@id='201']"); //Non-Hispanic
 var $Obj_EREGWEBCABIQPgQ2RB2 = _byXPath("//input[@id='202']"); //Hispanic
@@ -265,7 +265,7 @@ var $Obj_EREGWEBCABIQPgReqErr = _byXPath("//span[normalize-space(text())='This q
 /* -- EREG WEB Create Account - BIQ Page -- */
 
 /* -- EREG WEB Create Account - Username and Password Page -- */
-var $Obj_EREGWEBCAUsrnamPwdPgHdr1 = _byXPath("//h1[normalize-space(text())='Create Account']");
+var $Obj_EREGWEBCAUsrnamPwdPgHdr1 = _byXPath("//h1[normalize-space(text())='Create a Test Taker Account']");
 var $Obj_EREGWEBCAUsrnamPwdPgHdr1 = _byXPath("//h2[normalize-space(text())='Username and Password']");
 
 var $Obj_EREGWEBCAUsrnamPwdPgUsrnamTB = _byXPath("//input[@id='username']");
@@ -288,7 +288,7 @@ var $Obj_EREGWEBCAUsrnamPwdPgTrmCndtnReqErr = _byXPath("//div[normalize-space(te
 /* -- EREG WEB Create Account - Username and Password Page -- */
 
 /* -- EREG WEB Create Account - Review and Submit Page -- */
-var $Obj_EREGWEBCARevewSubPgHdr1 = _byXPath("//h1[normalize-space(text())='Create Account']");
+var $Obj_EREGWEBCARevewSubPgHdr1 = _byXPath("//h1[normalize-space(text())='Create a Test Taker Account']");
 var $Obj_EREGWEBCARevewSubPgHdr1 = _byXPath("//h2[normalize-space(text())='Review and Submit']");
 var $Obj_EREGWEBCARevewSubPgBackBtn = _byXPath("//span[normalize-space(text())='BACK']/parent::button");
 var $Obj_EREGWEBCARevewSubPgSubmitBtn = _byXPath("//span[normalize-space(text())='SUBMIT']/parent::button");
